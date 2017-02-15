@@ -3,7 +3,8 @@ Created on Feb 14, 2017
 
 @author: dpascualhe
 
-It trains and tests a Convolutional Neural Network (CNN) with the MNIST dataset
+It trains and tests a Convolutional Neural Network (CNN) with the MNIST dataset. Based on @fchollet example:
+https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py
 
 '''
 import numpy
