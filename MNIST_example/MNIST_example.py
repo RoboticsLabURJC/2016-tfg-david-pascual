@@ -3,7 +3,7 @@ Created on Feb 14, 2017
 
 @author: dpascualhe
 
-It trains and test a Convolutional Neural Network (CNN) with the MNIST dataset
+It trains and tests a Convolutional Neural Network (CNN) with the MNIST dataset
 
 '''
 import numpy
