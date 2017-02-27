@@ -13,7 +13,7 @@ import cv2
 # linear stack of neural network layers
 from keras.models import Sequential
 # core layers
-from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Dense, Dropout, Flatten
 # CNN layers
 from keras.layers import Convolution2D, MaxPooling2D
 # utilities
@@ -35,16 +35,16 @@ if __name__ == '__main__':
     batch_size = 128
     # number of classes
     nb_classes = 10
-    # number of complete presentations of the training set to the network during
-    # training
+    # number of complete presentations of the training set to the network
+    # during training
     nb_epoch = 12
     
     # image dimensions
     img_rows, img_cols = 28,28
-    #number of convolutional filters and its kernel size
+    # number of convolutional filters and their kernel size
     nb_filters = 32
     kernel_size = (3,3)
-    #size of pooling area
+    # pooling area's size
     pool_size = (2,2)
     
     '''
@@ -53,10 +53,11 @@ if __name__ == '__main__':
     # MNIST data
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     
-    print ('Original input images data shape: ', x_train.shape)
     cv2.imshow('First sample',x_train[0])
     cv2.waitKey(5000)
     cv2.destroyWindow('First sample')
+    
+    print ('Original input images data shape: ', x_train.shape)
     
     if backend.image_dim_ordering() == 'th':
         # reshapes 3D data provided (nb_samples, width, height) into 4D
@@ -76,17 +77,21 @@ if __name__ == '__main__':
         print ('-------------------------------------------------------------------')
  
     # converts the input data to 32bit floats and normalize it to [0,1]
+    print('Input images type: ',x_train.dtype)
     x_train = x_train.astype('float32')
     x_test = x_test.astype('float32')
+    print('New input images type: ',x_train.dtype)
+    print ('-------------------------------------------------------------------')
     x_train /= 255
     x_test /= 255
     
-    print ('Original class lable data shape: ', (y_train.shape))
-    print ('First 10 class lables: ', (y_train[:10]))
-    # converts 1D array into a matrix containing 10 cols (one for each class)
-    y_train = np_utils.to_categorical(y_train, 10)
-    y_test = np_utils.to_categorical(y_test, 10)
-    print ('Class lable data reshaped: ', (y_train.shape))
+    print ('First 10 class labels: ', (y_train[:10]))
+    print ('Original class label data shape: ', (y_train.shape))
+    # converts class vector (integers from 0 to nb_classes) to class matrix
+    # (nb_samples, nb_classes)
+    y_train = np_utils.to_categorical(y_train, nb_classes)
+    y_test = np_utils.to_categorical(y_test, nb_classes)
+    print ('Class label data reshaped: ', (y_train.shape))
     print ('-------------------------------------------------------------------')
 
     # defines the model architecture, in this case, sequential
@@ -97,13 +102,11 @@ if __name__ == '__main__':
     '''
     # convolutional layer
     model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                            border_mode='valid', input_shape=input_shape))
-    # ReLU layer
-    model.add(Activation('relu'))
+                            border_mode='valid', input_shape=input_shape, 
+                            activation='relu'))
     # convolutional layer
-    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1]))
-    # ReLU layer
-    model.add(Activation('relu'))
+    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                            activation='relu'))
     # pooling layer
     model.add(MaxPooling2D(pool_size=pool_size))
     # dropout layer
