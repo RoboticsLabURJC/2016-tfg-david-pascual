@@ -9,15 +9,16 @@ https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py
 '''
 import numpy
 import cv2
+import sys
 
 # linear stack of neural network layers
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 # core layers
 from keras.layers import Dense, Dropout, Flatten
 # CNN layers
 from keras.layers import Convolution2D, MaxPooling2D
 # utilities
-from keras.utils import np_utils
+from keras.utils import np_utils, visualize_util
 # MNIST dataset
 from keras.datasets import mnist
 # backend related operations
@@ -28,6 +29,7 @@ from keras import backend
 numpy.random.seed(123)
 
 if __name__ == '__main__':
+    
     '''
     Declaring variables that we'll need
     '''
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     # number of complete presentations of the training set to the network
     # during training
     nb_epoch = 12
-    
+        
     # image dimensions
     img_rows, img_cols = 28,28
     # number of convolutional filters and their kernel size
@@ -46,19 +48,19 @@ if __name__ == '__main__':
     kernel_size = (3,3)
     # pooling area's size
     pool_size = (2,2)
-    
+        
     '''
     Loading and shaping data in a way that it can work as input of our model
     '''
     # MNIST data
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
-    
+        
     cv2.imshow('First sample',x_train[0])
     cv2.waitKey(5000)
     cv2.destroyWindow('First sample')
-    
+        
     print ('Original input images data shape: ', x_train.shape)
-    
+        
     if backend.image_dim_ordering() == 'th':
         # reshapes 3D data provided (nb_samples, width, height) into 4D
         # (nb_samples, nb_features, width, height) 
@@ -75,7 +77,7 @@ if __name__ == '__main__':
         input_shape = (img_rows, img_cols, 1)
         print ('Input images data reshaped: ', (x_train.shape))
         print ('-------------------------------------------------------------------')
- 
+     
     # converts the input data to 32bit floats and normalize it to [0,1]
     print('Input images type: ',x_train.dtype)
     x_train = x_train.astype('float32')
@@ -84,7 +86,7 @@ if __name__ == '__main__':
     print ('-------------------------------------------------------------------')
     x_train /= 255
     x_test /= 255
-    
+        
     print ('First 10 class labels: ', (y_train[:10]))
     print ('Original class label data shape: ', (y_train.shape))
     # converts class vector (integers from 0 to nb_classes) to class matrix
@@ -93,45 +95,58 @@ if __name__ == '__main__':
     y_test = np_utils.to_categorical(y_test, nb_classes)
     print ('Class label data reshaped: ', (y_train.shape))
     print ('-------------------------------------------------------------------')
-
-    # defines the model architecture, in this case, sequential
-    model = Sequential()
     
-    '''
-    Adding layers to our model
-    '''
-    # convolutional layer
-    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                            border_mode='valid', input_shape=input_shape, 
-                            activation='relu'))
-    # convolutional layer
-    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                            activation='relu'))
-    # pooling layer
-    model.add(MaxPooling2D(pool_size=pool_size))
-    # dropout layer
-    model.add(Dropout(0.25))
-    
-    # flattening the weights (making them 1D) to enter fully connected layer
-    model.add(Flatten())
-    # fully connected layer
-    model.add(Dense(128, activation='relu'))
-    # dropout layer to prevent overfitting
-    model.add(Dropout(0.5))
-    # output layer
-    model.add(Dense(nb_classes, activation='softmax'))
-    
-    '''
-    Compiling the model
-    '''
-    model.compile(loss='categorical_crossentropy', optimizer='adadelta', 
-                  metrics=['accuracy'])
-    
-    '''
-    Training the model
-    '''
-    model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
-              verbose=1, validation_data=(x_test, y_test))
+    if len(sys.argv) == 1:
+        # defines the model architecture, in this case, sequential
+        model = Sequential()
+        
+        '''
+        Adding layers to our model
+        '''
+        # convolutional layer
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                border_mode='valid', input_shape=input_shape, 
+                                activation='relu'))
+        # convolutional layer
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                activation='relu'))
+        # pooling layer
+        model.add(MaxPooling2D(pool_size=pool_size))
+        # dropout layer
+        model.add(Dropout(0.25))
+        
+        # flattening the weights (making them 1D) to enter fully connected layer
+        model.add(Flatten())
+        # fully connected layer
+        model.add(Dense(128, activation='relu'))
+        # dropout layer to prevent overfitting
+        model.add(Dropout(0.5))
+        # output layer
+        model.add(Dense(nb_classes, activation='softmax'))
+        
+        '''
+        Compiling the model
+        '''
+        model.compile(loss='categorical_crossentropy', optimizer='adadelta', 
+                      metrics=['accuracy'])
+        
+        '''
+        Training the model
+        '''
+        model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
+                  verbose=1, validation_data=(x_test, y_test))
+        
+        '''
+        Saving the model architecture and weights
+        '''
+        model.save('MNIST_example.h5')
+        
+        '''
+        Plotting the model and saving it to an image
+        '''
+        visualize_util.plot (model, to_file='model.png')        
+    else:
+        model = load_model(sys.argv[1])    
     
     '''
     Testing the model
@@ -139,4 +154,3 @@ if __name__ == '__main__':
     score = model.evaluate(x_test, y_test, verbose=0)
     print('Test score:', score[0])
     print('Test accuracy:', score[1])
-    
