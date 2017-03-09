@@ -59,7 +59,8 @@ class Cameraview:
             # We get the first image and print its description
             cam = CameraPrx.checkedCast(obj)
             data = cam.getImageData("RGB8")
-            print(data.description)
+            if cam:
+                print(data.description)
             
             # We define the windows that we're going to employ
             cv2.namedWindow("Live video")

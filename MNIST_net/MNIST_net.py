@@ -16,7 +16,7 @@ from keras.datasets import mnist
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential, load_model
-from keras.utils import np_utils, visualize_util
+from keras.utils import np_utils  # , visualize_util
 import cv2
 import numpy
 import sys

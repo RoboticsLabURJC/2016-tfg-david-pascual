@@ -7,13 +7,14 @@ Threading camera class
 
 Based on @nuriaoyaga code:
 https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga/blob/master/gui/threadgui.py
+
 '''
 
 import threading
 import time
 from datetime import datetime
 
-t_cycle = 70 # ms
+t_cycle = 100  # ms
 
 class ThreadGUI(threading.Thread):
 
