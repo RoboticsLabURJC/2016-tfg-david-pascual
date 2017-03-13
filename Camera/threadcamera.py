@@ -14,7 +14,7 @@ import threading
 import time
 from datetime import datetime
 
-t_cycle = 120  # ms
+t_cycle = 100  # ms
 
 class ThreadCamera(threading.Thread):
 
