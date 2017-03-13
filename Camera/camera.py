@@ -27,7 +27,7 @@ class Camera:
 
     def __init__ (self):
         
-        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/MNIST_net/MNIST_net.h5")
+        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/Net/net.h5")
         
         status = 0
         ic = None
@@ -108,8 +108,12 @@ class Camera:
         
         # It predicts the input image class    
         dgt = np.where(self.model.predict(im) == 1)
-        
+        print("Keras CNN prediction: ", self.model.predict(im))
+        print("Prediction index: ", dgt)
+        print("--------------------------------------------------------------")
         if dgt[1].size == 1:
             self.digito = dgt
+        else:
+            self.digito = (([0]), ([0]))
         return self.digito[1][0]
         
