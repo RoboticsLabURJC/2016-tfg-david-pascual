@@ -32,13 +32,16 @@ class Camera:
         in order to predict the digit in the image.
         '''
         self.model = load_model("/home/dpascualhe/workspace/" 
-                                + "2016-tfg-david-pascual/Net/net_bu.h5")
+                                + "2016-tfg-david-pascual/Net/net.h5")
         
         status = 0
         ic = None
         
         # Initializing the Ice run-time.
         ic = EasyIce.initialize(sys.argv)
+
+        properties = ic.getProperties()
+        self.ad_thresh = properties.getProperty("Digitclassifier.AdThresh")
         
         self.lock = threading.Lock()
     
@@ -98,16 +101,21 @@ class Camera:
         ''' 
         im_crop = im [140:340, 220:420]
         im_gray = cv2.cvtColor(im_crop, cv2.COLOR_BGR2GRAY)
-        im_blur = cv2.medianBlur(im_gray, 5) # Noise reduction.
-        # Handmade adaptive thresholding
+        im_blur = cv2.GaussianBlur(im_gray, (5, 5), 0) # Noise reduction.
+        
+        # Handmade adaptive threshold.
         avg = np.average(im_blur)
-        if avg < 128:
-            (thr, im_bw) = cv2.threshold(im_blur, avg+((255-avg)*0.5), 255,
-                                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-        else:
-            (thr, im_bw) = cv2.threshold(im_blur, 0, avg-(avg*0.5),
-                                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)            
-        im_res = cv2.resize(im_bw, (28, 28))
+        if self.ad_thresh != "0":
+            if avg < 120:
+                (thr, im_bw) = cv2.threshold(im_blur, 255-(avg*0.75), 255,
+                                               cv2.THRESH_BINARY)
+            else:
+                (thr, im_bw) = cv2.threshold(im_blur, avg*0.75, 255,
+                                               cv2.THRESH_BINARY_INV)
+            im_blur = im_bw     
+                   
+        im_res = cv2.resize(im_blur, (28, 28))
+
         # Edge extraction.
         im_sobel_x = cv2.Sobel(im_res, cv2.CV_32F, 1, 0, ksize=5)
         im_sobel_y = cv2.Sobel(im_res, cv2.CV_32F, 0, 1, ksize=5)
