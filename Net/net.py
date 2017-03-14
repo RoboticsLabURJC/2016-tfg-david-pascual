@@ -89,7 +89,7 @@ if __name__ == '__main__':
             
         model.save('net.h5')
     
-    model = load_model('net_bu.h5')
+    model = load_model('net.h5')
     edges_test = data.augmentation(x_test, y_test, batch_size, "edges",
                                    verbose)
     
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     file.write("Date: " + str(datetime.datetime.now()) + "\n\n")
     if training == "y":
         file.write("Training the network...\n")
-        file.write(history.history + "\n\n")
+        file.write(str(history.history) + "\n\n")
     else:
         file.write("Just testing the net...\n")
     file.write('Test score:' + str(score[0]) + "\n")
