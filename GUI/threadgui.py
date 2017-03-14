@@ -1,29 +1,28 @@
-'''
-Created on Mar 7, 2017
+#
+# Created on Mar 7, 2017
+#
+# @author: dpascualhe
+#
+# Based on @nuriaoyaga code:
+# https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga/blob/
+#     master/gui/threadgui.py
+#
 
-@author: dpascualhe
-
-Threading camera class
-
-Based on @nuriaoyaga code:
-https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga/blob/master/gui/threadgui.py
-
-'''
-
-import threading
 import time
+import threading
 from datetime import datetime
 
-t_cycle = 60  # ms
+t_cycle = 300  # ms
 
 class ThreadGUI(threading.Thread):
 
     def __init__(self, gui):
-        
+        ''' Threading class for GUI. '''
         self.gui = gui
         threading.Thread.__init__(self)
 
     def run(self):
+        ''' Updates the thread. '''
         while(True):
             start_time = datetime.now()
             self.gui.updGUI.emit()
