@@ -1,24 +1,26 @@
-'''
-Created on Mar 7, 2017
+#
+# Created on Mar 7, 2017
+#
+# @author: dpascualhe
+#
+# Based on @nuriaoyaga code:
+# https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga/blob/
+#     master/camera/camera.py
+#
+# And @Javii91 code:
+# https://github.com/Javii91/Domotic/blob/master/Others/cameraview.py
+#
 
-@author: dpascualhe
+import sys
+import random
+import traceback
+import threading
 
-Camera class.
-
-Based on @nuriaoyaga code:
-https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga/blob/master/camera/camera.py
-
-And @Javii91 code:
-https://github.com/Javii91/Domotic/blob/master/Others/cameraview.py
-
-'''
-
-import sys, traceback, threading, random
+import cv2
 import numpy as np
+import easyiceconfig as EasyIce
 from PIL import Image
 from jderobot import CameraPrx
-import easyiceconfig as EasyIce
-import cv2
 from keras.models import load_model
 from keras import backend
 
@@ -26,22 +28,25 @@ from keras import backend
 class Camera:
 
     def __init__ (self):
-        
-        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/Net/net.h5")
+        ''' Camera class gets images from live video and transform them
+        in order to predict the digit in the image.
+        '''
+        self.model = load_model("/home/dpascualhe/workspace/" 
+                                + "2016-tfg-david-pascual/Net/net_bu.h5")
         
         status = 0
         ic = None
         
-        # Initializing the Ice run time
+        # Initializing the Ice run-time.
         ic = EasyIce.initialize(sys.argv)
         
         self.lock = threading.Lock()
     
         try:        
-            # Obtaining a proxy for the camera (obj. identity: address)
+            # We obtain a proxy for the camera.
             obj = ic.propertyToProxy("Digitclassifier.Camera.Proxy")
             
-            # We get the first image and print its description
+            # We get the first image and print its description.
             self.cam = CameraPrx.checkedCast(obj)
             if self.cam:
                 self.im = self.cam.getImageData("RGB8")
@@ -56,9 +61,11 @@ class Camera:
             exit()
             status = 1
 
-    # This function gets the image from the webcam and trasformates it for the
-    # network
-    def getImage(self):        
+    def getImage(self):
+        ''' Gets the image from the webcam and returns the original
+        image with a ROI draw over it and the transformed image that
+        we're going to use to make the prediction.
+        '''      
         if self.cam:            
             self.lock.acquire()
             
@@ -66,17 +73,16 @@ class Camera:
             im = np.frombuffer(self.im.pixelData, dtype=np.uint8)
             im.shape = self.im_height, self.im_width, 3
             im_trans = self.trasformImage(im)
-            # It prints a rectangle over the live image where the ROI is
-            cv2.rectangle(im, (258, 178), (382, 302), (0, 0, 255), 2)
+            # It prints the ROI over the live video
+            cv2.rectangle(im, (218, 138), (422, 342), (0, 0, 255), 2)
             ims = [im, im_trans]
             
             self.lock.release()
             
             return ims
     
-
-    # Updates the camera every time the thread changes
     def update(self):
+        ''' Updates the camera every time the thread changes. '''
         if self.cam:
             self.lock.acquire()
             
@@ -86,27 +92,40 @@ class Camera:
             
             self.lock.release()
 
-    # Trasformates the image for the network
     def trasformImage(self, im):
-        kernel = np.ones((3, 3))
-        im_crop = im [180:300, 260:380]
+        ''' Transforms the image into a 28x28 pixel grayscale image and
+        applies a sobel filter (both x and y directions).
+        ''' 
+        im_crop = im [140:340, 220:420]
         im_gray = cv2.cvtColor(im_crop, cv2.COLOR_BGR2GRAY)
-        im_ero = cv2.erode(im_gray, kernel)    
-        im_res = cv2.resize(im_gray, (28, 28))
-        (thr, im_bw) = cv2.threshold(im_res, 128, 255,
-                                     cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+        im_blur = cv2.medianBlur(im_gray, 5) # Noise reduction.
+        # Handmade adaptive thresholding
+        avg = np.average(im_blur)
+        if avg < 128:
+            (thr, im_bw) = cv2.threshold(im_blur, avg+((255-avg)*0.5), 255,
+                                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+        else:
+            (thr, im_bw) = cv2.threshold(im_blur, 0, avg-(avg*0.5),
+                                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)            
+        im_res = cv2.resize(im_bw, (28, 28))
+        # Edge extraction.
+        im_sobel_x = cv2.Sobel(im_res, cv2.CV_32F, 1, 0, ksize=5)
+        im_sobel_y = cv2.Sobel(im_res, cv2.CV_32F, 0, 1, ksize=5)
+        im_edges = cv2.add(abs(im_sobel_x), abs(im_sobel_y))
+        im_edges = cv2.normalize(im_edges, None, 0, 255, cv2.NORM_MINMAX)
+        im_edges = np.uint8(im_edges)
         
-        return im_bw
+        return im_edges
     
-    # A Keras convolutional neural network classifies the image
     def classification(self, im):
-        # It adapts the shape of the data before entering the network
+        ''' Adapts image shape depending on Keras backend (TensorFlow
+        or Theano) and returns a prediction.
+        '''
         if backend.image_dim_ordering() == 'th':
             im = im.reshape(1, 1, im.shape[0], im.shape[1])            
         else:      
             im = im.reshape(1, im.shape[0], im.shape[1], 1)            
         
-        # It predicts the input image class    
         dgt = np.where(self.model.predict(im) == 1)
         print("Keras CNN prediction: ", self.model.predict(im))
         print("Prediction index: ", dgt)
@@ -114,6 +133,6 @@ class Camera:
         if dgt[1].size == 1:
             self.digito = dgt
         else:
-            self.digito = (([0]), ([0]))
+            self.digito = (([0]), (["none"]))
         return self.digito[1][0]
         
