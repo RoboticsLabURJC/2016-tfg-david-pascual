@@ -39,7 +39,7 @@ if __name__ == '__main__':
     std_gauss = math.sqrt(0.02)
     
     while True:
-        training = input("Do you want to train the model again?(y/n)")
+        training = input("Do you want to train the model?(y/n)")
         if training == "y" or training == "n":
             break
     while True:
