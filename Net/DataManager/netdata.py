@@ -4,68 +4,60 @@
 # @author: dpascualhe
 #
 
-import sys
-
 import cv2
 import numpy as np
 from keras import backend
-from keras.utils import np_utils, visualize_util
+from keras.utils import np_utils, io_utils
 from keras.preprocessing import image as imkeras
 
 class NetData:
 
-    def __init__(self, im_rows, im_cols, nb_classes,
-                 x_train, y_train, x_test, y_test):
-        ''' NetData class deals adapts and augment datasets. '''
+    def __init__(self, im_rows, im_cols, nb_classes):
+        ''' NetData class deals, adapts and augment datasets. '''
         self.im_rows = im_rows
         self.im_cols = im_cols
         self.nb_classes = nb_classes
-        self.x_train = x_train
-        self.y_train = y_train
-        self.x_test = x_test
-        self.y_test = y_test
         
         self.count = 0
     
-    def adapt(self, verbose):
+    def load(self, path):
+        ''' Loads a HDF5 dataset. '''
+        x = np.array(io_utils.HDF5Matrix(path, "data"))
+        y = np.array(io_utils.HDF5Matrix(path, "labels"))
+        print("OK!")
+        
+        return (x, y)
+        
+    def adapt(self, X, Y, verbose):
         ''' Adapts the dataset shape and format depending on Keras
         backend: TensorFlow or Theano.
         '''
-        if backend.image_dim_ordering() == 'th':
-            x_train = self.x_train.reshape(self.x_train.shape[0], 1,
-                                           self.im_rows, self.im_cols)
-            x_test = self.x_test.reshape(self.x_test.shape[0], 1, 
-                                         self.im_rows, self.im_cols)
+        if backend.image_dim_ordering() == "th":
+            x = X.reshape(x.shape[0], 1, self.im_rows, self.im_cols)
             input_shape = (1, self.im_rows, self.im_cols)
             
         else:
-            x_train = self.x_train.reshape(self.x_train.shape[0],
-                                           self.im_rows, self.im_cols, 1)
-            x_test = self.x_test.reshape(self.x_test.shape[0], self.im_rows,
-                                         self.im_cols, 1)
+            x = X.reshape(X.shape[0], self.im_rows, self.im_cols, 1)
             input_shape = (self.im_rows, self.im_cols, 1)
          
-        x_train = x_train.astype('float32')
-        x_test = x_test.astype('float32')
-        x_train /= 255 # Normalizes data: [0,255] -> [0,1]
-        x_test /= 255
+        x = x.astype('float32')
+        x /= 255 # Normalizes data: [0,255] -> [0,1]
             
         # Converts class vector to class matrix
-        y_train = np_utils.to_categorical(self.y_train, self.nb_classes)
-        y_test = np_utils.to_categorical(self.y_test, self.nb_classes)
+        y = np_utils.to_categorical(Y, self.nb_classes)
         
         if verbose == "y":
-            print('Original input images data shape: ', self.x_train.shape)
-            print('Input images data reshaped: ', (x_train.shape))
+            print('Original input images data shape: ', X.shape)
+            print('Input images data reshaped: ', (x.shape))
             print('----------------------------------------------------------')
-            print('Input images type: ', self.x_train.dtype)
-            print('New input images type: ', x_train.dtype)
+            print('Input images type: ', X.dtype)
+            print('New input images type: ', x.dtype)
             print('----------------------------------------------------------')
-            print('Original class label data shape: ', (self.y_train.shape))
-            print('Class label data reshaped: ', (y_train.shape))
+            print('Original class label data shape: ', (Y.shape))
+            print('Class label data reshaped: ', (y.shape))
             print('----------------------------------------------------------')
         
-        return (x_train, y_train), (x_test, y_test), input_shape
+        return (x, y), input_shape
 
     def sobelEdges(self, sample):
         ''' Apply a sobel filtering in x and y directions in order to
