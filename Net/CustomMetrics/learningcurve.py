@@ -6,5 +6,5 @@ class LearningCurve(keras.callbacks.Callback):
         self.accuracy = []
 
     def on_batch_end(self, batch, logs={}):
-        self.loss.append(logs.get('loss'))
-        self.accuracy.append(logs.get('acc'))
+        self.loss.append(float(logs.get('loss')))
+        self.accuracy.append(float(logs.get('acc')))

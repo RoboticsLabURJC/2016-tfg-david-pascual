@@ -25,7 +25,7 @@ start_full = timer()
 # Seed for the computer pseudorandom number generator.
 np.random.seed(123)
 
-if __name__ == '__main__':    
+if __name__ == "__main__":    
     batch_size = 128
     nb_classes = 10
     labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -75,19 +75,19 @@ if __name__ == '__main__':
         start_train = timer()
         model = Sequential()
         model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                border_mode='valid', activation='relu',
+                                border_mode="valid", activation="relu",
                                 input_shape=input_shape))
         model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation='relu'))
+                                activation="relu"))
         model.add(MaxPooling2D(pool_size=pool_size))
         model.add(Dropout(0.25))
         model.add(Flatten())
-        model.add(Dense(128, activation='relu'))
+        model.add(Dense(128, activation="relu"))
         model.add(Dropout(0.5))
-        model.add(Dense(nb_classes, activation='softmax'))
+        model.add(Dense(nb_classes, activation="softmax"))
           
-        model.compile(loss='categorical_crossentropy', optimizer='adadelta',
-                      metrics=['accuracy'])
+        model.compile(loss="categorical_crossentropy", optimizer="adadelta",
+                      metrics=["accuracy"])
             
         # We train the model and save data to plot a learning curve
         learning_curve = LearningCurve()
@@ -95,20 +95,20 @@ if __name__ == '__main__':
                             nb_epoch=nb_epoch, callbacks=[learning_curve],
                             validation_data=(x_val, y_val))
             
-        model.save('net.h5')
+        model.save("net.h5")
         end_train = timer()
     if training == "n":
-        model = load_model('net.h5')
+        model = load_model("net.h5")
 
     (X_test, Y_test) = data.load(test_ds)
     (x_test, y_test), input_shape = data.adapt(X_test, Y_test, verbose)
     
     # We test the model and plot a diagram.
     start_test = timer()
-    visualize_util.plot(model, 'net.png', show_shapes=True)
+    visualize_util.plot(model, "net.png", show_shapes=True)
     score = model.evaluate(x_test, y_test, batch_size=batch_size)
-    print('Test loss:', score[0])
-    print('Test accuracy:', score[1])
+    print("Test loss:", score[0])
+    print("Test accuracy:", score[1])
     end_test = timer()
     
     # We log the results.

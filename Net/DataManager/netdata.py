@@ -57,6 +57,11 @@ class NetData:
             print('Class label data reshaped: ', (y.shape))
             print('----------------------------------------------------------')
         
+        for i in np.arange(10):
+            cv2.imshow("Sample", x[i])
+            cv2.waitKey(500)
+        cv2.destroyAllWindows()
+        
         return (x, y), input_shape
 
     def sobelEdges(self, sample):

@@ -32,7 +32,7 @@ class Camera:
         in order to predict the digit in the image.
         '''
         self.model = load_model("/home/dpascualhe/workspace/" 
-                                + "2016-tfg-david-pascual/Net/net.h5")
+                                + "2016-tfg-david-pascual/Net/Nets/net_1-1.h5")
         
         status = 0
         ic = None
