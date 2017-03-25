@@ -3,7 +3,7 @@
 #
 # @author: dpascualhe
 #
-# It trains and tests a convolutional neural network with an augmented 
+# It trains and tests a convolutional neural network with an augmented
 # MNIST dataset.
 #
 
@@ -22,6 +22,7 @@ from CustomMetrics.learningcurve import LearningCurve
 from CustomMetrics.custommetrics import CustomMetrics
 
 start_full = timer()
+
 # Seed for the computer pseudorandom number generator.
 np.random.seed(123)
 
@@ -97,6 +98,7 @@ if __name__ == "__main__":
             
         model.save("net.h5")
         end_train = timer()
+    
     if training == "n":
         model = load_model("net.h5")
 
