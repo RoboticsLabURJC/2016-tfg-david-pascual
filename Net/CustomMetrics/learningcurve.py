@@ -1,6 +1,16 @@
+#
+# Created on Mar 20, 2017
+#
+# @author: dpascualhe
+#
+
 import keras
 
 class LearningCurve(keras.callbacks.Callback):
+    ''' LearningCurve class is a callback for Keras that saves accuracy
+    and loss after each batch.
+    '''
+    
     def on_train_begin(self, logs={}):
         self.loss = []
         self.accuracy = []

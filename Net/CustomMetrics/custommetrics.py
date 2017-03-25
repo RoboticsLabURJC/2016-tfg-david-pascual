@@ -1,3 +1,9 @@
+#
+# Created on Mar 12, 2017
+#
+# @author: dpascualhe
+#
+
 import os
 import datetime
 
@@ -6,12 +12,16 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 class CustomMetrics():
     def __init__(self, model, x_test, y_test, batch_size, labels):
-        self.y_test = y_test        
+        ''' CustomMetrics class outputs a variety of metrics to
+        evaluate the neural net performance.
+        '''
+        self.labels = labels
         predictions = model.predict(x_test, batch_size=batch_size, verbose=0)
         self.y_pred = np.argmax(predictions, axis=1)
-        self.labels = labels
+        self.y_test = y_test        
 
     def confusionMatrix(self):
+        ''' Returns a confussion matrix. '''
         conf_mat = confusion_matrix(self.y_test, self.y_pred, self.labels)      
         print("Confusion matrix:\n")
         print(conf_mat)
@@ -20,6 +30,7 @@ class CustomMetrics():
         return conf_mat
     
     def classReport(self):
+        ''' Returns precision, recall and f1-score. '''
         report = classification_report(self.y_test, self.y_pred, self.labels)
         print("Report:\n")
         print(report)
@@ -28,7 +39,7 @@ class CustomMetrics():
         return report
 
     def log(self, file, conf_mat, report, score, hist=None, curve=None):
-        # We log the results.
+        ''' Logs the results. '''
         if os.path.isfile(file):
             f = open(file, "a")
         else: 
