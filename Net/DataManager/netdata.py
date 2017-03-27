@@ -9,6 +9,7 @@ import numpy as np
 from keras import backend
 from keras.utils import np_utils, io_utils
 from keras.preprocessing import image as imkeras
+import matplotlib.pyplot as plt
 
 class NetData:
 
@@ -94,17 +95,21 @@ class NetData:
         
         if verbose == "y":
             i = 0
-            j = 0
+            first_batch = 1
             classes_count = [0,0,0,0,0,0,0,0,0,0]
-            for x_batch, y_batch in generator:
-                if i == 0:
-                    for sample in x_batch:
-                        cv2.imshow("Augmented sample", sample)
-                        cv2.waitKey(500)
-                        j += 1
-                        if j > 9:
-                            cv2.destroyWindow("Augmented sample")
+            for x_batch, y_batch in generator:                
+                if first_batch:              
+                    x_batch = x_batch.reshape(x_batch.shape[0], 28, 28)
+                    for im in x_batch:
+                        plot_count = 241 + i
+                        plt.subplot(plot_count)
+                        plt.imshow(im, cmap='gray')
+                        i += 1
+                        if i == 8:
                             break
+                    first_batch = 0
+                    plt.show()
+
                 if self.count == 0:
                     for classes in y_batch:
                         if np.where(classes == 1)[0] == [0]:
