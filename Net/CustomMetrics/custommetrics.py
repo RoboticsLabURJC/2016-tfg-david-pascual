@@ -4,63 +4,42 @@
 # @author: dpascualhe
 #
 
-import os
-import datetime
-
 import numpy as np
-from sklearn.metrics import classification_report, confusion_matrix
+import scipy.io as sio
+from sklearn import metrics
 
 class CustomMetrics():
-    def __init__(self, model, x_test, y_test, batch_size, labels):
-        ''' CustomMetrics class outputs a variety of metrics to
-        evaluate the neural net performance.
-        '''
-        self.labels = labels
-        predictions = model.predict(x_test, batch_size=batch_size, verbose=0)
-        self.y_pred = np.argmax(predictions, axis=1)
-        self.y_test = y_test        
-
-    def confusionMatrix(self):
-        ''' Returns a confussion matrix. '''
-        conf_mat = confusion_matrix(self.y_test, self.y_pred, self.labels)      
-        print("Confusion matrix:\n")
-        print(conf_mat)
-        print("\n")
+    def __init__(self, model, x_test, y_test, batch_size, curve=None,
+                 val=None, training=0):
+        """ CustomMetrics class outputs a dictionary with a variety of
+        metrics to evaluate the neural network performance.
+        """
+        self.y_test = y_test
+        self.Y_pred = model.predict(x_test, batch_size=batch_size, verbose=0)
+        self.y_pred = np.argmax(self.Y_pred, axis=1)
         
-        return conf_mat
+        self.curve = curve
+        self.val = val
+        self.training = training
+
+    def dictionary(self):
+        conf_mat = metrics.confusion_matrix(self.y_test, self.y_pred)
+        loss = metrics.log_loss(self.y_test, self.Y_pred)
+        acc = metrics.accuracy_score(self.y_test, self.y_pred)
+        pre = metrics.precision_score(self.y_test, self.y_pred, average=None)    
+        rec = metrics.recall_score(self.y_test, self.y_pred, average=None)
     
-    def classReport(self):
-        ''' Returns precision, recall and f1-score. '''
-        report = classification_report(self.y_test, self.y_pred, self.labels)
-        print("Report:\n")
-        print(report)
-        print("\n")
+        metrics_dict = {"confusion matrix": conf_mat, "loss": loss,
+                        "accuracy": acc, "precision": pre, "recall": rec}
         
-        return report
+        if self.training == "y":
+            metrics_dict["training accuracy"] = self.curve.accuracy
+            metrics_dict["training loss"] = self.curve.loss
+            metrics_dict["validation accuracy"] = self.val.history["val_loss"]
+            metrics_dict["validation loss"] = self.val.history["acc"]
 
-    def log(self, file, conf_mat, report, score, hist=None, curve=None):
-        ''' Logs the results. '''
-        if os.path.isfile(file):
-            f = open(file, "a")
-        else: 
-            f = open(file, "w")
-        
-        f.write("Date: " + str(datetime.datetime.now()) + "\n\n")
-        
-        if (hist and curve) != None:
-            f.write("TRAINING (after each batch)\n")
-            f.write("    Loss: " + str(curve.loss) + "\n")
-            f.write("    Accuracy: " + str(curve.accuracy) + "\n\n")
-            f.write("VALIDATION (after each epoch)\n")
-            f.write("    Loss: " + str(hist.history["val_loss"]) + "\n")
-            f.write("    Accuracy: " + str(hist.history["acc"]) + "\n\n")
-        
-        f.write("TESTING\n")
-        f.write("    Confusion matrix:\n" + "    ")
-        f.write(str(conf_mat))
-        f.write("\n    Classification report:\n")
-        f.write(str(report))
-        f.write("\n    Loss:" + str(score[0]) + "\n")
-        f.write("    Accuracy:" + str(score[1]) + "\n\n")  
-        f.write("--------------------------------------------------------\n\n")
-        f.close()
+        return metrics_dict
+
+    def log(self, metrics_dict):
+        """ Logs the results into a .mat file for Octave. """
+        sio.savemat("metrics.mat", {"metrics": metrics_dict})

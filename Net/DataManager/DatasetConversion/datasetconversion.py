@@ -8,9 +8,11 @@
 
 import sys
 
+import cv2
 import h5py
 import lmdb
 import numpy as np
+import matplotlib.pyplot as plt
 
 import datum_pb2 as datum
 
@@ -37,15 +39,28 @@ if __name__ == '__main__':
                           datum.channels).astype("uint8")
                             
         x.append(im)
-        y.append(label)
-        nb_samples += 1
         
+        nb_samples += 1
         print("Extracted samples: " + str(nb_samples) + "\n")
 
     x = np.asarray(x)
     y = np.asarray(y)
+
+    plt.figure(1)
+    i = 0
     
-    f = h5py.File("../Datasets/" + sys.argv[2] + ".h5", "w")
+    if 0:
+        x = x.reshape(x.shape[0], 28, 28)
+        for im in x:
+            plot_count = 241 + i
+            plt.subplot(plot_count)
+            plt.imshow(im, cmap='gray')
+            i += 1
+            if i == 8:
+                break
+        plt.show()
+
+    f = h5py.File("../../Datasets/" + sys.argv[2] + ".h5", "w")
     
     # We store images.
     x_dset = f.create_dataset("data", (nb_samples, datum.width, datum.height,
