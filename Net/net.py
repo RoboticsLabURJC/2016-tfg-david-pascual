@@ -27,8 +27,8 @@ start_full = timer()
 np.random.seed(123)
 
 if __name__ == "__main__":  
-    nb_epoch = 2
-    batch_size = 512
+    nb_epoch = 12
+    batch_size = 128
     nb_classes = 10
         
     im_rows, im_cols = 28, 28

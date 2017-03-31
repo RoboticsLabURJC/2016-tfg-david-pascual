@@ -35,8 +35,8 @@ class CustomMetrics():
         if self.training == "y":
             metrics_dict["training accuracy"] = self.curve.accuracy
             metrics_dict["training loss"] = self.curve.loss
-            metrics_dict["validation accuracy"] = self.val.history["val_loss"]
-            metrics_dict["validation loss"] = self.val.history["acc"]
+            metrics_dict["validation loss"] = self.val.history["val_loss"]
+            metrics_dict["validation accuracy"] = self.val.history["acc"]
 
         return metrics_dict
 
