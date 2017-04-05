@@ -48,6 +48,9 @@ if __name__ == "__main__":
     data = NetData(im_rows, im_cols, nb_classes)
     
     if training == "y":
+        dropout = 0
+        while dropout != "y" and dropout != "n":
+            dropout = input("Dropout?(y/n)")
         train_ds = input("Train dataset path: ")
         while not os.path.isfile(train_ds):
             train_ds = input("Enter a valid path: ")
@@ -81,10 +84,12 @@ if __name__ == "__main__":
         model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
                                 activation="relu"))
         model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Dropout(0.25))
+        if dropout == "y":
+            model.add(Dropout(0.25))
         model.add(Flatten())
         model.add(Dense(128, activation="relu"))
-        model.add(Dropout(0.5))
+        if dropout == "y":
+            model.add(Dropout(0.5))
         model.add(Dense(nb_classes, activation="softmax"))
           
         model.compile(loss="categorical_crossentropy", optimizer="adadelta",
@@ -117,10 +122,11 @@ if __name__ == "__main__":
     end_test = timer()
     
     # We log the results.
+    Y_pred = model.predict(x_test, batch_size=batch_size, verbose=0)
     if training == "n":
-        metrics = CustomMetrics(model, x_test, Y_test, batch_size)
+        metrics = CustomMetrics(model, Y_test, Y_pred, batch_size)
     else:
-        metrics = CustomMetrics(model, x_test, Y_test, batch_size,
+        metrics = CustomMetrics(model, Y_test, Y_pred, batch_size,
                                 learning_curve, validation, training)
     
     metrics_dict = metrics.dictionary()

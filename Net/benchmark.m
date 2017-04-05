@@ -9,8 +9,6 @@ function benchmark(metrics_dict)
 # network performance, that have been saved like a structure (a Python
 # dictionary) into a .mat file.
   
-  close all
-  
   # Loss
   figure;
   subplot(2,1,1)
@@ -56,7 +54,7 @@ function benchmark(metrics_dict)
   h = legend("Training", "Validation", "location", "northeastoutside");
   set (h, "fontsize", 15);
   xlabel("Batch number", "fontsize", 15);
-  ylabel("Categorical crossentropy", "fontsize", 15);
+  ylabel("Accuracy", "fontsize", 15);
   
   # Precision
   figure;
