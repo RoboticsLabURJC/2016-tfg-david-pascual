@@ -123,10 +123,11 @@ if __name__ == "__main__":
     
     # We log the results.
     Y_pred = model.predict(x_test, batch_size=batch_size, verbose=0)
+    y_pred = np.argmax(Y_pred, axis=1)
     if training == "n":
-        metrics = CustomMetrics(model, Y_test, Y_pred, batch_size)
+        metrics = CustomMetrics(model, Y_test, y_pred, batch_size)
     else:
-        metrics = CustomMetrics(model, Y_test, Y_pred, batch_size,
+        metrics = CustomMetrics(model, Y_test, y_pred, batch_size,
                                 learning_curve, validation, training)
     
     metrics_dict = metrics.dictionary()

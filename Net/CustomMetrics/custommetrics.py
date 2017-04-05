@@ -9,14 +9,18 @@ import scipy.io as sio
 from sklearn import metrics
 
 class CustomMetrics():
-    def __init__(self, model, y_test, Y_pred, batch_size, curve=None,
+    def __init__(self, model, y_test, y_pred, batch_size, curve=None,
                  val=None, training=0):
         """ CustomMetrics class outputs a dictionary with a variety of
         metrics to evaluate the neural network performance.
         """
         self.y_test = y_test
-        self.Y_pred = Y_pred
-        self.y_pred = np.argmax(self.Y_pred, axis=1)
+        self.y_pred = y_pred
+        self.Y_pred = []
+        for label in self.y_pred:
+            arr = np.zeros(10)
+            arr[label] = 1
+            self.Y_pred = self.Y_pred.append(arr)
         
         self.curve = curve
         self.val = val
