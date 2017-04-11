@@ -9,27 +9,44 @@
 
 import os
 import sys
-from timeit import default_timer as timer
 
 import numpy as np
+from sklearn import metrics
+from keras.utils import visualize_util
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential, load_model
-from keras.utils import visualize_util
 
 from DataManager.netdata import NetData
-from CustomMetrics.learningcurve import LearningCurve
 from CustomMetrics.custommetrics import CustomMetrics
-
-start_full = timer()
+from CustomMetrics.customcallback import LearningCurves
 
 # Seed for the computer pseudorandom number generator.
 np.random.seed(123)
 
+def add_layers(dropout):
+    model = Sequential()
+    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                            border_mode="valid", activation="relu",
+                            input_shape=input_shape))
+    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                            activation="relu"))
+    model.add(MaxPooling2D(pool_size=pool_size))
+    if dropout == "y":
+        model.add(Dropout(0.25))
+    model.add(Flatten())
+    model.add(Dense(128, activation="relu"))
+    if dropout == "y":
+        model.add(Dropout(0.5))
+    model.add(Dense(nb_classes, activation="softmax"))
+    
+    return model
+
 if __name__ == "__main__":  
-    nb_epoch = 12
+    nb_epoch = 2
     batch_size = 128
     nb_classes = 10
+    labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
     im_rows, im_cols = 28, 28
     nb_filters = 32
@@ -38,12 +55,8 @@ if __name__ == "__main__":
 
     verbose = 0
     training = 0
-    while training != "y" and verbose != "n":
+    while training != "y" and training != "n":
         training = input("Do you want to train the model?(y/n)")
-    while verbose != "y" and verbose != "n":
-        verbose = input("Do you want the program to be specially "
-                        + "verbose?(y/n)")
-    print("\n\n")
 
     data = NetData(im_rows, im_cols, nb_classes)
     
@@ -65,77 +78,51 @@ if __name__ == "__main__":
     if training == "y":    
         # We load and reshape data in a way that it can work as input of
         # our model.
-        start_data = timer()
         (X_train, Y_train) = data.load(train_ds)
-        (x_train, y_train), input_shape = data.adapt(X_train, Y_train, verbose)
-        gen = data.augmentation(x_train, y_train, batch_size, "full", verbose)
-
+        (x_train, y_train), input_shape = data.adapt(X_train, Y_train)
         
         (X_val, Y_val) = data.load(val_ds)
-        (x_val, y_val), input_shape = data.adapt(X_val, Y_val, verbose)
-        end_data = timer()
+        (x_val, y_val), input_shape = data.adapt(X_val, Y_val)
         
         # We add layers to our model.
-        start_train = timer()
-        model = Sequential()
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                border_mode="valid", activation="relu",
-                                input_shape=input_shape))
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation="relu"))
-        model.add(MaxPooling2D(pool_size=pool_size))
-        if dropout == "y":
-            model.add(Dropout(0.25))
-        model.add(Flatten())
-        model.add(Dense(128, activation="relu"))
-        if dropout == "y":
-            model.add(Dropout(0.5))
-        model.add(Dense(nb_classes, activation="softmax"))
-          
+        model = add_layers(dropout)
+        
+        # We compile our model.
         model.compile(loss="categorical_crossentropy", optimizer="adadelta",
                       metrics=["accuracy"])
             
         # We train the model and save data to plot a learning curve.
-        learning_curve = LearningCurve()
+        learning_curves = LearningCurves()
         validation = model.fit(x_train, y_train, batch_size=batch_size, 
-                               nb_epoch=nb_epoch, callbacks=[learning_curve],
+                               nb_epoch=nb_epoch, callbacks=[learning_curves],
                                validation_data=(x_val, y_val))
             
         model.save("net.h5")
         visualize_util.plot(model, "net.png", show_shapes=True)
-        end_train = timer()
     
+    # If we haven't trained a new model, we ask for a model path for
+    # testing. 
     if training == "n":
         net = input("Net path: ")
         while not os.path.isfile(net):
             net = input("Enter a valid path: ")
         model = load_model(net)
 
+    # We load and reshape test data.
     (X_test, Y_test) = data.load(test_ds)
-    (x_test, y_test), input_shape = data.adapt(X_test, Y_test, verbose)
+    (x_test, y_test), input_shape = data.adapt(X_test, Y_test)
+    y_test = np.argmax(y_test, axis=1)
     
-    # We test the model.
-    start_test = timer()
-    score = model.evaluate(x_test, y_test, batch_size=batch_size)
-    print("Test loss:", score[0])
-    print("Test accuracy:", score[1])
-    end_test = timer()
-    
-    # We log the results.
-    Y_pred = model.predict(x_test, batch_size=batch_size, verbose=0)
-    y_pred = np.argmax(Y_pred, axis=1)
     if training == "n":
-        metrics = CustomMetrics(model, Y_test, y_pred, batch_size)
+        metrics = CustomMetrics(y_test, y_pred, labels)
     else:
-        metrics = CustomMetrics(model, Y_test, y_pred, batch_size,
-                                learning_curve, validation, training)
+        train_loss = learning_curves.loss
+        train_acc = learning_curves.accuracy
+        val_loss = validation.history["val_loss"]
+        val_acc = validation.history["val_acc"]
+        metrics = CustomMetrics(y_test, y_pred, train_loss, train_acc,
+                                val_loss, val_acc, training)
     
     metrics_dict = metrics.dictionary()
     metrics.log(metrics_dict)
-    end_full = timer()
-    
-    print("Full time: " + str(end_full-start_full))
-    print("Data time: " + str(end_data-start_data))
-    print("Train time: " + str(end_train-start_train))
-    print("Test time: " + str(end_test-start_test))
     

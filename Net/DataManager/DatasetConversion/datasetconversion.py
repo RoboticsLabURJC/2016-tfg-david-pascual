@@ -3,7 +3,7 @@
 #
 # @author: dpascualhe
 #
-# It converts a lmdb dataset into a h5py one.
+# It converts a lmdb dataset into a h5 one.
 #
 
 import sys
@@ -46,28 +46,27 @@ if __name__ == '__main__':
     x = np.asarray(x)
     y = np.asarray(y)
 
-    plt.figure(1)
+
     i = 0
-    
-    if 0:
-        x = x.reshape(x.shape[0], 28, 28)
-        for im in x:
-            plot_count = 241 + i
-            plt.subplot(plot_count)
-            plt.imshow(im, cmap='gray')
-            i += 1
-            if i == 8:
-                break
-        plt.show()
+    plt.figure(1)
+    X = x.reshape(x.shape[0], 28, 28)
+    for im in X:
+        plot_count = 241 + i
+        plt.subplot(plot_count)
+        plt.imshow(im, cmap='gray')
+        i += 1
+        if i == 8:
+            break
+    plt.show()
 
     f = h5py.File("../../Datasets/" + sys.argv[2] + ".h5", "w")
     
-    # We store images.
+    # We store the images.
     x_dset = f.create_dataset("data", (nb_samples, datum.width, datum.height,
                                        datum.channels), dtype="f")
     x_dset[:] = x
     
-    # We store labels.
+    # We store the labels.
     y_dset = f.create_dataset("labels", (nb_samples,), dtype="i")
     y_dset[:] = y
     f.close()

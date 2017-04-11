@@ -4,59 +4,76 @@
 # @author: dpascualhe
 #
 
-function benchmark(metrics_dict)
+function benchmark(metrics_path)
 # This function reads and plots a variety of metrics, which evaluate the neural
 # network performance, that have been saved like a structure (a Python
 # dictionary) into a .mat file.
-  
-  # Loss
-  figure;
-  subplot(2,1,1)
-  train_loss = metrics_dict.("training loss");
-  val_loss = metrics_dict.("validation loss");
-  new_val_loss = NaN(size(train_loss));
-  
-  val_index = length(train_loss)/length(val_loss);
-  for i = [val_index:val_index:length(train_loss); 1:length(val_loss)]
-    if i(1) != 0
-      new_val_loss(i(1)) = val_loss(i(2));
-    endif
-  endfor
 
-  x = 1:length(train_loss);
-  plot(x, train_loss, x, new_val_loss, "r+", "markersize", 15)
-  set(gca,"ytick", 0:0.2:max(train_loss), "ygrid", "on");
-  title("Loss after each batch during training", "fontweight",...
-        "bold", "fontsize", 15);
-  h = legend("Training", "Validation", "location", "northeastoutside");
-  set (h, "fontsize", 15);
-  xlabel("Batch number", "fontsize", 15);
-  ylabel("Categorical crossentropy", "fontsize", 15);
-
-  # Accuracy
-  subplot(2,1,2)
-  train_acc = metrics_dict.("training accuracy");
-  val_acc = metrics_dict.("validation accuracy");
-  new_val_acc = NaN(size(train_acc));
-
+  more off;
   
-  for i = [val_index:val_index:length(train_acc); 1:length(val_acc)]
-    if i(1) != 0
-      new_val_acc(i(1)) = val_acc(i(2));
-    endif
-  endfor
-
-  x = 1:length(train_acc);
-  plot(x, train_acc, x, new_val_acc, "r+", "markersize", 15)
-  set(gca,"ytick", 0:0.2:max(train_acc), "ygrid", "on");
-  title("Accuracy after each batch during training", "fontweight",...
-        "bold", "fontsize", 15);
-  h = legend("Training", "Validation", "location", "northeastoutside");
-  set (h, "fontsize", 15);
-  xlabel("Batch number", "fontsize", 15);
-  ylabel("Accuracy", "fontsize", 15);
+  metrics_path = file_in_loadpath(metrics_path);
+  metrics_dict = load(metrics_path).metrics
   
-  # Precision
+  if metrics_dict.("training") == "y"
+    # Loss.
+    figure('Units','normalized','Position',[0 0 1 1]);
+    subplot(2,1,1)
+    train_loss = metrics_dict.("training loss");
+    val_loss = metrics_dict.("validation loss");
+    new_val_loss = NaN(size(train_loss));
+    
+    val_index = length(train_loss)/length(val_loss);
+    for i = [val_index:val_index:length(train_loss); 1:length(val_loss)]
+      if i(1) != 0
+        new_val_loss(i(1)) = val_loss(i(2));
+      endif
+    endfor
+
+    x = 1:length(train_loss);
+    plot(x, train_loss, x, new_val_loss, "r.")
+    set(gca,"ytick", 0:0.2:max(train_loss), "ygrid", "on");
+    title("Loss after each batch during training", "fontweight",...
+          "bold", "fontsize", 15);
+    h = legend("Training", "Validation", "location", "northeastoutside");
+    set (h, "fontsize", 15);
+    xlabel("Batch number", "fontsize", 15);
+    ylabel("Categorical crossentropy", "fontsize", 15);
+
+    # Accuracy.
+    subplot(2,1,2)
+    train_acc = metrics_dict.("training accuracy");
+    val_acc = metrics_dict.("validation accuracy");
+    new_val_acc = NaN(size(train_acc));
+
+    
+    for i = [val_index:val_index:length(train_acc); 1:length(val_acc)]
+      if i(1) != 0
+        new_val_acc(i(1)) = val_acc(i(2));
+      endif
+    endfor
+
+    x = 1:length(train_acc);
+    plot(x, train_acc, x, new_val_acc, "r.")
+    set(gca,"ytick", 0:0.2:max(train_acc), "ygrid", "on");
+    title("Accuracy after each batch during training", "fontweight",...
+          "bold", "fontsize", 15);
+    h = legend("Training", "Validation", "location", "northeastoutside");
+    set (h, "fontsize", 15);
+    xlabel("Batch number", "fontsize", 15);
+    ylabel("Accuracy", "fontsize", 15);
+
+    printf("=======================VALIDATION RESULTS=======================\n")
+    printf("\nValidation loss (after each epoch):\n")
+    for i = 1:length(val_loss)
+      printf("  Epoch %2i: %1.5f\n", i, val_loss(i))
+    endfor
+    printf("\nValidation accuracy (after each epoch):\n")
+    for i = 1:length(val_acc)
+      printf("  Epoch %2i: %1.5f\n", i, val_acc(i))
+    endfor
+  endif
+  
+  # Precision.
   figure;
   subplot(2,1,1)
   precision = metrics_dict.("precision");
@@ -67,7 +84,7 @@ function benchmark(metrics_dict)
   xlabel("Class", "fontsize", 15);
   ylabel("Precision", "fontsize", 15);
 
-  # Recall
+  # Recall.
   subplot(2,1,2)
   recall = metrics_dict.("recall");
   bar(recall)
@@ -76,7 +93,7 @@ function benchmark(metrics_dict)
   xlabel("Class", "fontsize", 15);
   ylabel("Recall", "fontsize", 15);
   
-  # Confusion matrix
+  # Confusion matrix.
   figure;
   conf_mat = metrics_dict.("confusion matrix");
   new_conf_mat = NaN(size(conf_mat)+1);
@@ -117,4 +134,19 @@ function benchmark(metrics_dict)
   set(gca,"YTick", 1:1:(length(conf_mat)+1), "YTickLabel",{"0","1","2","3",...
                                                            "4","5","6","7",...
                                                            "8", "9", "TOTAL"});
+  
+  # We print the metrics.  
+  printf("\n==========================TEST RESULTS==========================\n")
+  printf("\nPrecision:\n")
+  for i = 1:length(precision)
+    printf("  %2i: %1.5f\n", i, precision(i))
+  endfor
+  printf("\nRecall:\n")
+  for i = 1:length(recall)
+    printf("  %2i: %1.5f\n", i, recall(i))
+  endfor
+  printf("\nConfusion Matrix:\n")
+  disp(conf_mat)
+  printf(["\nTest loss:\n " num2str(metrics_dict.("loss"))])
+  printf(["\nTest accuracy:\n " num2str(metrics_dict.("accuracy")) "\n"])
 endfunction

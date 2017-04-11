@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 class NetData:
 
     def __init__(self, im_rows, im_cols, nb_classes):
-        ''' NetData class deals, adapts and augment datasets. '''
+        ''' NetData class adapts and augments datasets. '''
         self.im_rows = im_rows
         self.im_cols = im_cols
         self.nb_classes = nb_classes
@@ -23,13 +23,14 @@ class NetData:
     
     def load(self, path):
         ''' Loads a HDF5 dataset. '''
+        print("\nLoading " + path + "...")
         x = np.array(io_utils.HDF5Matrix(path, "data"))
         y = np.array(io_utils.HDF5Matrix(path, "labels"))
-        print("OK!")
+        print("Loaded\n")
         
         return (x, y)
         
-    def adapt(self, X, Y, verbose):
+    def adapt(self, X, Y):
         ''' Adapts the dataset shape and format depending on Keras
         backend: TensorFlow or Theano.
         '''
@@ -47,22 +48,27 @@ class NetData:
         # Converts class vector to class matrix
         y = np_utils.to_categorical(Y, self.nb_classes)
         
-        if verbose == "y":
-            print('Original input images data shape: ', X.shape)
-            print('Input images data reshaped: ', (x.shape))
-            print('----------------------------------------------------------')
-            print('Input images type: ', X.dtype)
-            print('New input images type: ', x.dtype)
-            print('----------------------------------------------------------')
-            print('Original class label data shape: ', (Y.shape))
-            print('Class label data reshaped: ', (y.shape))
-            print('----------------------------------------------------------')
-        
-        for i in np.arange(10):
-            cv2.imshow("Sample", x[i])
-            cv2.waitKey(500)
-        cv2.destroyAllWindows()
-        
+        print('Original input images data shape: ', X.shape)
+        print('Input images data reshaped: ', x.shape)
+        print('----------------------------------------------------------')
+        print('Input images type: ', X.dtype)
+        print('New input images type: ', x.dtype)
+        print('----------------------------------------------------------')
+        print('Original class label data shape: ', Y.shape)
+        print('Class label data reshaped: ', y.shape)
+        print('----------------------------------------------------------\n')
+       
+        i = 0
+        X = x.reshape(x.shape[0], 28, 28)
+        for im in X:
+            plot_count = 241 + i
+            plt.subplot(plot_count)
+            plt.imshow(im, cmap='gray')
+            i += 1
+            if i == 8:
+                break
+        plt.show()
+                
         return (x, y), input_shape
 
     def sobelEdges(self, sample):
@@ -77,7 +83,7 @@ class NetData:
         
         return im_edges
 
-    def augmentation(self, x, y, batch_size, mode, verbose):
+    def augmentation(self, x, y, batch_size, mode):
         ''' Creates a generator that augments data in real time. It can
         apply only a Sobel filtering or a stack of processes that
         randomize the data.
@@ -93,52 +99,51 @@ class NetData:
   
         generator = datagen.flow(x, y, batch_size=batch_size)
         
-        if verbose == "y":
-            i = 0
-            first_batch = 1
-            classes_count = [0,0,0,0,0,0,0,0,0,0]
-            for x_batch, y_batch in generator:                
-                if first_batch:              
-                    x_batch = x_batch.reshape(x_batch.shape[0], 28, 28)
-                    for im in x_batch:
-                        plot_count = 241 + i
-                        plt.subplot(plot_count)
-                        plt.imshow(im, cmap='gray')
-                        i += 1
-                        if i == 8:
-                            break
-                    first_batch = 0
-                    plt.show()
-
-                if self.count == 0:
-                    for classes in y_batch:
-                        if np.where(classes == 1)[0] == [0]:
-                            classes_count[0] += 1
-                        elif np.where(classes == 1)[0] == [1]:
-                            classes_count[1] += 1
-                        elif np.where(classes == 1)[0] == [2]:
-                            classes_count[2] += 1
-                        elif np.where(classes == 1)[0] == [3]:
-                            classes_count[3] += 1
-                        elif np.where(classes == 1)[0] == [4]:
-                            classes_count[4] += 1
-                        elif np.where(classes == 1)[0] == [5]:
-                            classes_count[5] += 1
-                        elif np.where(classes == 1)[0] == [6]:
-                            classes_count[6] += 1
-                        elif np.where(classes == 1)[0] == [7]:
-                            classes_count[7] += 1
-                        elif np.where(classes == 1)[0] == [8]:
-                            classes_count[8] += 1
-                        elif np.where(classes == 1)[0] == [9]:
-                            classes_count[9] += 1
+        print("Determining class distribution...")
+        i = 0
+        first_batch = 1
+        classes_count = [0,0,0,0,0,0,0,0,0,0]
+        for x_batch, y_batch in generator:                
+            if first_batch:              
+                x_batch = x_batch.reshape(x_batch.shape[0], 28, 28)
+                for im in x_batch:
+                    plot_count = 241 + i
+                    plt.subplot(plot_count)
+                    plt.imshow(im, cmap='gray')
                     i += 1
-                    if i >= 3000:
-                        print("Class distribution: ", classes_count)
+                    if i == 8:
                         break
-                else:
-                    break  
-        
+                first_batch = 0
+                plt.show()
+                
+            if self.count == 0:
+                for classes in y_batch:
+                    if np.where(classes == 1)[0] == [0]:
+                        classes_count[0] += 1
+                    elif np.where(classes == 1)[0] == [1]:
+                        classes_count[1] += 1
+                    elif np.where(classes == 1)[0] == [2]:
+                        classes_count[2] += 1
+                    elif np.where(classes == 1)[0] == [3]:
+                        classes_count[3] += 1
+                    elif np.where(classes == 1)[0] == [4]:
+                        classes_count[4] += 1
+                    elif np.where(classes == 1)[0] == [5]:
+                        classes_count[5] += 1
+                    elif np.where(classes == 1)[0] == [6]:
+                        classes_count[6] += 1
+                    elif np.where(classes == 1)[0] == [7]:
+                        classes_count[7] += 1
+                    elif np.where(classes == 1)[0] == [8]:
+                        classes_count[8] += 1
+                    elif np.where(classes == 1)[0] == [9]:
+                        classes_count[9] += 1
+                i += 1
+                if i >= 3000:
+                    print("Class distribution: ", classes_count)
+                    break
+            else:
+                break        
         self.count += 1
         
         return generator

@@ -9,38 +9,50 @@ import scipy.io as sio
 from sklearn import metrics
 
 class CustomMetrics():
-    def __init__(self, model, y_test, y_pred, batch_size, curve=None,
-                 val=None, training=0):
+    def __init__(self, y_test, y_pred, train_loss=[], train_acc=[],
+                 val_loss=[], val_acc=[], training="n"):
         """ CustomMetrics class outputs a dictionary with a variety of
         metrics to evaluate the neural network performance.
         """
+        # Test labels.
         self.y_test = y_test
         self.y_pred = y_pred
-        self.Y_pred = []
+        # Generating predicted labels with shape:[0,0,0,0,0,1,0,0,0,0]
+        # in order to calculate categorial crossentropy. 
+        self.y_proba = []
         for label in self.y_pred:
-            arr = np.zeros(10)
-            arr[label] = 1
-            self.Y_pred = self.Y_pred.append(arr)
+            arr = [0.] * 10
+            arr[label] = 1.
+            self.y_proba.append(arr)
         
-        self.curve = curve
-        self.val = val
+        # Training metrics.
+        self.train_loss = train_loss
+        self.train_acc = train_acc
+        self.val_loss = val_loss
+        self.val_acc = val_acc
         self.training = training
 
     def dictionary(self):
+        """ Calculates test metrics and saves them into a dictionary
+        beside the training ones.
+        """
+        # Test metrics.
         conf_mat = metrics.confusion_matrix(self.y_test, self.y_pred)
-        loss = metrics.log_loss(self.y_test, self.Y_pred)
+        loss = metrics.log_loss(self.y_test, self.y_proba, 10e-8)
         acc = metrics.accuracy_score(self.y_test, self.y_pred)
         pre = metrics.precision_score(self.y_test, self.y_pred, average=None)    
         rec = metrics.recall_score(self.y_test, self.y_pred, average=None)
     
+        # We save the metrics into a dictionary.
         metrics_dict = {"confusion matrix": conf_mat, "loss": loss,
-                        "accuracy": acc, "precision": pre, "recall": rec}
+                        "accuracy": acc, "precision": pre, "recall": rec,
+                        "training": self.training}
         
         if self.training == "y":
-            metrics_dict["training accuracy"] = self.curve.accuracy
-            metrics_dict["training loss"] = self.curve.loss
-            metrics_dict["validation loss"] = self.val.history["val_loss"]
-            metrics_dict["validation accuracy"] = self.val.history["acc"]
+            metrics_dict["training loss"] = self.train_loss
+            metrics_dict["training accuracy"] = self.train_acc
+            metrics_dict["validation loss"] = self.val_loss
+            metrics_dict["validation accuracy"] = self.val_acc
 
         return metrics_dict
 

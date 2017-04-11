@@ -6,7 +6,7 @@
 
 import keras
 
-class LearningCurve(keras.callbacks.Callback):
+class LearningCurves(keras.callbacks.Callback):
     ''' LearningCurve class is a callback for Keras that saves accuracy
     and loss after each batch.
     '''
