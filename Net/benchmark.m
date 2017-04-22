@@ -12,7 +12,7 @@ function benchmark(metrics_path)
   more off;
   
   metrics_path = file_in_loadpath(metrics_path);
-  metrics_dict = load(metrics_path).metrics
+  metrics_dict = load(metrics_path).metrics;
   
   if metrics_dict.("training") == "y"
     # Loss.

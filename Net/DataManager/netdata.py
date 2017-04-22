@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 
 class NetData:
 
-    def __init__(self, im_rows, im_cols, nb_classes):
+    def __init__(self, im_rows, im_cols, nb_classes, verbose):
         ''' NetData class adapts and augments datasets. '''
         self.im_rows = im_rows
         self.im_cols = im_cols
         self.nb_classes = nb_classes
         
+        self.verbose = verbose
         self.count = 0
     
     def load(self, path):
@@ -57,17 +58,18 @@ class NetData:
         print('Original class label data shape: ', Y.shape)
         print('Class label data reshaped: ', y.shape)
         print('----------------------------------------------------------\n')
-       
-        i = 0
-        X = x.reshape(x.shape[0], 28, 28)
-        for im in X:
-            plot_count = 241 + i
-            plt.subplot(plot_count)
-            plt.imshow(im, cmap='gray')
-            i += 1
-            if i == 8:
-                break
-        plt.show()
+        
+        if self.verbose == "y":
+            i = 0
+            X = x.reshape(x.shape[0], 28, 28)
+            for im in X:
+                plot_count = 241 + i
+                plt.subplot(plot_count)
+                plt.imshow(im, cmap='gray')
+                i += 1
+                if i == 8:
+                    break
+            plt.show()
                 
         return (x, y), input_shape
 
@@ -99,52 +101,53 @@ class NetData:
   
         generator = datagen.flow(x, y, batch_size=batch_size)
         
-        print("Determining class distribution...")
-        i = 0
-        first_batch = 1
-        classes_count = [0,0,0,0,0,0,0,0,0,0]
-        for x_batch, y_batch in generator:                
-            if first_batch:              
-                x_batch = x_batch.reshape(x_batch.shape[0], 28, 28)
-                for im in x_batch:
-                    plot_count = 241 + i
-                    plt.subplot(plot_count)
-                    plt.imshow(im, cmap='gray')
+        if verbose == "y":
+            print("Determining class distribution...")
+            i = 0
+            first_batch = 1
+            classes_count = [0,0,0,0,0,0,0,0,0,0]
+            for x_batch, y_batch in generator:                
+                if first_batch:              
+                    x_batch = x_batch.reshape(x_batch.shape[0], 28, 28)
+                    for im in x_batch:
+                        plot_count = 241 + i
+                        plt.subplot(plot_count)
+                        plt.imshow(im, cmap='gray')
+                        i += 1
+                        if i == 8:
+                            break
+                    first_batch = 0
+                    plt.show()
+                    
+                if self.count == 0:
+                    for classes in y_batch:
+                        if np.where(classes == 1)[0] == [0]:
+                            classes_count[0] += 1
+                        elif np.where(classes == 1)[0] == [1]:
+                            classes_count[1] += 1
+                        elif np.where(classes == 1)[0] == [2]:
+                            classes_count[2] += 1
+                        elif np.where(classes == 1)[0] == [3]:
+                            classes_count[3] += 1
+                        elif np.where(classes == 1)[0] == [4]:
+                            classes_count[4] += 1
+                        elif np.where(classes == 1)[0] == [5]:
+                            classes_count[5] += 1
+                        elif np.where(classes == 1)[0] == [6]:
+                            classes_count[6] += 1
+                        elif np.where(classes == 1)[0] == [7]:
+                            classes_count[7] += 1
+                        elif np.where(classes == 1)[0] == [8]:
+                            classes_count[8] += 1
+                        elif np.where(classes == 1)[0] == [9]:
+                            classes_count[9] += 1
                     i += 1
-                    if i == 8:
+                    if i >= 3000:
+                        print("Class distribution: ", classes_count)
                         break
-                first_batch = 0
-                plt.show()
-                
-            if self.count == 0:
-                for classes in y_batch:
-                    if np.where(classes == 1)[0] == [0]:
-                        classes_count[0] += 1
-                    elif np.where(classes == 1)[0] == [1]:
-                        classes_count[1] += 1
-                    elif np.where(classes == 1)[0] == [2]:
-                        classes_count[2] += 1
-                    elif np.where(classes == 1)[0] == [3]:
-                        classes_count[3] += 1
-                    elif np.where(classes == 1)[0] == [4]:
-                        classes_count[4] += 1
-                    elif np.where(classes == 1)[0] == [5]:
-                        classes_count[5] += 1
-                    elif np.where(classes == 1)[0] == [6]:
-                        classes_count[6] += 1
-                    elif np.where(classes == 1)[0] == [7]:
-                        classes_count[7] += 1
-                    elif np.where(classes == 1)[0] == [8]:
-                        classes_count[8] += 1
-                    elif np.where(classes == 1)[0] == [9]:
-                        classes_count[9] += 1
-                i += 1
-                if i >= 3000:
-                    print("Class distribution: ", classes_count)
-                    break
-            else:
-                break        
-        self.count += 1
+                else:
+                    break        
+            self.count += 1
         
         return generator
 

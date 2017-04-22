@@ -9,21 +9,15 @@ import scipy.io as sio
 from sklearn import metrics
 
 class CustomMetrics():
-    def __init__(self, y_test, y_pred, train_loss=[], train_acc=[],
-                 val_loss=[], val_acc=[], training="n"):
+    def __init__(self, y_test, y_proba=[], training="n", train_loss=[],
+                 train_acc=[], val_loss=[], val_acc=[]):
         """ CustomMetrics class outputs a dictionary with a variety of
         metrics to evaluate the neural network performance.
         """
         # Test labels.
         self.y_test = y_test
-        self.y_pred = y_pred
-        # Generating predicted labels with shape:[0,0,0,0,0,1,0,0,0,0]
-        # in order to calculate categorial crossentropy. 
-        self.y_proba = []
-        for label in self.y_pred:
-            arr = [0.] * 10
-            arr[label] = 1.
-            self.y_proba.append(arr)
+        self.y_proba = y_proba
+        self.y_pred = np.argmax(self.y_proba, axis=1)
         
         # Training metrics.
         self.train_loss = train_loss
@@ -44,7 +38,7 @@ class CustomMetrics():
         rec = metrics.recall_score(self.y_test, self.y_pred, average=None)
     
         # We save the metrics into a dictionary.
-        metrics_dict = {"confusion matrix": conf_mat, "loss": loss,
+        metrics_dict = {"confusion matrix": conf_mat, "loss": loss, 
                         "accuracy": acc, "precision": pre, "recall": rec,
                         "training": self.training}
         
