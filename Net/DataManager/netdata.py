@@ -4,12 +4,14 @@
 # @author: dpascualhe
 #
 
+import time
+
 import cv2
 import numpy as np
 from keras import backend
+import matplotlib.pyplot as plt
 from keras.utils import np_utils, io_utils
 from keras.preprocessing import image as imkeras
-import matplotlib.pyplot as plt
 
 class NetData:
 
@@ -151,4 +153,13 @@ class NetData:
         
         return generator
 
+    def samples_extraction(self, x, nb_samples):
+        ''' Extracts a given number of samples from the given dataset
+        and saves them in the Datasets/Samples/ folder
+        '''
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        x = x.reshape(x.shape[0], 28, 28)
+        for i in range(nb_samples):
+            im = x[i] * 255
+            cv2.imwrite("../Datasets/Samples/" + timestr + "_" + str(i) + ".png", im)
     

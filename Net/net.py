@@ -25,6 +25,7 @@ from CustomMetrics.customcallback import LearningCurves
 np.random.seed(123)
 
 def add_layers(dropout):
+    ''' Adds to the Keras model the layers defined below '''
     model = Sequential()
     model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
                             border_mode="valid", activation="relu",
