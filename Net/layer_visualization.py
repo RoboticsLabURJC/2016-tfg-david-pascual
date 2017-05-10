@@ -14,11 +14,11 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from keras import backend as K
+from keras.utils import visualize_util
 from keras.models import load_model, Model
 
 def plot_activations(nb_filters, activations):
     ''' Plots the activations obtained between layers '''
-    nb_filters = activations.shape[3]
     for i in range(nb_filters):
         plt.subplot(math.ceil(nb_filters/7), 7, i + 1)
         plt.imshow(activations[0][:,:,i])
@@ -51,15 +51,21 @@ if __name__ == "__main__":
     model.predict(im)
     
     # First convolutional network activation and its plot
-    st_conv = Model(input=model.inputs,
-                    output=model.get_layer("convolution2d_1").output)
-    st_output = st_conv.predict(im)
-    plot_activations(st_output.shape[3], st_output)    
+    first_conv = Model(input=model.inputs,
+                       output=model.get_layer("convolution2d_1").output)
+    first_conv_activation = first_conv.predict(im)
+    plot_activations(first_conv_activation.shape[3], first_conv_activation)
+    first_conv_weights = model.get_layer("convolution2d_1").get_weights()
+    print("1st conv. layer weights shape: ", first_conv_weights[0].shape)
+    visualize_util.plot(first_conv, "1st_conv.png", show_shapes=True)
 
     # Second convolutional network activation and its plot
-    nd_conv = Model(input=model.input,
-                    output=model.get_layer("convolution2d_2").output)
-    nd_output = nd_conv.predict(im)
-    plot_activations(nd_output.shape[3], nd_output)
+    second_conv = Model(input=model.input,
+                        output=model.get_layer("convolution2d_2").output)
+    second_conv_activation = second_conv.predict(im)
+    plot_activations(second_conv_activation.shape[3], second_conv_activation)
+    second_conv_weights = model.get_layer("convolution2d_2").get_weights()
+    print("2nd conv. layer weights shape: ", second_conv_weights[0].shape)
+    visualize_util.plot(second_conv, "2nd_conv.png", show_shapes=True)
     
     

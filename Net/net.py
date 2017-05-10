@@ -13,6 +13,8 @@ import sys
 import numpy as np
 from sklearn import metrics
 from keras.utils import visualize_util
+from keras.callbacks import EarlyStopping
+from keras.callbacks import ModelCheckpoint
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential, load_model
@@ -24,27 +26,8 @@ from CustomMetrics.customcallback import LearningCurves
 # Seed for the computer pseudorandom number generator.
 np.random.seed(123)
 
-def add_layers(dropout):
-    ''' Adds to the Keras model the layers defined below '''
-    model = Sequential()
-    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                            border_mode="valid", activation="relu",
-                            input_shape=input_shape))
-    model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                            activation="relu"))
-    model.add(MaxPooling2D(pool_size=pool_size))
-    if dropout == "y":
-        model.add(Dropout(0.25))
-    model.add(Flatten())
-    model.add(Dense(128, activation="relu"))
-    if dropout == "y":
-        model.add(Dropout(0.5))
-    model.add(Dense(nb_classes, activation="softmax"))
-    
-    return model
-
 if __name__ == "__main__":  
-    nb_epoch = 12
+    nb_epoch = 100
     batch_size = 128
     nb_classes = 10
     labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -88,7 +71,17 @@ if __name__ == "__main__":
         (x_val, y_val), input_shape = data.adapt(X_val, Y_val)
         
         # We add layers to our model.
-        model = add_layers(dropout)
+        model = Sequential()
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                activation="relu", input_shape=input_shape))
+        model.add(MaxPooling2D(pool_size=pool_size))
+        if dropout == "y":
+            model.add(Dropout(0.25))
+        model.add(Flatten())
+        model.add(Dense(128, activation="relu"))
+        if dropout == "y":
+            model.add(Dropout(0.5))
+        model.add(Dense(nb_classes, activation="softmax"))
         
         # We compile our model.
         model.compile(loss="categorical_crossentropy", optimizer="adadelta",
@@ -96,9 +89,16 @@ if __name__ == "__main__":
             
         # We train the model and save data to plot a learning curve.
         learning_curves = LearningCurves()
-        validation = model.fit(x_train, y_train, batch_size=batch_size, 
-                               nb_epoch=nb_epoch, callbacks=[learning_curves],
-                               validation_data=(x_val, y_val))
+        early_stopping = EarlyStopping(monitor='val_loss', patience=2)
+        checkpoint = ModelCheckpoint("net.{epoch:02d}-{val_loss:.2f}.h5",
+                                     save_best_only=True)
+        
+        validation = model.fit(x_train, y_train,
+                               batch_size=batch_size, 
+                               nb_epoch=nb_epoch,
+                               validation_data=(x_val, y_val),
+                               callbacks=[learning_curves, early_stopping,
+                                          checkpoint])
             
         model.save("net.h5")
         visualize_util.plot(model, "net.png", show_shapes=True)
