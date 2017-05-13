@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Memoria.aux
+A level-1 auxiliary file: 0-Cover.aux
+A level-1 auxiliary file: 0-Acknowledgements.aux
+A level-1 auxiliary file: 0-Overview.aux
+A level-1 auxiliary file: 1-Abstract.aux
+A level-1 auxiliary file: 2-Goals.aux
+A level-1 auxiliary file: 3-Framework.aux
+A level-1 auxiliary file: 4-Development.aux
+A level-1 auxiliary file: 5-Evaluation.aux
+A level-1 auxiliary file: 6-Conclusion.aux
+A level-1 auxiliary file: 7-Bibliography.aux
+The style file: abbrv.bst
+Database file #1: Memoria.bib
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            512 strings with 3959 characters,
+and the built_in function-call counts, 261 in all, are:
+= -- 23
+> -- 13
+< -- 0
++ -- 5
+- -- 4
+* -- 11
+:= -- 50
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 7
+empty$ -- 23
+format.name$ -- 4
+if$ -- 54
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 8
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 9
+stack$ -- 0
+substring$ -- 5
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 12

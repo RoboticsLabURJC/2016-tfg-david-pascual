@@ -1,0 +1,98 @@
+\documentclass[a4paper, 12pt, oneside]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{layout}
+\usepackage{emptypage}
+\usepackage{fancyhdr}
+\usepackage{subfigure} % subfiguras
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[a4paper,top=3cm, bottom=3cm, inner=2.5cm, outer=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage[english]{babel}
+\usepackage{url}
+
+\usepackage{titlesec}
+\makeatletter
+\renewcommand{\@makeschapterhead}[1]{
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par \nobreak
+    \vskip 15\p@
+  }}
+\makeatother
+
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\headheight}{16pt} 
+
+\pretolerance=1000
+
+\chead[]{}
+\rhead[]{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\pagestyle{empty}
+
+\title{Vehicle Detection using Deep Learning}
+\author{David Pascual Hernández}
+
+\lstset{
+	float=hbp,
+	basicstyle=\ttfamily\small,
+	columns=flexible,
+	tabsize=4,
+	frame=single,
+	extendedchars=true,
+	showspaces=false,
+	showstringspaces=false,
+	numbers=none,
+	numberstyle=\tiny,
+	breaklines=false,
+	breakautoindent=true,
+	captionpos=b
+}
+
+\begin{document}
+%%%%%%%%%%%%%%% Cover %%%%%%%%%%%%%%%%%%%%
+\include{0-Cover}
+
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%% Acknowledgements %%%%%%%%%%%%
+\include{0-Acknowledgements}
+
+%%%%%%%%%%%%%%% Overview %%%%%%%%%%%%%%%%%%%%
+\include{0-Overview}
+
+%%%%%%%%%%%%%%% Índices %%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\listoffigures % Í­ndice de figuras
+\listoftables % Í­ndice de tablas
+\cleardoublepage
+
+%%%%%%%%%%%%%%% Chapters %%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setlength{\parindent}{6mm}
+
+\lhead[]{CHAPTER \thechapter. ABSTRACT}
+\include{1-Abstract}
+\lhead[]{CHAPTER \thechapter. GOALS}
+\include{2-Goals}
+\lhead[]{CHAPTER \thechapter. FRAMEWORK}
+\include{3-Framework}
+\lhead[]{CHAPTER \thechapter. DEVELOPMENT}
+\include{4-Development}
+\lhead[]{CHAPTER \thechapter. EVALUATION}
+\include{5-Evaluation}
+\lhead[]{CHAPTER \thechapter. CONCLUSION}
+\include{6-Conclusion}
+
+%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%
+\include{7-Bibliography}
+
+\end{document}
