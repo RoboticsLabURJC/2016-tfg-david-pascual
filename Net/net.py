@@ -12,7 +12,7 @@ import sys
 
 import numpy as np
 from sklearn import metrics
-from keras.utils import visualize_util
+from keras.utils import vis_utils
 from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
 from keras.layers import Convolution2D, MaxPooling2D
@@ -74,6 +74,13 @@ if __name__ == "__main__":
         model = Sequential()
         model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
                                 activation="relu", input_shape=input_shape))
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                activation="relu", input_shape=input_shape))
+        model.add(MaxPooling2D(pool_size=pool_size))
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                activation="relu", input_shape=input_shape))
+        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
+                                activation="relu", input_shape=input_shape))
         model.add(MaxPooling2D(pool_size=pool_size))
         if dropout == "y":
             model.add(Dropout(0.25))
@@ -90,7 +97,7 @@ if __name__ == "__main__":
         # We train the model and save data to plot a learning curve.
         learning_curves = LearningCurves()
         early_stopping = EarlyStopping(monitor='val_loss', patience=2)
-        checkpoint = ModelCheckpoint("net.{epoch:02d}-{val_loss:.2f}.h5",
+        checkpoint = ModelCheckpoint("net.h5", verbose=1, monitor='val_loss',
                                      save_best_only=True)
         
         validation = model.fit(x_train, y_train,
@@ -101,7 +108,7 @@ if __name__ == "__main__":
                                           checkpoint])
             
         model.save("net.h5")
-        visualize_util.plot(model, "net.png", show_shapes=True)
+        vis_utils.plot_model(model, "net.png", show_shapes=True)
     
     # If we haven't trained a new model, we ask for a model path for
     # testing. 
