@@ -1,0 +1,6 @@
+<launch>
+    <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen">
+    <remap from="image" to="/center_camera/image_color"/>
+    </node>
+</launch>
+
