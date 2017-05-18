@@ -15,7 +15,7 @@ from sklearn import metrics
 from keras.utils import vis_utils
 from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential, load_model
 
@@ -27,8 +27,8 @@ from CustomMetrics.customcallback import LearningCurves
 np.random.seed(123)
 
 if __name__ == "__main__":  
-    nb_epoch = 100
-    batch_size = 128
+    nb_epoch = 1
+    batch_size = 1280
     nb_classes = 10
     labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -40,26 +40,26 @@ if __name__ == "__main__":
     verbose = 0
     training = 0
     while training != "y" and training != "n":
-        training = input("Do you want to train the model?(y/n)")
+        training = raw_input("Do you want to train the model?(y/n)")
     while verbose != "y" and verbose != "n":
-        verbose = input("Verbose?(y/n)")
+        verbose = raw_input("Verbose?(y/n)")
 
     data = NetData(im_rows, im_cols, nb_classes, verbose)
     
     if training == "y":
         dropout = 0
         while dropout != "y" and dropout != "n":
-            dropout = input("Dropout?(y/n)")
-        train_ds = input("Train dataset path: ")
+            dropout = raw_input("Dropout?(y/n)")
+        train_ds = raw_input("Train dataset path: ")
         while not os.path.isfile(train_ds):
-            train_ds = input("Enter a valid path: ")
-        val_ds = input("Validation dataset path: ")
+            train_ds = raw_input("Enter a valid path: ")
+        val_ds = raw_input("Validation dataset path: ")
         while not os.path.isfile(val_ds):
-            val_ds = input("Enter a valid path: ")
+            val_ds = raw_input("Enter a valid path: ")
             
-    test_ds = input("Test dataset path: ")
+    test_ds = raw_input("Test dataset path: ")
     while not os.path.isfile(test_ds):
-        test_ds = input("Enter a valid path: ")
+        test_ds = raw_input("Enter a valid path: ")
         
     if training == "y":    
         # We load and reshape data in a way that it can work as input of
@@ -72,15 +72,20 @@ if __name__ == "__main__":
         
         # We add layers to our model.
         model = Sequential()
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation="relu", input_shape=input_shape))
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation="relu", input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
         model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation="relu", input_shape=input_shape))
-        model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
-                                activation="relu", input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
+        model.add(MaxPooling2D(pool_size=pool_size))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+                         input_shape=input_shape))
         model.add(MaxPooling2D(pool_size=pool_size))
         if dropout == "y":
             model.add(Dropout(0.25))
@@ -102,7 +107,7 @@ if __name__ == "__main__":
         
         validation = model.fit(x_train, y_train,
                                batch_size=batch_size, 
-                               nb_epoch=nb_epoch,
+                               epochs=nb_epoch,
                                validation_data=(x_val, y_val),
                                callbacks=[learning_curves, early_stopping,
                                           checkpoint])
@@ -113,9 +118,9 @@ if __name__ == "__main__":
     # If we haven't trained a new model, we ask for a model path for
     # testing. 
     if training == "n":
-        net = input("Net path: ")
+        net = raw_input("Net path: ")
         while not os.path.isfile(net):
-            net = input("Enter a valid path: ")
+            net = raw_input("Enter a valid path: ")
         model = load_model(net)
 
     # We load and reshape test data.
