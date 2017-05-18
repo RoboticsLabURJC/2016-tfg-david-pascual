@@ -13,44 +13,47 @@ A level-1 auxiliary file: 6-Conclusion.aux
 A level-1 auxiliary file: 7-Bibliography.aux
 The style file: abbrv.bst
 Database file #1: Memoria.bib
-You've used 1 entry,
+Warning--empty journal in Srivastava-et-al-2014
+Warning--empty year in Srivastava-et-al-2014
+You've used 3 entries,
             2118 wiz_defined-function locations,
-            512 strings with 3959 characters,
-and the built_in function-call counts, 261 in all, are:
-= -- 23
-> -- 13
+            523 strings with 4324 characters,
+and the built_in function-call counts, 880 in all, are:
+= -- 75
+> -- 59
 < -- 0
-+ -- 5
-- -- 4
-* -- 11
-:= -- 50
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 4
++ -- 23
+- -- 20
+* -- 56
+:= -- 162
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 7
-empty$ -- 23
-format.name$ -- 4
-if$ -- 54
+cite$ -- 5
+duplicate$ -- 29
+empty$ -- 62
+format.name$ -- 20
+if$ -- 174
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 8
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 29
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 15
 quote$ -- 0
-skip$ -- 9
+skip$ -- 21
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 15
+swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 12
+type$ -- 10
+warning$ -- 2
+while$ -- 6
+width$ -- 4
+write$ -- 31
+(There were 2 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.12)  13 MAY 2017 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.12)  18 MAY 2017 20:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -725,6 +725,18 @@ File: babel.def 2016/02/24 3.9q Babel common definitions
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 143.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count162
+))
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
 \ttl@box=\box30
@@ -742,21 +754,21 @@ Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
 ) (./6-Conclusion.aux) (./7-Bibliography.aux))
 \openout1 = `Memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 60.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -779,25 +791,8 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 95.
-
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count162
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count163
-\scratchdimen=\dimen152
-\scratchbox=\box31
-\nofMPsegments=\count164
-\nofMParguments=\count165
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count166
-\MPscratchDim=\dimen153
-\MPnumerator=\count167
-\makeMPintoPDFobject=\count168
-\everyMPtoPDFconversion=\toks26
-))) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -812,11 +807,11 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\Gin@req@height=\dimen154
-\Gin@req@width=\dimen155
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
 )
-\AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 59.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -824,11 +819,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count169
+\c@section@level=\count163
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 60.
+LaTeX Info: Redefining \pageref on input line 60.
+LaTeX Info: Redefining \nameref on input line 60.
 
 (./Memoria.out) (./Memoria.out)
 \@outlinefile=\write3
@@ -869,10 +864,24 @@ LaTeX Info: Redefining \nameref on input line 59.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count170
+\c@lstlisting=\count164
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count165
+\scratchdimen=\dimen154
+\scratchbox=\box32
+\nofMPsegments=\count166
+\nofMParguments=\count167
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count168
+\MPscratchDim=\dimen155
+\MPnumerator=\count169
+\makeMPintoPDFobject=\count170
+\everyMPtoPDFconversion=\toks26
+)
 \openout2 = `0-Cover.aux'.
 
-(./0-Cover.tex <figures/logo.jpg, id=28, 632.3625pt x 321.2pt>
+ (./0-Cover.tex <figures/logo.jpg, id=24, 632.3625pt x 321.2pt>
 File: figures/logo.jpg Graphic file (type jpg)
 
 <use figures/logo.jpg>
@@ -882,7 +891,7 @@ Package pdftex.def Info: figures/logo.jpg used on input line 7.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo.jpg>] <figu
-res/CC-BY-SA.png, id=38, 1284.8pt x 452.69125pt>
+res/CC-BY-SA.png, id=34, 1284.8pt x 452.69125pt>
 File: figures/CC-BY-SA.png Graphic file (type png)
 
 <use figures/CC-BY-SA.png>
@@ -904,7 +913,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.61 \include{0-Cover}
+l.62 \include{0-Cover}
                        [1 <./figures/CC-BY-SA.png>]
 \openout2 = `0-Acknowledgements.aux'.
 
@@ -988,13 +997,13 @@ l.13     \item A
 
 
 
-] [2] <figures/conf_mat.png, id=107, 562.1pt x 491.8375pt>
+] [2] [3] [4] <figures/conf_mat.png, id=117, 562.1pt x 491.8375pt>
 File: figures/conf_mat.png Graphic file (type png)
 
 <use figures/conf_mat.png>
-Package pdftex.def Info: figures/conf_mat.png used on input line 35.
+Package pdftex.def Info: figures/conf_mat.png used on input line 91.
 (pdftex.def)             Requested size: 341.43306pt x 298.7521pt.
-) [3 <./figures/conf_mat.png>]
+) [5] [6 <./figures/conf_mat.png>]
 \openout2 = `4-Development.aux'.
 
 
@@ -1007,7 +1016,7 @@ No file 5-Evaluation.tex.
 No file 6-Conclusion.tex.
 \openout2 = `7-Bibliography.aux'.
 
-(./7-Bibliography.tex (./Memoria.bbl)) [4
+(./7-Bibliography.tex (./Memoria.bbl)) [7
 
 
 
@@ -1018,39 +1027,41 @@ No file 6-Conclusion.tex.
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 99.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 99.
  (./Memoria.aux (./0-Cover.aux)
 (./0-Acknowledgements.aux) (./0-Overview.aux) (./1-Abstract.aux) (./2-Goals.aux
 ) (./3-Framework.aux) (./4-Development.aux) (./5-Evaluation.aux)
 (./6-Conclusion.aux) (./7-Bibliography.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 99.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 99.
 Package rerunfilecheck Info: File `Memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 090764174630B247BC761B9E9F46E5F8;324.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
+(rerunfilecheck)             Checksum: D3E88A8DAAC5A42AA8EB18C555E1A288;259.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 99.
  ) 
 Here is how much of TeX's memory you used:
- 10560 strings out of 494891
- 155053 string characters out of 6179039
- 256945 words of memory out of 5000000
- 13608 multiletter control sequences out of 15000+600000
+ 10611 strings out of 494891
+ 155851 string characters out of 6179039
+ 257941 words of memory out of 5000000
+ 13649 multiletter control sequences out of 15000+600000
  59698 words of font info for 46 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 40i,10n,43p,677b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,11n,43p,700b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/sha
-re/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmtt12.pfb>
-Output written on Memoria.pdf (9 pages, 327857 bytes).
+dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/sha
+re/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/
+lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmtt12.pfb>
+Output written on Memoria.pdf (12 pages, 349267 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 191 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

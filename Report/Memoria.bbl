@@ -5,4 +5,14 @@ F.~Chollet et~al.
 \newblock Keras.
 \newblock \url{https://github.com/fchollet/keras}, 2015.
 
+\bibitem{Goodfellow-et-al-2016}
+I.~Goodfellow, Y.~Bengio, and A.~Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem{Srivastava-et-al-2014}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
+\newblock Dropout: A simple way to prevent neural networks from overfitting.
+
 \end{thebibliography}

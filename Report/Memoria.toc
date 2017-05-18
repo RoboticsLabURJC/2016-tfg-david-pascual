@@ -1,7 +1,6 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Framework}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}JdeRobot}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}\textit {cameraserver}}{1}{subsection.1.1.1}
 \contentsline {section}{\numberline {1.2}Keras}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Scikit-Learn}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Octave}{3}{section.1.4}
+\contentsline {section}{\numberline {1.3}Scikit-Learn}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Octave}{5}{section.1.4}
