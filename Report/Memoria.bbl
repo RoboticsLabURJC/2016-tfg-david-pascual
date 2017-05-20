@@ -11,8 +11,32 @@ I.~Goodfellow, Y.~Bengio, and A.~Courville.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
 \bibitem{Srivastava-et-al-2014}
 N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 \newblock Dropout: A simple way to prevent neural networks from overfitting.
+\newblock {\em Journal of Machine Learning Research}, 2014.
+
+\bibitem{hdf5}
+{The HDF Group}.
+\newblock {Hierarchical Data Format, version 5}, 1997-2017.
+\newblock \url{http://www.hdfgroup.org/HDF5/}.
+
+\bibitem{2016arXiv160502688short}
+{Theano Development Team}.
+\newblock {Theano: A {Python} framework for fast computation of mathematical
+  expressions}.
+\newblock {\em arXiv e-prints}, abs/1605.02688, May 2016.
+
+\bibitem{DBLP:journals/corr/abs-1212-5701}
+M.~D. Zeiler.
+\newblock {ADADELTA:} an adaptive learning rate method.
+\newblock {\em CoRR}, abs/1212.5701, 2012.
 
 \end{thebibliography}

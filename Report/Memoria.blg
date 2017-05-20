@@ -13,47 +13,47 @@ A level-1 auxiliary file: 6-Conclusion.aux
 A level-1 auxiliary file: 7-Bibliography.aux
 The style file: abbrv.bst
 Database file #1: Memoria.bib
-Warning--empty journal in Srivastava-et-al-2014
-Warning--empty year in Srivastava-et-al-2014
-You've used 3 entries,
+Warning--entry type for "hdf5" isn't style-file defined
+--line 45 of file Memoria.bib
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            523 strings with 4324 characters,
-and the built_in function-call counts, 880 in all, are:
-= -- 75
-> -- 59
+            549 strings with 5121 characters,
+and the built_in function-call counts, 2289 in all, are:
+= -- 204
+> -- 163
 < -- 0
-+ -- 23
-- -- 20
-* -- 56
-:= -- 162
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 17
++ -- 65
+- -- 58
+* -- 161
+:= -- 420
+add.period$ -- 22
+call.type$ -- 7
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 29
-empty$ -- 62
-format.name$ -- 20
-if$ -- 174
+cite$ -- 7
+duplicate$ -- 67
+empty$ -- 146
+format.name$ -- 58
+if$ -- 447
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 29
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 39
+num.names$ -- 14
+pop$ -- 55
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 42
 quote$ -- 0
-skip$ -- 21
+skip$ -- 52
 stack$ -- 0
-substring$ -- 15
-swap$ -- 2
+substring$ -- 66
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
-warning$ -- 2
-while$ -- 6
-width$ -- 4
-write$ -- 31
-(There were 2 warnings)
+type$ -- 26
+warning$ -- 0
+while$ -- 16
+width$ -- 8
+write$ -- 77
+(There was 1 warning)
