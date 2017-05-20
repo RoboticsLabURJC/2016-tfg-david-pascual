@@ -27,8 +27,8 @@ from CustomMetrics.customcallback import LearningCurves
 np.random.seed(123)
 
 if __name__ == "__main__":  
-    nb_epoch = 1
-    batch_size = 1280
+    nb_epoch = 100
+    batch_size = 128
     nb_classes = 10
     labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -74,18 +74,10 @@ if __name__ == "__main__":
         model = Sequential()
         model.add(Conv2D(nb_filters, kernel_size, activation="relu",
                          input_shape=input_shape))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
-                         input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
         model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
-                         input_shape=input_shape))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
-                         input_shape=input_shape))
-        model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
-                         input_shape=input_shape))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
-                         input_shape=input_shape))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
+        model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
         model.add(MaxPooling2D(pool_size=pool_size))
         if dropout == "y":
             model.add(Dropout(0.25))
@@ -101,7 +93,7 @@ if __name__ == "__main__":
             
         # We train the model and save data to plot a learning curve.
         learning_curves = LearningCurves()
-        early_stopping = EarlyStopping(monitor='val_loss', patience=2)
+        early_stopping = EarlyStopping(monitor='val_loss', patience=5)
         checkpoint = ModelCheckpoint("net.h5", verbose=1, monitor='val_loss',
                                      save_best_only=True)
         
@@ -111,8 +103,6 @@ if __name__ == "__main__":
                                validation_data=(x_val, y_val),
                                callbacks=[learning_curves, early_stopping,
                                           checkpoint])
-            
-        model.save("net.h5")
         vis_utils.plot_model(model, "net.png", show_shapes=True)
     
     # If we haven't trained a new model, we ask for a model path for
