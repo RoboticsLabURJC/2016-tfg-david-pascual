@@ -18,6 +18,11 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
+\bibitem{sonka2014image}
+M.~Sonka, V.~Hlavac, and R.~Boyle.
+\newblock {\em Image processing, analysis, and machine vision}.
+\newblock Cengage Learning, 2014.
+
 \bibitem{Srivastava-et-al-2014}
 N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 \newblock Dropout: A simple way to prevent neural networks from overfitting.

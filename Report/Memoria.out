@@ -11,3 +11,10 @@
 \BOOKMARK [1][-]{section.1.4}{HDF5}{chapter.1}% 11
 \BOOKMARK [1][-]{section.1.5}{Scikit-learn}{chapter.1}% 12
 \BOOKMARK [1][-]{section.1.6}{Octave}{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Development}{}% 14
+\BOOKMARK [1][-]{section.2.1}{Digit classifier}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.1.1}{Datasets}{section.2.1}% 16
+\BOOKMARK [2][-]{subsection.2.1.2}{Classifier}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.3}{Benchmark}{section.2.1}% 18
+\BOOKMARK [2][-]{subsection.2.1.4}{Tuning the classifier}{section.2.1}% 19
+\BOOKMARK [2][-]{subsection.2.1.5}{digitclassifier.py}{section.2.1}% 20
