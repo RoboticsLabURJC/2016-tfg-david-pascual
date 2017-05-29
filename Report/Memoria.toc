@@ -3,22 +3,22 @@
 \contentsline {section}{\numberline {1.1}JdeRobot}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}\textit {cameraserver}}{1}{subsection.1.1.1}
 \contentsline {section}{\numberline {1.2}MNIST}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Keras}{2}{section.1.3}
+\contentsline {section}{\numberline {1.3}Keras}{3}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Models}{3}{subsection.1.3.1}
 \contentsline {subsection}{\numberline {1.3.2}Layers}{6}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Callbacks}{8}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Image Preprocessing}{8}{subsection.1.3.4}
-\contentsline {subsection}{\numberline {1.3.5}Utils}{9}{subsection.1.3.5}
-\contentsline {section}{\numberline {1.4}HDF5}{9}{section.1.4}
-\contentsline {section}{\numberline {1.5}Scikit-learn}{10}{section.1.5}
-\contentsline {section}{\numberline {1.6}Octave}{10}{section.1.6}
-\contentsline {chapter}{\numberline {2}Development}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Digit classifier}{12}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Datasets}{12}{subsection.2.1.1}
-\contentsline {subsubsection}{Edge detection}{13}{section*.8}
-\contentsline {subsubsection}{Data augmentation with Keras}{13}{section*.9}
-\contentsline {subsubsection}{Handmade augmented datasets}{15}{section*.11}
-\contentsline {subsection}{\numberline {2.1.2}Classifier}{15}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Benchmark}{15}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Tuning the classifier}{15}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}\textit {digitclassifier.py}}{15}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {1.3.3}Callbacks}{11}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Image Preprocessing}{11}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Utils}{12}{subsection.1.3.5}
+\contentsline {section}{\numberline {1.4}HDF5}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Scikit-learn}{12}{section.1.5}
+\contentsline {section}{\numberline {1.6}Octave}{13}{section.1.6}
+\contentsline {chapter}{\numberline {2}Development}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Digit classifier}{15}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Datasets}{15}{subsection.2.1.1}
+\contentsline {subsubsection}{Edge detection}{16}{section*.12}
+\contentsline {subsubsection}{Data augmentation with Keras}{16}{section*.13}
+\contentsline {subsubsection}{Handmade augmented datasets}{18}{section*.15}
+\contentsline {subsection}{\numberline {2.1.2}Classifier}{18}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Benchmark}{18}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Tuning the classifier}{18}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}\textit {digitclassifier.py}}{18}{subsection.2.1.5}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{chollet2015keras}
 F.~Chollet et~al.
@@ -11,12 +11,46 @@ I.~Goodfellow, Y.~Bengio, and A.~Courville.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem{jderobot}
+{JdeRobot developers}.
+\newblock {JdeRobot - Robotics and Computer Vision Technology that rocks and
+  matters!}
+\newblock \url{http://jderobot.org/Main_Page}.
+
+\bibitem{octave}
+S.~H. John W.~Eaton, David~Bateman and R.~Wehbring.
+\newblock {\em {GNU Octave} version 4.0.0 manual: a high-level interactive
+  language for numerical computations}.
+\newblock 2015.
+
+\bibitem{cs231n}
+A.~Karpathy.
+\newblock {CS231n Convolutional Neural Networks for Visual Recognition}.
+\newblock \url{http://cs231n.github.io/convolutional-networks/}.
+
+\bibitem{lecun-mnisthandwrittendigit-2010}
+Y.~LeCun and C.~Cortes.
+\newblock {MNIST} handwritten digit database.
+\newblock 2010.
+
 \bibitem{scikit-learn}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
   D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{Scherer2010Evaluation}
+D.~Scherer, A.~M{\"u}ller, and S.~Behnke.
+\newblock Evaluation of pooling operations in convolutional architectures for
+  object recognition.
+\newblock {\em Artificial Neural Networks--ICANN 2010}, pages 92--101, 2010.
+
+\bibitem{scikit-doc}
+{Scikit-learn developers}.
+\newblock {Documentation scikit-learn: machine learning in Python —
+  scikit-learn 0.18.1 documentation}.
+\newblock \url{http://scikit-learn.org/stable/documentation.html}.
 
 \bibitem{sonka2014image}
 M.~Sonka, V.~Hlavac, and R.~Boyle.
@@ -38,6 +72,11 @@ N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 \newblock {Theano: A {Python} framework for fast computation of mathematical
   expressions}.
 \newblock {\em arXiv e-prints}, abs/1605.02688, May 2016.
+
+\bibitem{DBLP:journals/corr/WongGSM16}
+S.~C. Wong, A.~Gatt, V.~Stamatescu, and M.~D. McDonnell.
+\newblock Understanding data augmentation for classification: when to warp?
+\newblock {\em CoRR}, abs/1609.08764, 2016.
 
 \bibitem{DBLP:journals/corr/abs-1212-5701}
 M.~D. Zeiler.

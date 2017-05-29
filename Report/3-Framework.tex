@@ -1,12 +1,12 @@
 \chapter{Framework}\label{ch:framework}
-This chapter serves as a way to introduce the tools that have been employed during the development of this project. All of them are \textbf{open-source}. The transparency provided by the open-source platforms is a major advantage, because the software can be joined together and adapted to our specific applications, which is mainly written in \textbf{Python} \footnote{\url{https://www.python.org/}}.
+This chapter serves as a way to introduce the tools that have been employed during the development of this project. All of them are \textbf{open-source}. The transparency provided by the open-source platforms is a major advantage, because the software can be joined together and adapted to our specific applications, which are mainly written in \textbf{Python} \footnote{\url{https://www.python.org/}}.
 
 \section{JdeRobot}\label{sec:jderobot}
-\textbf{JdeRobot} \footnote{\url{http://jderobot.org}} is an open source middleware for robotics and computer vision. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \textbf{ICE interfaces} \footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with \textbf{ROS} \footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application.
+\textbf{JdeRobot} \cite{jderobot} is an open source middleware for robotics and computer vision. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \textbf{ICE interfaces} \footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with \textbf{ROS} \footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application.
 Its \textbf{\textit{cameraserver} driver} is going to be employed to capture images from different video sources.
 
 \subsection{\textit{cameraserver}}\label{subsec:cameraserver}
-According to JdeRobot documentation, this driver can serve both real cameras and video files. It communicates with other components thanks to the \textbf{\textit{Camera} interface}.
+According to JdeRobot documentation \cite{jderobot}, this driver can serve both real cameras and video files. It communicates with other components thanks to the \textbf{\textit{Camera} interface}.
 
 In order to use \textbf{\textit{cameraserver}}, its configuration file has to be properly set. These are the parameters that must be specified:
 \begin{itemize}
@@ -16,9 +16,9 @@ In order to use \textbf{\textit{cameraserver}}, its configuration file has to be
 \end{itemize}
 
 \section{MNIST}\label{sec:MNIST}
-\textbf{MNIST (Modified National Institute of Standards and Technology database)} \footnote{\url{http://yann.lecun.com/exdb/mnist/}} is a database of \textbf{handwritten digits} formed by a training set, which contains 60000 samples, and a test set, containing 10000 samples. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. MNIST is a well-known \textbf{benchmark} for all kinds of machine learning algorithms.
+\textbf{MNIST (Modified National Institute of Standards and Technology database)} \cite{lecun-mnisthandwrittendigit-2010} is a database of \textbf{handwritten digits} formed by a training set, which contains 60000 samples, and a test set, containing 10000 samples. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. MNIST is a well-known \textbf{benchmark} for all kinds of machine learning algorithms.
 
-As may be seen in figure \ref{fig:mnist}, each sample of the MNIST database is a 28x28 pixels \textbf{grayscale image} that contains a \textbf{size-normalized} and \textbf{centered} digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels. The dataset must be \textbf{augmented} to face this problem\ref{subsec:datasets}.
+As may be seen in figure \ref{fig:mnist}, each sample of the MNIST database is a 28x28 pixels \textbf{grayscale image} that contains a \textbf{size-normalized} and \textbf{centered} digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels. The dataset must be \textbf{augmented} to face this problem \ref{subsec:datasets}.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, keepaspectratio]{figures/mnist.png}
@@ -35,7 +35,7 @@ In the following sections, the main elements that make up a neural network built
 Every neural network in Keras is defined as a \textbf{\textit{model}}. For those models which can be built as a stack of \textit{layers} \ref{subsec:layers}, Keras provides the \textbf{\textit{.Sequential()} object}. An example of a sequential model built with Keras can be seen in figure \ref{fig:model}. It is also possible to build more complex models with multiple outputs and shared layers using the \textbf{Keras functional API}.
 \begin{figure}
 	\centering
-	\includegraphics[width=8cm, keepaspectratio]{figures/model.png}
+	\includegraphics[width=0.75\linewidth, keepaspectratio]{figures/model.png}
 	\caption{Diagram of a Keras sequential model}
 	\label{fig:model}
 \end{figure}
@@ -50,8 +50,27 @@ Sequential models have several methods, and the following ones are essential for
 		\end{equation}		
 		Other loss functions such as mean squared error (MSE), mean absolute error and hinge are also provided by Keras.
 		
-		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the value of the loss function. The chosen algorithm for this task is \textbf{ADADELTA} \cite{DBLP:journals/corr/abs-1212-5701}.
+		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the loss function. The chosen algorithm for this task is \textbf{ADADELTA} \cite{DBLP:journals/corr/abs-1212-5701}. This optimizer is an extension of the \textbf{gradient descent} optimization method that has the particularity of adapting the learning rate during training with no need of manual tuning. It follows the next algorithm \cite{DBLP:journals/corr/abs-1212-5701}:
 		
+		\begin{minipage}{\linewidth}
+		\begin{algorithm}[H]
+			\caption{Computing ADADELTA update at time $t$}\label{adadelta}
+		  	\begin{algorithmic}[1]
+		  		\Require{Decay rate $\rho$, Constant $\epsilon$}
+		  		\Require{Initial parameter $x_1$}
+		  		\State Initialize accumulation variables $E[g^2]_0=0, E[\Delta x^2]_0 = 0$
+		  		\For{$t=1:T$} \Comment{Loop over \# of updates}
+		  		\State Compute gradient: $g_t$
+		  		\State Accumulate gradient: $E[g^2]_t=\rho E[g^2]_{t-1}+(1-\rho)g_t^2$
+		  		\State Compute update: $\Delta x_t=-\frac{\mathrm{RMS}[\Delta x]_{t-1}}{\mathrm{RMS}[g]_t}g_t$
+		  		\State Accumulate updates: $E[\Delta x^2]_t=\rho E[\Delta x^2]_{t-1}+(1-\rho)\Delta x_t^2$
+		  		\State Apply update: $x_{t+1}=x_t+\Delta x_t$
+				\EndFor
+		  		\State \textbf{end for}
+		  	\end{algorithmic}
+		\end{algorithm}
+		\end{minipage}\\
+				
 		Other optimization methods such as Adagrad, Adamax and Adam are also available.
 		
 		\item \textbf{\textit{metrics}}: name of the parameters that must be evaluated during training and testing. The only metric that is going to be calculated with Keras through this project, besides the result of the loss function which is automatically computed, is \textbf{accuracy}. It is defined as the proportion of examples for which the model produces the correct output \cite{Goodfellow-et-al-2016}.			
@@ -95,7 +114,9 @@ Sequential models have several methods, and the following ones are essential for
 \subsection{Layers}\label{subsec:layers}
 As it has been said before, the models are usually built as a \textbf{stack of layers}. These layers are added to the model using the \textbf{\textit{.add()} method}, inside of which the kind of layer is declared and its particular parameters are set. Several kinds of layers are available, but only the ones that have been used in this project are going to be described.
 \begin{description}
-	\item[Convolutional layer] This particular layer is the one that turns the neural network into a \textbf{convolutional neural network (CNN)}. It is formed by a fixed number of \textbf{filters/kernels} with a fixed size. These filters are convolved along the input image, generating each one a \textbf{feature or activation map} which will tell us to what extent the feature learned by that particular filter is present in the input image. Keras provides different kinds of convolutional layers depending on the input dimensions: \textit{Conv1D}, \textit{Conv2D} and \textit{Conv3D}. These are the main arguments required by Keras to define a convolutional layer:
+	\item[Convolutional layer] This particular layer is the one that turns the neural network into a \textbf{convolutional neural network (CNN)}. It is formed by a fixed number of \textbf{filters/kernels} with a fixed size. These filters are convolved along the input image, generating each one a \textbf{feature or activation map} which will tell us to what extent the feature learned by that particular filter is present in the input image \cite{cs231n}. It's important to note that the \textit{depth} of the filter will be equal to the number of channels of the input, which implies that each filter will generate just one activation map, instead of generating one for each channel. 
+	
+	Keras provides different kinds of convolutional layers depending on the input dimensions: \textit{Conv1D}, \textit{Conv2D} and \textit{Conv3D}. These are the main arguments required by Keras to define a convolutional layer:
 	\begin{itemize}
 		\item \textbf{\textit{filters}}: number of filters.
 		
@@ -105,10 +126,38 @@ As it has been said before, the models are usually built as a \textbf{stack of l
 		
 		\item \textbf{\textit{padding}}: it can be \textit{valid} or \textit{same}. If \textit{valid} mode is set, no padding is applied, resulting in a reduced output. However, if \textit{same} mode is set, the input will be padded with zeros in order to produce an output that preserves the input size. It defaults to \textit{valid}.
 	\end{itemize}
+
+	Figure \ref{fig:convlayer} shows how the convolutional layers work. 
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{figures/convlayer_anime1big.png}
+			\caption{}\label{fig:conv_a}
+		\end{subfigure}
+		\begin{subfigure}{0.65\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{figures/convlayer_anime2big.png}
+			\caption{}\label{fig:conv_b}
+		\end{subfigure}
+		\caption[Convolutional layer]{In the figure \ref{fig:conv_a}, the filter $w_0$ (3x3x3) is convolved with the input image (5x5x3). As padding is set to 1 pixel around the input and the stride is equal to 2 pixels, the operation will return a 3x3 activation map. The same procedure is followed in the figure \ref{fig:conv_b} with the filter $w_1$. It generates another 3x3 activation map, ending up with a 3x3x2 output (depth = number of filters = 2). These images have been extracted from \cite{cs231n}}
+		\label{fig:convlayer}
+	\end{figure}
+	
 \end{description}
 
 \begin{description}
-	\item[{Pooling layer}] It shifts a window of a certain size along the input image applying an operation (mean or maximum) that will return a \textbf{\textit{downsampled} version} of it. Depending on the dimensions of the input and the operation applied, Keras provides several pooling layers: \textit{MaxPooling1D}, \textit{MaxPooling2D}, \textit{MaxPooling3D}, \textit{AveragePooling1D}... The main arguments required by Keras to define these layers are:
+	\item[{Pooling layer}] It shifts a window of a certain size along the input image applying an operation (mean or maximum) that will return a \textbf{\textit{downsampled} version} of it, reducing the computational cost and avoiding over-fitting \cite{Scherer2010Evaluation}. Figure \ref{fig:pooling} shows how the pooling operation is applied.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=10cm, keepaspectratio]{figures/pooling.png}
+		\caption{Example of a max. pooling operation}
+		\label{fig:pooling}
+	\end{figure}
+	
+	Depending on the dimensions of the input and the operation applied, Keras provides several pooling layers: \textit{MaxPooling1D}, \textit{MaxPooling2D}, \textit{MaxPooling3D}, \textit{AveragePooling1D}... The main arguments required by Keras to define these layers are:
 	\begin{itemize}
 		\item \textbf{\textit{pool\_size}}: size of the window that is shifted along the input. It can also be interpreted as the factor by which the input is going to be downsampled.
 		\item \textbf{\textit{strides}}: how many pixels the window must be shifted before applying the next operation.
@@ -116,7 +165,7 @@ As it has been said before, the models are usually built as a \textbf{stack of l
 \end{description}
 
 \begin{description}
-	\item[Dense layer] Fully-connected layers in Keras are defined as \textit{Dense layers}. In a \textbf{fully-connected layer}, every neuron is connected to every activation (output) of the previous one. The main argument of this layer is:
+	\item[Dense layer] Fully-connected layers in Keras are defined as \textit{Dense layers}. In a \textbf{fully-connected layer}, every neuron is connected to every activation (output) of the previous one \cite{cs231n}. The main argument of this layer is:
 	\begin{itemize}
 		\item \textbf{\textit{units}}: number of neurons.
 	\end{itemize} 
@@ -135,7 +184,24 @@ As it has been said before, the models are usually built as a \textbf{stack of l
 		\mathrm{softmax}(z)_i=\frac{\exp(z_i)}{\Sigma_{j}{\exp(z_j)}} \quad \mathrm{for} \ j=1, ...,N
 		\end{equation}
 	\end{itemize}
-	These equations \cite{Goodfellow-et-al-2016} are equivalent to the ones employed by Keras, defined by its backends: Theano and Tensorflow.
+	These equations have been extracted from \cite{Goodfellow-et-al-2016}. Figure \ref{fig:activations} shows these activation functions plotted in the interval [-1,1].
+
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{figures/relu.png}
+			\caption{ReLU activation function}\label{fig:relu}
+		\end{subfigure}%
+		\begin{subfigure}{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\linewidth]{figures/softmax.png}
+			\caption{Softmax activation function}\label{fig:softmax}
+		\end{subfigure}
+		\caption[Activation functions]{}
+		\label{fig:activations}
+	\end{figure}
+	
 \end{description}
 
 \begin{description}
@@ -143,10 +209,20 @@ As it has been said before, the models are usually built as a \textbf{stack of l
 \end{description}
 
 \begin{description}
-	\item[Dropout layer] It's considered a \textbf{regularization layer}, because its main purpose is to avoid over-fitting. Dropout \cite{Srivastava-et-al-2014} is a technique that randomly \textbf{\textit{switches-off}} a fraction of hidden units during training, both forward and backward propagation. This layer, as other regularization layers (i.e. GaussianNoise layer), is only active during training. It's main argument is:
+	\item[Dropout layer] It's considered a \textbf{regularization layer}, because its main purpose is to avoid over-fitting. Dropout \cite{Srivastava-et-al-2014} is a technique that randomly \textbf{\textit{switches-off}} a fraction of hidden units during training, both forward and backward propagation. Another point of view of how dropout works can be seen in figure \ref{fig:dropout}.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth, keepaspectratio]{figures/dropout.png}
+		\caption[Subnetworks generated when using dropout]{Dropout can be understood as a technique that "trains an ensemble consisting of all subnetworks that can be structured by removing non-output units from an underlying base network" \cite{Goodfellow-et-al-2016}.}
+		\label{fig:dropout}
+	\end{figure}	
+
+	 This layer, as other regularization layers (i.e. GaussianNoise layer), is only active during training. It's main argument is:
 	\begin{itemize}
 		\item \textbf{\textit{rate}}: fraction of units that must be dropped.
 	\end{itemize}
+	
 \end{description}
 
 \subsection{Callbacks} \label{subsec:callbacks}
@@ -162,7 +238,7 @@ As defined by Keras documentation \cite{chollet2015keras}, \textbf{callbacks} ar
 Additionally, Keras provides the \textit{Callback} base class that can be used to build \textbf{user-defined callbacks}.
 
 \subsection{Image Preprocessing}
-\textbf{Image preprocessing} is a key factor in every computer vision application. Specifically, in machine learning, besides adapting the image and extracting features before the training that can improve the model performance (i.e. edge extraction), it can be used to avoid \textbf{over-fitting} through data augmentation. \textbf{Data augmentation} consists in taking the samples that the dataset already contains and applying transformations to them, generating new samples that may be closer to real world and, in any case, enlarging the dataset with new data.
+\textbf{Image preprocessing} is a key factor in every computer vision application. Specifically, in machine learning, besides adapting the image and extracting features before the training that can improve the model performance (i.e. edge extraction), it can be used to avoid \textbf{over-fitting} through data augmentation. \textbf{Data augmentation} \cite{DBLP:journals/corr/WongGSM16} consists in taking the samples that the dataset already contains and applying transformations to them, generating new samples that may be closer to real world and, in any case, enlarging the dataset with new data.
 
 This functionality is included in Keras thanks to the \textbf{\textit{.ImageDataGenerator()} method}. It returns a batch generator which randomly applies the desired \textbf{transformations} to random samples of the dataset provided by the user. Built-in transformations like rotation, shifting and zooming, are passed as arguments to the aforementioned method. Additionally, it's possible to build a user-defined function and pass it as an argument as well. The dataset, and the batch size are defined through the \textbf{\textit{.flow()} method}. During training, the generator will loop until the number of samples per epoch and the number of epochs set by the user are satisfied.
 
@@ -179,7 +255,7 @@ In order to deal with HDF5 files, the \textbf{h5py} \footnote{\url{http://www.h5
 \section{Scikit-learn}\label{sec:sklearn}
 \textbf{Scikit-learn} \cite{scikit-learn} is a \textbf{machine learning library} that includes a wide variety of algorithms for clustering, regression and classification. It can be used during the whole machine learning process: preprocessing, training, model selection and evaluation.
 
-Scikit-learn functions have been used to evaluate the neural networks developed with Keras. Using a tool that is \textbf{independent from Keras} enables the comparison of the results achieved by different neural network libraries (e.g. Keras and Caffe). These are the \textbf{metrics} employed in this project:
+Scikit-learn functions have been used to evaluate the neural networks developed with Keras. Using a tool that is \textbf{independent from Keras} enables the comparison of the results achieved by different neural network libraries (e.g. Keras and Caffe). These are the \textbf{metrics} employed in this project (equations obtained from \cite{scikit-doc}):
 \begin{itemize}
 	\item \textbf{Precision}: ability of the classifier not to label as positive a sample that is negative.
 	\begin{equation}\label{eq:precision}
@@ -197,7 +273,7 @@ Scikit-learn functions have been used to evaluate the neural networks developed 
 Besides the metrics that have just been mentioned, \textbf{accuracy} and \textbf{log loss} have also been used and they're defined as in section \ref{subsec:models}.
 
 \section{Octave} \label{sec:octave}
-\textbf{GNU Octave} \footnote{\url{https://www.gnu.org/software/octave/}} is a scientific programming language compatible with \textbf{Matlab}. It provides powerful tools for \textbf{plotting}, which have been used to visualize the data collected with Scikit-learn about the performance of the models. An example of Octave usage can be seen in the figure \ref{fig:conf_mat}.
+\textbf{GNU Octave} \cite{octave} is a scientific programming language compatible with \textbf{Matlab}. It provides powerful tools for \textbf{plotting}, which have been used to visualize the data collected with Scikit-learn about the performance of the models. An example of Octave usage can be seen in the figure \ref{fig:conf_mat}.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, keepaspectratio]{figures/conf_mat.png}
