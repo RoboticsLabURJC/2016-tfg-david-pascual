@@ -1,44 +1,13 @@
 \chapter{Framework}\label{ch:framework}
 This chapter serves as a way to introduce the tools that have been employed during the development of this project. All of them are \textbf{open-source}. The transparency provided by the open-source platforms is a major advantage, because the software can be joined together and adapted to our specific applications, which are mainly written in \textbf{Python} \footnote{\url{https://www.python.org/}}.
 
-\section{JdeRobot}\label{sec:jderobot}
-\textbf{JdeRobot} \cite{jderobot} is an open source middleware for robotics and computer vision. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \textbf{ICE interfaces} \footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with \textbf{ROS} \footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application.
-Its \textbf{\textit{cameraserver} driver} is going to be employed to capture images from different video sources.
-
-\subsection{\textit{cameraserver}}\label{subsec:cameraserver}
-According to JdeRobot documentation \cite{jderobot}, this driver can serve both real cameras and video files. It communicates with other components thanks to the \textbf{\textit{Camera} interface}.
-
-In order to use \textbf{\textit{cameraserver}}, its configuration file has to be properly set. These are the parameters that must be specified:
-\begin{itemize}
-    \item The \textbf{network address} where the server is going to be listening.
-    
-    \item Parameters related with the \textbf{video stream}: URI, frame rate, image size and format.
-\end{itemize}
-
-\section{MNIST}\label{sec:MNIST}
-\textbf{MNIST (Modified National Institute of Standards and Technology database)} \cite{lecun-mnisthandwrittendigit-2010} is a database of \textbf{handwritten digits} formed by a training set, which contains 60000 samples, and a test set, containing 10000 samples. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. MNIST is a well-known \textbf{benchmark} for all kinds of machine learning algorithms.
-
-As may be seen in figure \ref{fig:mnist}, each sample of the MNIST database is a 28x28 pixels \textbf{grayscale image} that contains a \textbf{size-normalized} and \textbf{centered} digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels. The dataset must be \textbf{augmented} to face this problem \ref{subsec:datasets}.
-\begin{figure}
-	\centering
-	\includegraphics[width=12cm, keepaspectratio]{figures/mnist.png}
-	\caption{Samples extracted from the MNIST database}
-	\label{fig:mnist}
-\end{figure}
-
 \section{Keras}\label{sec:keras}
 As stated by \textbf{Keras} documentation \cite{chollet2015keras}: "Keras is a high-level \textbf{neural network library}, written in Python and capable of running on top of either TensorFlow or Theano". TensorFlow and Theano are open-source libraries for numerical computation optimized for GPU and CPU that Keras treats as its \textit{backends}. In this project, Keras is running on top of \textbf{Theano} \footnote{\url{http://deeplearning.net/software/theano/index.html}} optimized for CPU, but it's quite easy to switch from one backend to another.
 
 In the following sections, the main elements that make up a neural network built with Keras are going to be analyzed, starting with the \textbf{\textit{model} object}, its core component.
 
 \subsection{Models}\label{subsec:models}
-Every neural network in Keras is defined as a \textbf{\textit{model}}. For those models which can be built as a stack of \textit{layers} \ref{subsec:layers}, Keras provides the \textbf{\textit{.Sequential()} object}. An example of a sequential model built with Keras can be seen in figure \ref{fig:model}. It is also possible to build more complex models with multiple outputs and shared layers using the \textbf{Keras functional API}.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.75\linewidth, keepaspectratio]{figures/model.png}
-	\caption{Diagram of a Keras sequential model}
-	\label{fig:model}
-\end{figure}
+Every neural network in Keras is defined as a \textbf{\textit{model}}. For those models which can be built as a stack of \textit{layers} \ref{subsec:layers}, Keras provides the \textbf{\textit{.Sequential()} object}. An example of a sequential model built with Keras can be seen in the following chapter in the figure \ref{fig:model}. It is also possible to build more complex models with multiple outputs and shared layers using the \textbf{Keras functional API}.
 
 Sequential models have several methods, and the following ones are essential for the learning process:
 \begin{description}
@@ -50,8 +19,7 @@ Sequential models have several methods, and the following ones are essential for
 		\end{equation}		
 		Other loss functions such as mean squared error (MSE), mean absolute error and hinge are also provided by Keras.
 		
-		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the loss function. The chosen algorithm for this task is \textbf{ADADELTA} \cite{DBLP:journals/corr/abs-1212-5701}. This optimizer is an extension of the \textbf{gradient descent} optimization method that has the particularity of adapting the learning rate during training with no need of manual tuning. It follows the next algorithm \cite{DBLP:journals/corr/abs-1212-5701}:
-		
+		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the loss function. The chosen algorithm for this task is \textbf{ADADELTA} \cite{DBLP:journals/corr/abs-1212-5701}. This optimizer is an extension of the \textbf{gradient descent} optimization method that has the particularity of adapting the learning rate during training with no need of manual tuning. According to the paper in which it is defined \cite{DBLP:journals/corr/abs-1212-5701}, it follows the next algorithm:		
 		\begin{minipage}{\linewidth}
 		\begin{algorithm}[H]
 			\caption{Computing ADADELTA update at time $t$}\label{adadelta}
@@ -131,12 +99,12 @@ As it has been said before, the models are usually built as a \textbf{stack of l
 	
 	\begin{figure}
 		\centering
-		\begin{subfigure}{0.65\textwidth}
+		\begin{subfigure}{0.625\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{figures/convlayer_anime1big.png}
 			\caption{}\label{fig:conv_a}
 		\end{subfigure}
-		\begin{subfigure}{0.65\textwidth}
+		\begin{subfigure}{0.625\textwidth}
 			\centering
 			\includegraphics[width=1\linewidth]{figures/convlayer_anime2big.png}
 			\caption{}\label{fig:conv_b}
@@ -237,13 +205,64 @@ As defined by Keras documentation \cite{chollet2015keras}, \textbf{callbacks} ar
 
 Additionally, Keras provides the \textit{Callback} base class that can be used to build \textbf{user-defined callbacks}.
 
-\subsection{Image Preprocessing}
+\subsection{Image Preprocessing}\label{subsec:utils}
 \textbf{Image preprocessing} is a key factor in every computer vision application. Specifically, in machine learning, besides adapting the image and extracting features before the training that can improve the model performance (i.e. edge extraction), it can be used to avoid \textbf{over-fitting} through data augmentation. \textbf{Data augmentation} \cite{DBLP:journals/corr/WongGSM16} consists in taking the samples that the dataset already contains and applying transformations to them, generating new samples that may be closer to real world and, in any case, enlarging the dataset with new data.
 
 This functionality is included in Keras thanks to the \textbf{\textit{.ImageDataGenerator()} method}. It returns a batch generator which randomly applies the desired \textbf{transformations} to random samples of the dataset provided by the user. Built-in transformations like rotation, shifting and zooming, are passed as arguments to the aforementioned method. Additionally, it's possible to build a user-defined function and pass it as an argument as well. The dataset, and the batch size are defined through the \textbf{\textit{.flow()} method}. During training, the generator will loop until the number of samples per epoch and the number of epochs set by the user are satisfied.
 
 \subsection{Utils}
 Keras include a module for multiple supplementary tasks called \textbf{\textit{Utils}}. The most important functionality for the project provided by this module is the \textbf{\textit{.HDF5Matrix()} method}. It reads the \textbf{HDF5 datasets} \ref{sec:hdf}, which are going to be used as inputs to the neural networks.
+
+\section{JdeRobot}\label{sec:jderobot}
+\textbf{JdeRobot} \cite{jderobot} is an open source middleware for robotics and computer vision. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \textbf{ICE interfaces} \footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with \textbf{ROS} \footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application.
+Its \textbf{\textit{cameraserver} driver} is going to be employed to capture images from different video sources.
+
+\subsection{\textit{cameraserver}}\label{subsec:cameraserver}
+According to JdeRobot documentation \cite{jderobot}, this driver can serve both real cameras and video files. It communicates with other components thanks to the \textbf{\textit{Camera} interface}.
+
+In order to use \textbf{\textit{cameraserver}}, its configuration file has to be properly set. These are the parameters that must be specified:
+\begin{itemize}
+	\item The \textbf{network address} where the server is going to be listening.
+	
+	\item Parameters related with the \textbf{video stream}: URI, frame rate, image size and format.
+\end{itemize}
+
+\section{DroidCam}\label{sec:droidcam}
+On one hand, \textbf{DroidCam} \cite{droidcam} is an application for Android which serves the images captured with a \textbf{smartphone camera}. On the other hand, it is \textbf{a client for Linux} which receives the video stream served by Android and makes it accessible for the computer as a \textbf{v4l2 \footnote{\url{https://www.linuxtv.org/wiki/index.php/Main_Page}} device driver}. The Linux client can be connected to the phone camera over a \textbf{USB} cable or a \textbf{WiFi network} and allows the user to control camera flash, auto-focus and zoom. DroidCam provides the address (IP and port) at which the Linux client must be listening to receive the images. In the figure \ref{fig:droidcam} can be seen how it works. Additionally, the Android application provides a \textbf{URL} that can be used to access the video stream from any browser. 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/droidcampre.png}
+		\caption{}
+		\label{fig:droidpre}
+	\end{subfigure}%
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/droidcamlinux.png}
+		\caption{}
+		\label{fig:droidlinux}
+	\end{subfigure}%
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{figures/droidcampost.png}
+		\caption{}
+		\label{fig:droidpost}
+	\end{subfigure}
+	\caption[DroidCam usage]{First, the Android APP is opened. It shows the address where the video is served (figure \ref{fig:droidpre}). Then, the adress is set in the Linux client (figure \ref{fig:droidlinux}). Finally, when the \textit{Connect} button is pressed, the connection is established (figure \ref{fig:droidpost})}
+	\label{fig:droidcam}
+\end{figure}
+	
+\section{MNIST}\label{sec:MNIST}
+\textbf{MNIST (Modified National Institute of Standards and Technology database)} \cite{lecun-mnisthandwrittendigit-2010} is a database of \textbf{handwritten digits} formed by a training set, which contains 60000 samples, and a test set, containing 10000 samples. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. MNIST is a well-known \textbf{benchmark} for all kinds of machine learning algorithms.
+
+As may be seen in figure \ref{fig:mnist}, each sample of the MNIST database is a 28x28 pixels \textbf{grayscale image} that contains a \textbf{size-normalized} and \textbf{centered} digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels. The dataset must be \textbf{augmented} to face this problem \ref{subsec:datasets}.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm, keepaspectratio]{figures/mnist.png}
+	\caption{Samples extracted from the MNIST database}
+	\label{fig:mnist}
+\end{figure}
 
 \section{HDF5}\label{sec:hdf}
 During the development of this project, \textbf{huge amounts of data} have been processed. That's why an efficient way of reading and saving this data has been an important point. Keras employs the \textbf{HDF5 file format} to save models and read datasets.

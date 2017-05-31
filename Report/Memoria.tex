@@ -6,6 +6,7 @@
 \usepackage{emptypage}
 \usepackage{fancyhdr}
 \usepackage{fancyref}
+\usepackage{fancyvrb}
 \usepackage{subcaption} % subfiguras
 \usepackage{caption}
 \usepackage{mathtools}
@@ -21,7 +22,12 @@
 \usepackage{amsmath}
 \usepackage[noend]{algpseudocode}
 
-\lstset{frame=tb,
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{frame=single,
 	language=Python,
 	aboveskip=3mm,
 	belowskip=3mm,
@@ -29,9 +35,10 @@
 	columns=flexible,
 	basicstyle={\small\ttfamily},
 	numbers=none,
-	numberstyle=\tiny\color{red},
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
 	keywordstyle=\color{blue},
-	commentstyle=\color{green},
+	numberstyle=\color{codepurple},
 	stringstyle=\color{magenta},
 	breaklines=true,
 	breakatwhitespace=true,
@@ -64,22 +71,6 @@
 \title{Vehicle Detection using Deep Learning}
 \author{David Pascual Hernández}
 
-\lstset{
-	float=hbp,
-	basicstyle=\ttfamily\small,
-	columns=flexible,
-	tabsize=4,
-	frame=single,
-	extendedchars=true,
-	showspaces=false,
-	showstringspaces=false,
-	numbers=none,
-	numberstyle=\tiny,
-	breaklines=false,
-	breakautoindent=true,
-	captionpos=b
-}
-
 \begin{document}
 %%%%%%%%%%%%%%% Cover %%%%%%%%%%%%%%%%%%%%
 \include{0-Cover}
@@ -94,8 +85,7 @@
 
 %%%%%%%%%%%%%%% Índices %%%%%%%%%%%%%%%%%%%%
 \tableofcontents
-\listoffigures % Í­ndice de figuras
-\listoftables % Í­ndice de tablas
+\listoffigures % Í­ndice de figura
 \cleardoublepage
 
 %%%%%%%%%%%%%%% Chapters %%%%%%%%%%%%%%%%%%
@@ -109,8 +99,8 @@
 \include{2-Goals}
 \lhead[]{CHAPTER \thechapter. FRAMEWORK}
 \include{3-Framework}
-\lhead[]{CHAPTER \thechapter. DEVELOPMENT}
-\include{4-Development}
+\lhead[]{CHAPTER \thechapter. DIGIT CLASSIFIER}
+\include{4-Digit_classifier}
 \lhead[]{CHAPTER \thechapter. EVALUATION}
 \include{5-Evaluation}
 \lhead[]{CHAPTER \thechapter. CONCLUSION}

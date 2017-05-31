@@ -5,17 +5,44 @@ F.~Chollet et~al.
 \newblock Keras.
 \newblock \url{https://github.com/fchollet/keras}, 2015.
 
+\bibitem{lmdb_tutorial}
+C.~Choy.
+\newblock {Reading protobuf DB in Python}.
+\newblock
+  \url{https://chrischoy.github.io/research/reading-protobuf-db-in-python/}.
+
+\bibitem{droidcam}
+DEV47APPS.
+\newblock {Dev47Apps}.
+\newblock \url{http://www.dev47apps.com/}.
+
 \bibitem{Goodfellow-et-al-2016}
 I.~Goodfellow, Y.~Bengio, and A.~Courville.
 \newblock {\em Deep Learning}.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem{protobuf}
+{Google developers}.
+\newblock {Protocol Buffer Basics: Python}.
+\newblock
+  \url{https://developers.google.com/protocol-buffers/docs/pythontutorial}.
+
+\bibitem{itseez2014theopencv}
+Itseez.
+\newblock {\em The OpenCV Reference Manual}, 2.4.9.0 edition, April 2014.
+
 \bibitem{jderobot}
 {JdeRobot developers}.
 \newblock {JdeRobot - Robotics and Computer Vision Technology that rocks and
   matters!}
 \newblock \url{http://jderobot.org/Main_Page}.
+
+\bibitem{jia2014caffe}
+Y.~Jia, E.~Shelhamer, J.~Donahue, S.~Karayev, J.~Long, R.~Girshick,
+  S.~Guadarrama, and T.~Darrell.
+\newblock Caffe: Convolutional architecture for fast feature embedding.
+\newblock {\em arXiv preprint arXiv:1408.5093}, 2014.
 
 \bibitem{octave}
 S.~H. John W.~Eaton, David~Bateman and R.~Wehbring.
