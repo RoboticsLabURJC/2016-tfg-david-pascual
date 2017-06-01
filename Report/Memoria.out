@@ -20,8 +20,11 @@
 \BOOKMARK [2][-]{subsection.2.1.4}{Training the model}{section.2.1}% 20
 \BOOKMARK [2][-]{subsection.2.1.5}{Testing the model}{section.2.1}% 21
 \BOOKMARK [1][-]{section.2.2}{digitclassifier.py}{chapter.2}% 22
-\BOOKMARK [1][-]{section.2.3}{Datasets}{chapter.2}% 23
-\BOOKMARK [2][-]{subsection.2.3.1}{Edge detection}{section.2.3}% 24
-\BOOKMARK [2][-]{subsection.2.3.2}{Data augmentation}{section.2.3}% 25
-\BOOKMARK [1][-]{section.2.4}{Benchmark}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.5}{Tuning the classifier}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.2.1}{GUI class}{section.2.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.2}{Threads}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.3}{Main program}{section.2.2}% 25
+\BOOKMARK [1][-]{section.2.3}{Datasets}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.3.1}{Edge detection}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.2}{Data augmentation}{section.2.3}% 28
+\BOOKMARK [1][-]{section.2.4}{Benchmark}{chapter.2}% 29
+\BOOKMARK [1][-]{section.2.5}{Tuning the classifier}{chapter.2}% 30

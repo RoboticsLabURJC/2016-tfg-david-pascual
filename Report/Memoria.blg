@@ -27,47 +27,51 @@ Warning--entry type for "lmdb_tutorial" isn't style-file defined
 --line 138 of file Memoria.bib
 Warning--entry type for "droidcam" isn't style-file defined
 --line 144 of file Memoria.bib
+Warning--entry type for "pyqt5" isn't style-file defined
+--line 158 of file Memoria.bib
+Warning--entry type for "threading" isn't style-file defined
+--line 164 of file Memoria.bib
 Warning--empty publisher in octave
 Warning--empty journal in lecun-mnisthandwrittendigit-2010
-You've used 20 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            606 strings with 7088 characters,
-and the built_in function-call counts, 5594 in all, are:
-= -- 505
-> -- 334
+            618 strings with 7384 characters,
+and the built_in function-call counts, 6030 in all, are:
+= -- 549
+> -- 348
 < -- 1
-+ -- 135
-- -- 114
-* -- 331
-:= -- 983
-add.period$ -- 60
-call.type$ -- 20
-change.case$ -- 114
++ -- 141
+- -- 118
+* -- 349
+:= -- 1057
+add.period$ -- 66
+call.type$ -- 22
+change.case$ -- 122
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 189
-empty$ -- 420
-format.name$ -- 114
-if$ -- 1135
+cite$ -- 24
+duplicate$ -- 203
+empty$ -- 464
+format.name$ -- 118
+if$ -- 1231
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 22
 missing$ -- 14
-newline$ -- 103
-num.names$ -- 38
-pop$ -- 172
+newline$ -- 113
+num.names$ -- 42
+pop$ -- 178
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 103
 quote$ -- 0
-skip$ -- 144
+skip$ -- 164
 stack$ -- 0
-substring$ -- 160
-swap$ -- 26
+substring$ -- 170
+swap$ -- 28
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 82
 warning$ -- 2
-while$ -- 43
-width$ -- 22
-write$ -- 200
-(There were 9 warnings)
+while$ -- 47
+width$ -- 24
+write$ -- 226
+(There were 11 warnings)

@@ -7,13 +7,13 @@ F.~Chollet et~al.
 
 \bibitem{lmdb_tutorial}
 C.~Choy.
-\newblock {Reading protobuf DB in Python}.
+\newblock Reading protobuf db in python, 2015.
 \newblock
   \url{https://chrischoy.github.io/research/reading-protobuf-db-in-python/}.
 
 \bibitem{droidcam}
 DEV47APPS.
-\newblock {Dev47Apps}.
+\newblock {Dev47Apps}, 2010-2016.
 \newblock \url{http://www.dev47apps.com/}.
 
 \bibitem{Goodfellow-et-al-2016}
@@ -24,7 +24,7 @@ I.~Goodfellow, Y.~Bengio, and A.~Courville.
 
 \bibitem{protobuf}
 {Google developers}.
-\newblock {Protocol Buffer Basics: Python}.
+\newblock Protocol buffer basics: Python, 2017.
 \newblock
   \url{https://developers.google.com/protocol-buffers/docs/pythontutorial}.
 
@@ -34,8 +34,8 @@ Itseez.
 
 \bibitem{jderobot}
 {JdeRobot developers}.
-\newblock {JdeRobot - Robotics and Computer Vision Technology that rocks and
-  matters!}
+\newblock Jderobot - robotics and computer vision technology that rocks and
+  matters!, 2017.
 \newblock \url{http://jderobot.org/Main_Page}.
 
 \bibitem{jia2014caffe}
@@ -52,7 +52,7 @@ S.~H. John W.~Eaton, David~Bateman and R.~Wehbring.
 
 \bibitem{cs231n}
 A.~Karpathy.
-\newblock {CS231n Convolutional Neural Networks for Visual Recognition}.
+\newblock Cs231n convolutional neural networks for visual recognition, 2017.
 \newblock \url{http://cs231n.github.io/convolutional-networks/}.
 
 \bibitem{lecun-mnisthandwrittendigit-2010}
@@ -67,6 +67,17 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
 
+\bibitem{threading}
+{Python Software Foundation}.
+\newblock 16.2. threading — higher-level threading interface — python
+  2.7.13 documentation, 1990-2017.
+\newblock \url{https://docs.python.org/2.7/library/threading.html}.
+
+\bibitem{pyqt5}
+{Riverbank Computing Limited}.
+\newblock Pyqt5 reference guide, 2015.
+\newblock \url{http://pyqt.sourceforge.net/Docs/PyQt5/}.
+
 \bibitem{Scherer2010Evaluation}
 D.~Scherer, A.~M{\"u}ller, and S.~Behnke.
 \newblock Evaluation of pooling operations in convolutional architectures for
@@ -75,8 +86,8 @@ D.~Scherer, A.~M{\"u}ller, and S.~Behnke.
 
 \bibitem{scikit-doc}
 {Scikit-learn developers}.
-\newblock {Documentation scikit-learn: machine learning in Python —
-  scikit-learn 0.18.1 documentation}.
+\newblock Documentation scikit-learn: machine learning in python —
+  scikit-learn 0.18.1 documentation, 2010 - 2016.
 \newblock \url{http://scikit-learn.org/stable/documentation.html}.
 
 \bibitem{sonka2014image}
@@ -91,13 +102,13 @@ N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
 
 \bibitem{hdf5}
 {The HDF Group}.
-\newblock {Hierarchical Data Format, version 5}, 1997-2017.
+\newblock Hierarchical data format, version 5, 1997-2017.
 \newblock \url{http://www.hdfgroup.org/HDF5/}.
 
 \bibitem{2016arXiv160502688short}
 {Theano Development Team}.
-\newblock {Theano: A {Python} framework for fast computation of mathematical
-  expressions}.
+\newblock Theano: A {Python} framework for fast computation of mathematical
+  expressions.
 \newblock {\em arXiv e-prints}, abs/1605.02688, May 2016.
 
 \bibitem{DBLP:journals/corr/WongGSM16}

@@ -21,13 +21,16 @@
 \contentsline {subsection}{\numberline {2.1.4}Training the model}{21}{subsection.2.1.4}
 \contentsline {subsection}{\numberline {2.1.5}Testing the model}{22}{subsection.2.1.5}
 \contentsline {section}{\numberline {2.2}\textit {digitclassifier.py}}{23}{section.2.2}
-\contentsline {subsubsection}{Camera class}{23}{section*.14}
-\contentsline {section}{\numberline {2.3}Datasets}{26}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Edge detection}{26}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Data augmentation}{27}{subsection.2.3.2}
-\contentsline {subsubsection}{Real-time data augmentation with Keras}{27}{section*.15}
-\contentsline {subsubsection}{Handmade augmented datasets}{28}{section*.17}
-\contentsline {subsubsection}{From LMDB to HDF5}{29}{section*.19}
-\contentsline {subsubsection}{Conclusions}{33}{section*.20}
-\contentsline {section}{\numberline {2.4}Benchmark}{33}{section.2.4}
-\contentsline {section}{\numberline {2.5}Tuning the classifier}{33}{section.2.5}
+\contentsline {subsubsection}{\textit {Camera} class}{23}{section*.14}
+\contentsline {subsection}{\numberline {2.2.1}\textit {GUI} class}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Threads}{26}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Main program}{28}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Datasets}{29}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Edge detection}{29}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Data augmentation}{30}{subsection.2.3.2}
+\contentsline {subsubsection}{Real-time data augmentation with Keras}{30}{section*.15}
+\contentsline {subsubsection}{Handmade augmented datasets}{31}{section*.17}
+\contentsline {subsubsection}{From LMDB to HDF5}{32}{section*.19}
+\contentsline {subsubsection}{Conclusions}{35}{section*.20}
+\contentsline {section}{\numberline {2.4}Benchmark}{36}{section.2.4}
+\contentsline {section}{\numberline {2.5}Tuning the classifier}{36}{section.2.5}
