@@ -38,9 +38,8 @@ class NetData:
         backend: TensorFlow or Theano.
         '''
         if backend.image_dim_ordering() == "th":
-            x = X.reshape(x.shape[0], 1, self.im_rows, self.im_cols)
+            x = X.reshape(X.shape[0], 1, self.im_rows, self.im_cols)
             input_shape = (1, self.im_rows, self.im_cols)
-            
         else:
             x = X.reshape(X.shape[0], self.im_rows, self.im_cols, 1)
             input_shape = (self.im_rows, self.im_cols, 1)

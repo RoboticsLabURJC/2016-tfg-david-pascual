@@ -93,7 +93,7 @@ if __name__ == "__main__":
             
         # We train the model and save data to plot a learning curve.
         learning_curves = LearningCurves()
-        early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+        early_stopping = EarlyStopping(monitor='val_loss', patience=2)
         checkpoint = ModelCheckpoint("net.h5", verbose=1, monitor='val_loss',
                                      save_best_only=True)
         
@@ -104,18 +104,16 @@ if __name__ == "__main__":
                                callbacks=[learning_curves, early_stopping,
                                           checkpoint])
         vis_utils.plot_model(model, "net.png", show_shapes=True)
-    
-    # If we haven't trained a new model, we ask for a model path for
-    # testing. 
-    if training == "n":
-        net = raw_input("Net path: ")
-        while not os.path.isfile(net):
-            net = raw_input("Enter a valid path: ")
-        model = load_model(net)
 
-    # We load and reshape test data.
+    # We load and reshape test data and model.
     (X_test, Y_test) = data.load(test_ds)
     (x_test, y_test), input_shape = data.adapt(X_test, Y_test)
+
+    model = load_model("net.h5")
+    
+    score = model.evaluate(x_test, y_test, verbose=0)
+    print("Test score:", score[0])
+    print("Test accuracy:", score[1])
     
     # We log the results.
     y_proba = model.predict_proba(x_test, batch_size=batch_size, verbose=1)

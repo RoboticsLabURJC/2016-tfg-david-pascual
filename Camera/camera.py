@@ -31,8 +31,9 @@ class Camera:
         ''' Camera class gets images from live video and transform them
         in order to predict the digit in the image.
         '''
-        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/Net/Nets/0-1_tuned/net_3conv.h5")
-        
+	print "\nLoading Keras model..."
+        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/Net/Nets/0-1_tuned/net_4conv_patience5.h5")
+        print "loaded\n"
         status = 0
         ic = None
         
@@ -40,14 +41,12 @@ class Camera:
         ic = EasyIce.initialize(sys.argv)
 
         properties = ic.getProperties()
-        self.ad_thresh = properties.getProperty("Digitclassifier.AdThresh")
-        
+        print properties
         self.lock = threading.Lock()
     
-        try:        
+        try:
             # We obtain a proxy for the camera.
             obj = ic.propertyToProxy("Digitclassifier.Camera.Proxy")
-            
             # We get the first image and print its description.
             self.cam = CameraPrx.checkedCast(obj)
             if self.cam:
@@ -101,17 +100,6 @@ class Camera:
         im_crop = im [140:340, 220:420]
         im_gray = cv2.cvtColor(im_crop, cv2.COLOR_BGR2GRAY)
         im_blur = cv2.GaussianBlur(im_gray, (5, 5), 0) # Noise reduction.
-        
-        # Handmade adaptive threshold.
-        avg = np.average(im_blur)
-        if self.ad_thresh != "0":
-            if avg < 120:
-                (thr, im_bw) = cv2.threshold(im_blur, 255-(avg*0.75), 255,
-                                               cv2.THRESH_BINARY)
-            else:
-                (thr, im_bw) = cv2.threshold(im_blur, avg*0.75, 255,
-                                               cv2.THRESH_BINARY_INV)
-            im_blur = im_bw     
                    
         im_res = cv2.resize(im_blur, (28, 28))
 
@@ -134,8 +122,6 @@ class Camera:
             im = im.reshape(1, im.shape[0], im.shape[1], 1)            
         
         dgt = np.where(self.model.predict(im) == 1)
-        print("Keras CNN prediction: ", self.model.predict(im))
-        print("Prediction index: ", dgt)
         print("--------------------------------------------------------------")
         if dgt[1].size == 1:
             self.digito = dgt
