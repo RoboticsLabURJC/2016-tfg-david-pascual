@@ -1,0 +1,88 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Report.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: 0-Cover.aux
+A level-1 auxiliary file: 0-Agradecimientos.aux
+A level-1 auxiliary file: 0-Resumen.aux
+A level-1 auxiliary file: 0-Summary.aux
+A level-1 auxiliary file: 1-Introduction.aux
+A level-1 auxiliary file: 2-Framework.aux
+A level-1 auxiliary file: 3-Digit_classifier.aux
+A level-1 auxiliary file: 4-Benchmark.aux
+A level-1 auxiliary file: 5-Evaluation.aux
+A level-1 auxiliary file: 6-Conclusions.aux
+A level-1 auxiliary file: 7-Bibliography.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: Report-blx.bib
+Database file #2: Bibliography.bib
+I was expecting a `,' or a `}'---line 44 of file Bibliography.bib
+ :  
+ :  urldate = {2017-05-22}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 70 of file Bibliography.bib
+ :  
+ :  urldate = {2017-05-19}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 155 of file Bibliography.bib
+ :  
+ :  urldate = {2017-05-22}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Biblatex version: 3.3
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+You've used 24 entries,
+            6047 wiz_defined-function locations,
+            1284 strings with 12672 characters,
+and the built_in function-call counts, 87434 in all, are:
+= -- 2876
+> -- 5408
+< -- 725
++ -- 3452
+- -- 3517
+* -- 5574
+:= -- 7410
+add.period$ -- 0
+call.type$ -- 24
+change.case$ -- 283
+chr.to.int$ -- 298
+cite$ -- 46
+duplicate$ -- 8969
+empty$ -- 8074
+format.name$ -- 1672
+if$ -- 17185
+int.to.chr$ -- 0
+int.to.str$ -- 55
+missing$ -- 0
+newline$ -- 700
+num.names$ -- 1014
+pop$ -- 7485
+preamble$ -- 1
+purify$ -- 385
+quote$ -- 0
+skip$ -- 4438
+stack$ -- 0
+substring$ -- 2134
+swap$ -- 2886
+text.length$ -- 636
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 900
+warning$ -- 0
+while$ -- 611
+width$ -- 0
+write$ -- 675
+(There were 3 error messages)

@@ -1,0 +1,712 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{chollet2015keras}{misc}{}
+  \true{moreauthor}
+  \name{author}{1}{}{%
+    {{}%
+     {Chollet}{C.}%
+     {Fran\c{c}ois}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {GitHub}%
+  }
+  \strng{namehash}{CF+1}
+  \strng{fullhash}{CF+1}
+  \field{title}{Keras}
+  \verb{url}
+  \verb https://github.com/fchollet/keras
+  \endverb
+  \field{year}{2015}
+  \field{urlday}{19}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{theano}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LISA lab}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \field{title}{nnet – Ops for neural networks — Theano 0.9.0
+  documentation}
+  \verb{url}
+  \verb http://deeplearning.net/software/theano/library/tensor/nnet/nnet.html
+  \endverb
+  \field{year}{2008-2017}
+  \field{urlday}{19}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{DBLP:journals/corr/abs-1212-5701}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Zeiler}{Z.}%
+     {Matthew~D.}{M.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{ZMD1}
+  \strng{fullhash}{ZMD1}
+  \field{pages}{1\bibrangedash 6}
+  \field{title}{{ADADELTA:} An Adaptive Learning Rate Method}
+  \verb{url}
+  \verb http://arxiv.org/abs/1212.5701
+  \endverb
+  \field{volume}{abs/1212.5701}
+  \field{journaltitle}{CoRR}
+  \field{year}{2012}
+\endentry
+
+\entry{Goodfellow-et-al-2016}{book}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Goodfellow}{G.}%
+     {Ian}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bengio}{B.}%
+     {Yoshua}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Courville}{C.}%
+     {Aaron}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {MIT Press}%
+  }
+  \strng{namehash}{GIBYCA1}
+  \strng{fullhash}{GIBYCA1}
+  \field{title}{Deep Learning}
+  \verb{url}
+  \verb http://www.deeplearningbook.org
+  \endverb
+  \field{year}{2016}
+\endentry
+
+\entry{cs231n}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Karpathy}{K.}%
+     {Andrej}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KA1}
+  \strng{fullhash}{KA1}
+  \field{title}{CS231n Convolutional Neural Networks for Visual Recognition}
+  \verb{url}
+  \verb http://cs231n.github.io/
+  \endverb
+  \field{year}{2017}
+  \field{urlday}{26}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{Scherer2010Evaluation}{inbook}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Scherer}{S.}%
+     {Dominik}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {M{\"u}ller}{M.}%
+     {Andreas}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Behnke}{B.}%
+     {Sven}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{3}{}{%
+    {{}%
+     {Diamantaras}{D.}%
+     {Konstantinos}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Duch}{D.}%
+     {Wlodek}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Iliadis}{I.}%
+     {Lazaros~S.}{L.~S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer Berlin Heidelberg}%
+  }
+  \strng{namehash}{SDMABS1}
+  \strng{fullhash}{SDMABS1}
+  \field{booktitle}{Artificial Neural Networks -- ICANN 2010: 20th
+  International Conference, Thessaloniki, Greece, September 15-18, 2010,
+  Proceedings, Part III}
+  \field{pages}{92\bibrangedash 101}
+  \field{title}{Evaluation of Pooling Operations in Convolutional Architectures
+  for Object Recognition}
+  \verb{url}
+  \verb http://dx.doi.org/10.1007/978-3-642-15825-4_10
+  \endverb
+  \list{location}{1}{%
+    {Berlin, Heidelberg}%
+  }
+  \field{year}{2010}
+\endentry
+
+\entry{srivastava2014dropout}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Srivastava}{S.}%
+     {Nitish}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hinton}{H.}%
+     {Geoffrey}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Krizhevsky}{K.}%
+     {Alex}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sutskever}{S.}%
+     {Ilya}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Salakhutdinov}{S.}%
+     {Ruslan}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {JMLR.org}%
+  }
+  \strng{namehash}{SNHGKA+1}
+  \strng{fullhash}{SNHGKASISR1}
+  \field{number}{1}
+  \field{pages}{1929\bibrangedash 1958}
+  \field{title}{Dropout: A simple way to prevent neural networks from
+  overfitting}
+  \verb{url}
+  \verb http://www.jmlr.org/papers/volume15/srivastava14a.old/source/srivastava
+  \verb 14a.pdf
+  \endverb
+  \field{volume}{15}
+  \field{journaltitle}{The Journal of Machine Learning Research}
+  \field{year}{2014}
+\endentry
+
+\entry{DBLP:journals/corr/WongGSM16}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Wong}{W.}%
+     {Sebastien~C.}{S.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gatt}{G.}%
+     {Adam}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stamatescu}{S.}%
+     {Victor}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McDonnell}{M.}%
+     {Mark~D.}{M.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WSCGASV+1}
+  \strng{fullhash}{WSCGASVMMD1}
+  \field{pages}{1\bibrangedash 6}
+  \field{title}{Understanding data augmentation for classification: when to
+  warp?}
+  \verb{url}
+  \verb http://arxiv.org/abs/1609.08764
+  \endverb
+  \field{volume}{abs/1609.08764}
+  \field{journaltitle}{CoRR}
+  \field{year}{2016}
+\endentry
+
+\entry{jderobot}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{JdeRobot developers}}{J.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{J1}
+  \strng{fullhash}{J1}
+  \field{title}{JdeRobot - Robotics and Computer Vision Technology that rocks
+  and matters!}
+  \verb{url}
+  \verb http://jderobot.org/Main_Page
+  \endverb
+  \field{year}{2017}
+\endentry
+
+\entry{droidcam}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {DEV47APPS}{D.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{D1}
+  \strng{fullhash}{D1}
+  \field{title}{{Dev47Apps}}
+  \verb{url}
+  \verb http://www.dev47apps.com/
+  \endverb
+  \field{year}{2010-2016}
+\endentry
+
+\entry{hdf5}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{The HDF Group}}{T.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{T1}
+  \strng{fullhash}{T1}
+  \field{title}{Hierarchical Data Format, version 5}
+  \verb{url}
+  \verb http://www.hdfgroup.org/HDF5/
+  \endverb
+  \field{year}{1997-2017}
+\endentry
+
+\entry{scikit-learn}{article}{}
+  \name{author}{16}{}{%
+    {{}%
+     {Pedregosa}{P.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Varoquaux}{V.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gramfort}{G.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Michel}{M.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thirion}{T.}%
+     {B.}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grisel}{G.}%
+     {O.}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Blondel}{B.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Prettenhofer}{P.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weiss}{W.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dubourg}{D.}%
+     {V.}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vanderplas}{V.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Passos}{P.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cournapeau}{C.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brucher}{B.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Perrot}{P.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Duchesnay}{D.}%
+     {E.}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PFVGGA+1}
+  \strng{fullhash}{PFVGGAMVTBGOBMPPWRDVVJPACDBMPMDE1}
+  \field{pages}{2825\bibrangedash 2830}
+  \field{title}{Scikit-learn: Machine Learning in {P}ython}
+  \field{volume}{12}
+  \field{journaltitle}{Journal of Machine Learning Research}
+  \field{year}{2011}
+\endentry
+
+\entry{scikit-doc}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Scikit-learn developers}}{S.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{S1}
+  \strng{fullhash}{S1}
+  \field{title}{Documentation scikit-learn: machine learning in Python —
+  scikit-learn 0.18.1 documentation}
+  \verb{url}
+  \verb http://scikit-learn.org/stable/documentation.html
+  \endverb
+  \field{year}{2010 - 2016}
+  \field{urlday}{20}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{octave}{book}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Eaton}{E.}%
+     {John~W.}{J.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bateman}{B.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hauberg}{H.}%
+     {S\oren}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wehbring}{W.}%
+     {Rik}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{EJWBDHS+1}
+  \strng{fullhash}{EJWBDHSWR1}
+  \field{title}{{GNU Octave} version 4.0.0 manual: a high-level interactive
+  language for numerical computations}
+  \verb{url}
+  \verb http://www.gnu.org/software/octave/doc/interpreter
+  \endverb
+  \field{year}{2015}
+  \field{urlday}{15}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{itseez2014theopencv}{manual}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Itseez}{I.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{I1}
+  \strng{fullhash}{I1}
+  \field{edition}{2.4.9.0}
+  \field{title}{The OpenCV Reference Manual}
+  \verb{url}
+  \verb http://opencv.org/
+  \endverb
+  \field{year}{2014}
+  \field{urlday}{31}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{sonka1999image}{book}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Sonka}{S.}%
+     {Milan}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hlavac}{H.}%
+     {Vaclav}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Boyle}{B.}%
+     {Roger}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cengage Learning}%
+  }
+  \strng{namehash}{SMHVBR1}
+  \strng{fullhash}{SMHVBR1}
+  \field{edition}{2nd ed.}
+  \field{title}{Image processing, analysis, and machine vision}
+  \list{location}{1}{%
+    {Pacific Grove (CA)}%
+  }
+  \field{year}{1999}
+\endentry
+
+\entry{pyqt5}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Riverbank Computing Limited}}{R.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{R1}
+  \strng{fullhash}{R1}
+  \field{title}{PyQt5 Reference Guide}
+  \verb{url}
+  \verb http://pyqt.sourceforge.net/Docs/PyQt5/
+  \endverb
+  \field{year}{2015}
+  \field{urlday}{01}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{threading}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Python Software Foundation}}{P.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{P1}
+  \strng{fullhash}{P1}
+  \field{title}{16.2. threading — Higher-level threading interface — Python
+  2.7.13 documentation}
+  \verb{url}
+  \verb https://docs.python.org/2.7/library/threading.html
+  \endverb
+  \field{year}{1990-2017}
+  \field{urlday}{01}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{lecun-mnisthandwrittendigit-2010}{online}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Yann~LeCun}{Y.~L.}%
+     {Corinna~Cortes}{C.~C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Burges}{B.}%
+     {Cristopher~J.C.}{C.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{YLCCBCJ1}
+  \strng{fullhash}{YLCCBCJ1}
+  \field{title}{{MNIST} handwritten digit database}
+  \verb{url}
+  \verb http://yann.lecun.com/exdb/mnist/
+  \endverb
+  \field{year}{2013}
+  \field{urlday}{06}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{jia2014caffe}{article}{}
+  \name{author}{8}{}{%
+    {{}%
+     {Jia}{J.}%
+     {Yangqing}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shelhamer}{S.}%
+     {Evan}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Donahue}{D.}%
+     {Jeff}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Karayev}{K.}%
+     {Sergey}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Long}{L.}%
+     {Jonathan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Girshick}{G.}%
+     {Ross}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guadarrama}{G.}%
+     {Sergio}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Darrell}{D.}%
+     {Trevor}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{JYSEDJ+1}
+  \strng{fullhash}{JYSEDJKSLJGRGSDT1}
+  \field{title}{Caffe: Convolutional Architecture for Fast Feature Embedding}
+  \field{journaltitle}{arXiv preprint arXiv:1408.5093}
+  \field{year}{2014}
+\endentry
+
+\entry{protobuf}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Google developers}}{G.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{G1}
+  \strng{fullhash}{G1}
+  \field{title}{Protocol Buffer Basics: Python}
+  \verb{url}
+  \verb https://developers.google.com/protocol-buffers/docs/pythontutorial
+  \endverb
+  \field{year}{2017}
+  \field{urlday}{29}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{lmdb_tutorial}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Choy}{C.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CC1}
+  \strng{fullhash}{CC1}
+  \field{title}{Reading protobuf DB in Python}
+  \verb{url}
+  \verb https://chrischoy.github.io/research/reading-protobuf-db-in-python/
+  \endverb
+  \field{year}{2015}
+  \field{urlday}{06}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{Hunter:2007}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hunter}{H.}%
+     {J.~D.}{J.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE COMPUTER SOC}%
+  }
+  \strng{namehash}{HJD1}
+  \strng{fullhash}{HJD1}
+  \field{abstract}{%
+  Matplotlib is a 2D graphics package used for Python for application
+  development, interactive scripting, and publication-quality image generation
+  across user interfaces and operating systems.%
+  }
+  \verb{doi}
+  \verb 10.1109/MCSE.2007.55
+  \endverb
+  \field{number}{3}
+  \field{pages}{90\bibrangedash 95}
+  \field{title}{Matplotlib: A 2D graphics environment}
+  \field{volume}{9}
+  \field{journaltitle}{Computing In Science \& Engineering}
+  \field{year}{2007}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
