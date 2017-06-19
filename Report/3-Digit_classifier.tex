@@ -2,14 +2,14 @@
 Taking advantage of the \glspl{cnn} impressive performance in classification tasks, we have built a \textbf{real-time digit classifier}. It's core elements are:
 \begin{itemize}
 	\item A \textbf{Keras model} (see Section~\ref{subsec:models}), which classifies the images.
-	\item A \textbf{component}, which acquires and processes the images from a video stream and integrates a Keras model to classify them. The images and the classification results are displayed within a GUI.
+	\item A \textbf{component}, which acquires and processes the images from a video stream and integrates a Keras model to classify them. The images and the classification results are displayed within a \gls{gui}.
 \end{itemize}
 
 \section{Understanding the Keras model}\label{sec:understanding}
-Understanding how Keras models work is a key factor in the development of this project. For this purpose, an adapted version~\footnote{\url{https://git.io/vH0qK}} of an example provided by Keras \footnote{\url{https://git.io/vH0qw}} will be analyzed in the following sections. In this example, a \gls{cnn} is trained and tested with the \textbf{MNIST database} of handwritten digits (see Section~\ref{sec:datasets}).
+Understanding how Keras models work is a key factor in the development of this project. For this purpose, an adapted version~\footnote{\url{https://git.io/vH0qK}} of an example provided by Keras \footnote{\url{https://git.io/vH0qw}} will be analyzed in the following sections. In this example, a \gls{cnn} is trained and tested with the \textbf{\gls{mnist} database} of handwritten digits (see Section~\ref{sec:datasets}).
 
 \subsection{Adapting data}\label{subsec:adaptdata}
-First of all, the input data has to be loaded and adapted. Keras library contains a module named \textit{datasets} from which a variety of databases can be imported, including MNIST. The MNIST database can be loaded calling the \textit{mnist.load\_data()} method. It returns, as \textbf{Numpy arrays}, the images and labels from both training and test datasets, as it can be seen in the code below, which also displays the first sample of the MNIST training dataset (see Figure~\ref{fig:firstsample}).
+First of all, the input data has to be loaded and adapted. Keras library contains a module named \textit{datasets} from which a variety of databases can be imported, including \gls{mnist}. The \gls{mnist} database can be loaded calling the \textit{mnist.load\_data()} method. It returns, as \textbf{Numpy arrays}, the images and labels from both training and test datasets, as it can be seen in the code below, which also displays the first sample of the \gls{mnist} training dataset (see Figure~\ref{fig:firstsample}).
 \begin{lstlisting}
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -209,7 +209,7 @@ val_loss: 0.0306 - val_acc: 0.9891
 \end{Verbatim}
 
 \subsection{Testing the model}
-Once the model is trained, its weights, architecture and learning configuration can be stored in an \textbf{HDF5 file} (see Section~\ref{sec:hdf}). Besides that, in order to see the performance of the \gls{cnn}, the \textit{.evaluate()} method takes the test dataset and computes the \textbf{log loss} and the \textbf{accuracy}, as it can be seen in the following code:
+Once the model is trained, its weights, architecture and learning configuration can be stored in an \textbf{\gls{hdf5} file} (see Section~\ref{sec:hdf}). Besides that, in order to see the performance of the \gls{cnn}, the \textit{.evaluate()} method takes the test dataset and computes the \textbf{log loss} and the \textbf{accuracy}, as it can be seen in the following code:
 \begin{lstlisting}
 model.save('MNIST_net.h5')
 
@@ -224,7 +224,7 @@ Test accuracy: 0.9891
 \end{Verbatim}
 
 \section{Component}\label{sec:component}
-Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \textbf{\textit{digitclassifier.py}} \footnote{\url{https://git.io/vH0qi}} and it is based on Nuria Oyaga code \footnote{\url{https://git.io/vH0qD}}. It relies on \textit{Camera} and \textit{GUI} classes. Figure~\ref{fig:digitclass} shows the program running.
+Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \textbf{\textit{digitclassifier.py}} \footnote{\url{https://git.io/vH0qi}} and it is based on Nuria Oyaga code \footnote{\url{https://git.io/vH0qD}}. It relies on \textit{Camera} and \textit{\gls{gui}} classes. Figure~\ref{fig:digitclass} shows the program running.
 
 \begin{figure}
 	\centering
@@ -251,12 +251,12 @@ Once the \gls{cnn} has been trained and the resultant model is saved, the next m
 	\item \textbf{Preprocessing}. As the images can be captured with different devices, the \textit{digitclassifier.py} component must apply some preprocessing that mitigates the differences between video streams and that makes the images suitable for the Keras model. The following \textbf{transformations} are applied before classification:
 	\begin{enumerate}
 		\item Images are \textbf{cropped} into 80x80 pixels images. The \textbf{\gls{roi}} from which cropped images are extracted is draw over the original image, making it easier to aim at digits with the camera.
-		\item Color doesn't provide any useful information about digits and MNIST database is formed by \textbf{grayscale images}. For this reason, the images captured with the component are converted into grayscale images as well. 
+		\item Color doesn't provide any useful information about digits and \gls{mnist} database is formed by \textbf{grayscale images}. For this reason, the images captured with the component are converted into grayscale images as well. 
 		\item A \textbf{Gaussian filtering} is applied in order to reduce image \textbf{noise}. When using this operator, the \textbf{kernel size} and the \textbf{standard deviation} $\sigma$ in $x$ and $y$ should be specified~\cite{itseez2014theopencv}. In this case, the kernel size will be 5x5 and the standard deviation is automatically calculated depending on that size. The 2D Gaussian filter, as defined in~\cite{sonka1999image}, is given by:
 		\begin{equation}
 		G(x,y)=\exp(-\frac{x^2+y^2}{2\sigma^2})
 		\end{equation}
-		\item After reducing noise, the image is \textbf{resized} to fit the Keras \textbf{model input}. The new size is 28x28 pixels, like MNIST samples.
+		\item After reducing noise, the image is \textbf{resized} to fit the Keras \textbf{model input}. The new size is 28x28 pixels, like \gls{mnist} samples.
 		\item Last step is obtaining the \textbf{gradient of the images}. Working with this kind of images instead of the original ones allows the application to deal with different light and color conditions. The chosen algorithm for this task is \textbf{Sobel filter} (Equation~\ref{eq:sobel}). This will be deeply discussed in Section~\ref{subsec:edge}.
 	\end{enumerate}
 	
@@ -307,7 +307,7 @@ or Theano) and returns a prediction.
 \textbf{\textit{GUI} class}~\footnote{\url{https://git.io/vH0YK}} displays the original image, the processed image and the result of the classification, as it can be seen in Figure~\ref{fig:digitclass}. It has been built employing the \textbf{pyQt package} \footnote{\url{https://pypi.python.org/pypi/PyQt4}} \footnote{\url{https://pypi.python.org/pypi/PyQt5}}. It is based in Nuria Oyaga code \footnote{\url{https://git.io/vH0mx}}, but it has been updated from Qt4  to Qt5  thanks to the information provided by PyQT documentation~\cite{pyqt5}.
 
 \subsection{Threads} 
-In order to capture images and update the GUI concurrently, the \textbf{\textit{threading} module}~\cite{threading}, provided by Python, has been employed. From this module, a subclass of the \textbf{\textit{Thread} object} is created. In this new subclass, \textit{\_\_init\_\_()} and \textit{.run()} methods are overriden. The \textit{.run()} method will be responsible for calling a process that updates the thread. For example, the \textit{.update()} method of the \textit{Camera} class, which reads a new image from the video stream each time it is invoked, is called within the \textit{.run()} method of the \textbf{\textit{ThreadCamera} class}. Besides that, in the \textit{.run()} method, the \textbf{cycle time} is adjusted. The next frame shows how the \textit{ThreadCamera} class is coded:
+In order to capture images and update the \gls{gui} concurrently, the \textbf{\textit{threading} module}~\cite{threading}, provided by Python, has been employed. From this module, a subclass of the \textbf{\textit{Thread} object} is created. In this new subclass, \textit{\_\_init\_\_()} and \textit{.run()} methods are overriden. The \textit{.run()} method will be responsible for calling a process that updates the thread. For example, the \textit{.update()} method of the \textit{Camera} class, which reads a new image from the video stream each time it is invoked, is called within the \textit{.run()} method of the \textbf{\textit{ThreadCamera} class}. Besides that, in the \textit{.run()} method, the \textbf{cycle time} is adjusted. The next frame shows how the \textit{ThreadCamera} class is coded:
 \begin{lstlisting}
 import time
 import threading

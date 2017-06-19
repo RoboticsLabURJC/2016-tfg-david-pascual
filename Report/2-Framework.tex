@@ -72,11 +72,11 @@ Sequential models have several methods, and the following ones are essential for
 \end{description}
 
 \begin{description}
-	\item[\textit{.save()}] It stores the model into a \textbf{HDF5 file} (see Section~\ref{sec:hdf}), which will contain the weights, architecture and training configuration of the model.
+	\item[\textit{.save()}] It stores the model into a \textbf{\gls{hdf5} file} (see Section~\ref{sec:hdf}), which will contain the weights, architecture and training configuration of the model.
 \end{description}
 
 \begin{description}
-	\item[\textit{.load\_model()}] It loads a model from a \textbf{HDF5 file}.
+	\item[\textit{.load\_model()}] It loads a model from a \textbf{\gls{hdf5} file}.
 \end{description}
 
 \subsection{Layers}\label{subsec:layers}
@@ -211,7 +211,7 @@ Additionally, Keras provides the \textit{Callback} base class that can be used t
 This functionality is included in Keras thanks to the \textbf{\textit{.ImageDataGenerator()} method}. It returns a batch generator which randomly applies the desired transformations to random samples of the dataset provided by the user. Built-in transformations like rotation, shifting and zooming, are passed as arguments to the aforementioned method. Additionally, it's possible to build a user-defined function and pass it as an argument as well. The dataset and the batch size are defined through the \textbf{\textit{.flow()} method}. During training, the generator will loop until the number of samples per epoch and the number of epochs set by the user are satisfied.
 
 \subsection{Utils}
-Keras include a module for multiple supplementary tasks called \textbf{\textit{Utils}}. The most important functionality for the project provided by this module is the \textbf{\textit{.HDF5Matrix()} method}. It reads the \textbf{HDF5 datasets} (see Section~\ref{sec:hdf}), which are going to be used as inputs to the neural networks.
+Keras include a module for multiple supplementary tasks called \textbf{\textit{Utils}}. The most important functionality for the project provided by this module is the \textbf{\textit{.HDF5Matrix()} method}. It reads the \textbf{\gls{hdf5} datasets} (see Section~\ref{sec:hdf}), which are going to be used as inputs to the neural networks.
 
 \section{JdeRobot}\label{sec:jderobot}
 \textbf{JdeRobot} is an open source middleware for robotics and computer vision~\cite{jderobot}. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \textbf{ICE interfaces} \footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with \textbf{ROS} \footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application.
@@ -256,11 +256,11 @@ An example of usage can be seen in Figure~\ref{fig:droidcam}. First, the Android
 \end{figure}
 
 \section{HDF5}\label{sec:hdf}
-During the development of this project, huge amounts of data have been processed. That's why an efficient way of reading and saving this data has been an important point. Keras employs the \textbf{HDF5 file format} to save models and read datasets.
+During the development of this project, huge amounts of data have been processed. That's why an efficient way of reading and saving this data has been an important point. Keras employs the \textbf{\gls{hdf5} file format} to save models and read datasets.
 
-According to HDF5 documentation~\cite{hdf5}, it is a \textbf{hierarchical data format} designed for high volumes of data with complex relationships. While relational databases employ tables to store data (e.g. SQL), HDF5 supports \textbf{n-dimensional datasets} and each element in the dataset may be as complex as needed.
+According to \gls{hdf5} documentation~\cite{hdf5}, it is a \textbf{hierarchical data format} designed for high volumes of data with complex relationships. While relational databases employ tables to store data (e.g. SQL), \gls{hdf5} supports \textbf{n-dimensional datasets} and each element in the dataset may be as complex as needed.
 
-In order to deal with HDF5 files, the \textbf{h5py} \footnote{\url{http://www.h5py.org/}} library for Python has been employed.
+In order to deal with \gls{hdf5} files, the \textbf{h5py} \footnote{\url{http://www.h5py.org/}} library for Python has been employed.
 
 \section{Scikit-learn}\label{sec:sklearn}
 \textbf{Scikit-learn} is a machine learning library that includes a wide variety of algorithms for clustering, regression and classification~\cite{scikit-learn}. It can be used at every stage of the machine learning workflow: preprocessing, training, model selection and evaluation.
