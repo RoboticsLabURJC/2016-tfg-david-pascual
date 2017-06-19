@@ -4,7 +4,7 @@
 # @author: dpascualhe
 #
 
-function comparison(path1, path2, path3, path4, path5)
+function comparison(path1, path2)
 
   more off;
   

@@ -8,10 +8,10 @@ import numpy as np
 import scipy.io as sio
 from sklearn import metrics
 
-class CustomMetrics():
+class CustomEvaluation():
     def __init__(self, y_test, y_proba=[], training="n", train_loss=[],
                  train_acc=[], val_loss=[], val_acc=[]):
-        """ CustomMetrics class outputs a dictionary with a variety of
+        """ CustomEvaluation class outputs a dictionary with a variety of
         metrics to evaluate the neural network performance.
         """
         # Test labels.
@@ -27,7 +27,7 @@ class CustomMetrics():
         self.training = training
 
     def dictionary(self):
-        """ Calculates test metrics and saves them into a dictionary
+        """ Calculates test measures and saves them into a dictionary
         beside the training ones.
         """
         # Test metrics.
@@ -38,18 +38,18 @@ class CustomMetrics():
         rec = metrics.recall_score(self.y_test, self.y_pred, average=None)
     
         # We save the metrics into a dictionary.
-        metrics_dict = {"confusion matrix": conf_mat, "loss": loss, 
+        measures_dict = {"confusion matrix": conf_mat, "loss": loss, 
                         "accuracy": acc, "precision": pre, "recall": rec,
                         "training": self.training}
         
         if self.training == "y":
-            metrics_dict["training loss"] = self.train_loss
-            metrics_dict["training accuracy"] = self.train_acc
-            metrics_dict["validation loss"] = self.val_loss
-            metrics_dict["validation accuracy"] = self.val_acc
+            measures_dict["training loss"] = self.train_loss
+            measures_dict["training accuracy"] = self.train_acc
+            measures_dict["validation loss"] = self.val_loss
+            measures_dict["validation accuracy"] = self.val_acc
 
         return metrics_dict
 
-    def log(self, metrics_dict):
+    def log(self, measures_dict):
         """ Logs the results into a .mat file for Octave. """
-        sio.savemat("metrics.mat", {"metrics": metrics_dict})
+        sio.savemat("measures.mat", {"metrics": measures_dict})

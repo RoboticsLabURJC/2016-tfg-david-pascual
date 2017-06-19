@@ -32,14 +32,15 @@ if __name__ == '__main__':
     '''
     Declaring variables that we'll need
     '''
-    # number of samples that is going to be propagated through the network
-    batch_size = 128
     # number of classes
     nb_classes = 10
+
     # number of complete presentations of the training set to the network
     # during training
     nb_epoch = 12
-        
+    # number of samples that is going to be propagated through the network
+    batch_size = 128
+    
     # image dimensions
     img_rows, img_cols = 28, 28
     # number of convolutional filters and their kernel size

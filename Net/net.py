@@ -20,8 +20,8 @@ from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential, load_model
 
 from DataManager.netdata import NetData
-from CustomMetrics.custommetrics import CustomMetrics
-from CustomMetrics.customcallback import LearningCurves
+from CustomEvaluation.customevaluation import CustomEvaluation
+from CustomEvaluation.customcallback import LearningCurves
 
 # Seed for the computer pseudorandom number generator.
 np.random.seed(123)
@@ -120,15 +120,15 @@ if __name__ == "__main__":
     y_test = np.argmax(y_test, axis=1)
     
     if training == "n":
-        metrics = CustomMetrics(y_test, y_proba, training)
+        results = CustomEvaluation(y_test, y_proba, training)
     else:
         train_loss = learning_curves.loss
         train_acc = learning_curves.accuracy
         val_loss = validation.history["val_loss"]
         val_acc = validation.history["val_acc"]
-        metrics = CustomMetrics(y_test, y_proba, training, train_loss,
-                                train_acc, val_loss, val_acc)
+        results = CustomEvaluation(y_test, y_proba, training, train_loss,
+                                   train_acc, val_loss, val_acc)
     
-    metrics_dict = metrics.dictionary()
-    metrics.log(metrics_dict)
+    results_dict = results.dictionary()
+    results.log(results_dict)
     

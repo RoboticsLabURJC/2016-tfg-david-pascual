@@ -4,22 +4,22 @@
 # @author: dpascualhe
 #
 
-function benchmark(metrics_path)
-# This function reads and plots a variety of metrics, which evaluate the neural
+function benchmark(results_path)
+# This function reads and plots a variety of measures, which evaluate the neural
 # network performance, that have been saved like a structure (a Python
 # dictionary) into a .mat file.
 
   more off;
   
-  metrics_path = file_in_loadpath(metrics_path);
-  metrics_dict = load(metrics_path).metrics;
+  results_path = file_in_loadpath(results_path);
+  results_dict = load(results_path).metrics;
   
-  if metrics_dict.("training") == "y"
+  if results_dict.("training") == "y"
     # Loss.
     figure('Units','normalized','Position',[0 0 1 1]);
     subplot(2,1,1)
-    train_loss = metrics_dict.("training loss");
-    val_loss = metrics_dict.("validation loss");
+    train_loss = results_dict.("training loss");
+    val_loss = results_dict.("validation loss");
     new_val_loss = NaN(size(train_loss));
     
     val_index = length(train_loss)/length(val_loss);
@@ -41,8 +41,8 @@ function benchmark(metrics_path)
 
     # Accuracy.
     subplot(2,1,2)
-    train_acc = metrics_dict.("training accuracy");
-    val_acc = metrics_dict.("validation accuracy");
+    train_acc = results_dict.("training accuracy");
+    val_acc = results_dict.("validation accuracy");
     new_val_acc = NaN(size(train_acc));
 
     
@@ -76,7 +76,7 @@ function benchmark(metrics_path)
   # Precision.
   figure;
   subplot(2,1,1)
-  precision = metrics_dict.("precision");
+  precision = results_dict.("precision");
   bar(precision)
   nb_classes = length(precision);
   set(gca,"ytick", 0:1/nb_classes:1, "ygrid", "on");
@@ -86,7 +86,7 @@ function benchmark(metrics_path)
 
   # Recall.
   subplot(2,1,2)
-  recall = metrics_dict.("recall");
+  recall = results_dict.("recall");
   bar(recall)
   set(gca,"ytick", 0:1/nb_classes:1, "ygrid", "on");
   title("Test recall", "fontweight", "bold", "fontsize", 15);
@@ -95,7 +95,7 @@ function benchmark(metrics_path)
   
   # Confusion matrix.
   figure;
-  conf_mat = metrics_dict.("confusion matrix");
+  conf_mat = results_dict.("confusion matrix");
   new_conf_mat = NaN(size(conf_mat)+1);
   
   for i = 1:length(conf_mat)
@@ -135,7 +135,7 @@ function benchmark(metrics_path)
                                                            "4","5","6","7",...
                                                            "8", "9", "TOTAL"});
   
-  # We print the metrics.  
+  # We print the results.  
   printf("\n==========================TEST RESULTS==========================\n")
   printf("\nPrecision:\n")
   for i = 1:length(precision)
@@ -147,6 +147,6 @@ function benchmark(metrics_path)
   endfor
   printf("\nConfusion Matrix:\n")
   disp(conf_mat)
-  printf(["\nTest loss:\n " num2str(metrics_dict.("loss"))])
-  printf(["\nTest accuracy:\n " num2str(metrics_dict.("accuracy")) "\n"])
+  printf(["\nTest loss:\n " num2str(results_dict.("loss"))])
+  printf(["\nTest accuracy:\n " num2str(results_dict.("accuracy")) "\n"])
 endfunction
