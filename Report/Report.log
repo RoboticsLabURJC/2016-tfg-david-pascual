@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.12)  19 JUN 2017 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.12)  21 JUN 2017 13:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1173,7 +1173,7 @@ Package: glossary-tree 2016/01/24 v4.21 (NLCT)
 \glo@acronym@file=\write6
 \openout6 = `Report.acn'.
 
-Package glossaries Info: Writing glossary file Report.acn on input line 57.
+Package glossaries Info: Writing glossary file Report.acn on input line 60.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1192,21 +1192,21 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./6-Conclusions.aux) (./7-Bibliography.aux))
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 88.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1256,7 +1256,7 @@ e
 \Gin@req@width=\dimen158
 )
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 85.
+Package hyperref Info: Link coloring OFF on input line 88.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1267,15 +1267,15 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 \c@section@level=\count386
 LaTeX Info: Redefining \Ref on input line 513.
 )
-LaTeX Info: Redefining \ref on input line 85.
-LaTeX Info: Redefining \pageref on input line 85.
-LaTeX Info: Redefining \nameref on input line 85.
+LaTeX Info: Redefining \ref on input line 88.
+LaTeX Info: Redefining \pageref on input line 88.
+LaTeX Info: Redefining \nameref on input line 88.
 
 (./Report.out) (./Report.out)
 \@outlinefile=\write7
 \openout7 = `Report.out'.
 
-LaTeX Info: Redefining \Ref on input line 85.
+LaTeX Info: Redefining \Ref on input line 88.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1338,12 +1338,18 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Report.bbl' found.
-(./Report.bbl)
-Package biblatex Info: Reference section=0 on input line 85.
-Package biblatex Info: Reference segment=0 on input line 85.
+(./Report.bbl
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'deep-learning-methods-and-applications':
+(biblatex)                - Invalid format of field 'month'.
+
+)
+Package biblatex Info: Reference section=0 on input line 88.
+Package biblatex Info: Reference segment=0 on input line 88.
 \openout2 = `0-Cover.aux'.
 
- (./0-Cover.tex <figures/logo.jpg, id=209, 632.3625pt x 321.2pt>
+ (./0-Cover.tex <figures/logo.jpg, id=205, 632.3625pt x 321.2pt>
 File: figures/logo.jpg Graphic file (type jpg)
 
 <use figures/logo.jpg>
@@ -1355,7 +1361,7 @@ Package pdftex.def Info: figures/logo.jpg used on input line 7.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo.jpg>] <figu
-res/CC-BY-SA.png, id=219, 1284.8pt x 452.69125pt>
+res/CC-BY-SA.png, id=215, 1284.8pt x 452.69125pt>
 File: figures/CC-BY-SA.png Graphic file (type png)
 
 <use figures/CC-BY-SA.png>
@@ -1377,7 +1383,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.87 \include{0-Cover}
+l.90 \include{0-Cover}
                        [1 <./figures/CC-BY-SA.png>]
 \openout2 = `0-Agradecimientos.aux'.
 
@@ -1445,16 +1451,41 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
  (./1-Introduction.tex
 Chapter 1.
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 \include{1-Introduction}
-                               [1
+l.9 \end{description}
+                      [1
 
 
 
-]
+] <figures/ANN.png, id=475, 657.45625pt x 340.27126pt>
+File: figures/ANN.png Graphic file (type png)
+
+<use figures/ANN.png>
+Package pdftex.def Info: figures/ANN.png used on input line 14.
+(pdftex.def)             Requested size: 364.19667pt x 188.49452pt.
+ <figures/unit.png, id=480, 584.1825pt x 264.99pt>
+File: figures/unit.png Graphic file (type png)
+
+<use figures/unit.png>
+Package pdftex.def Info: figures/unit.png used on input line 22.
+(pdftex.def)             Requested size: 364.19667pt x 165.2059pt.
+ [2 <./figures/ANN.png>] [3 <./figures/unit.png>]
+[4]
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 61.
+
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<figures/gantt.png, id=522, 478.03593pt x 255.95625pt>
+File: figures/gantt.png Graphic file (type png)
+ <use figures/gantt.png>
+Package pdftex.def Info: figures/gantt.png used on input line 69.
+(pdftex.def)             Requested size: 409.71692pt x 219.376pt.
+
+[5 <./figures/gantt.png (PNG copy)>]) [6]
 \openout2 = `2-Framework.aux'.
 
  (./2-Framework.tex
@@ -1465,10 +1496,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 2.
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 2.
-(/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [2
+[7
 
 
 
@@ -1480,8 +1508,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--41
 
  []
 
-[3] [4] [5]
-<figures/convlayer_anime1big.png, id=506, 854.19125pt x 733.74126pt>
+[8] [9] [10]
+<figures/convlayer_anime1big.png, id=594, 854.19125pt x 733.74126pt>
 File: figures/convlayer_anime1big.png Graphic file (type png)
 
 <use figures/convlayer_anime1big.png>
@@ -1489,7 +1517,7 @@ Package pdftex.def Info: figures/convlayer_anime1big.png used on input line 104
 .
 (pdftex.def)             Requested size: 318.66948pt x 273.73041pt.
 
-<figures/convlayer_anime2big.png, id=507, 854.19125pt x 733.74126pt>
+<figures/convlayer_anime2big.png, id=595, 854.19125pt x 733.74126pt>
 File: figures/convlayer_anime2big.png Graphic file (type png)
 
 <use figures/convlayer_anime2big.png>
@@ -1497,156 +1525,156 @@ Package pdftex.def Info: figures/convlayer_anime2big.png used on input line 109
 .
 (pdftex.def)             Requested size: 318.66948pt x 273.73041pt.
 
-<figures/pooling.png, id=510, 371.3875pt x 181.67876pt>
+<figures/pooling.png, id=598, 371.3875pt x 181.67876pt>
 File: figures/pooling.png Graphic file (type png)
 
 <use figures/pooling.png>
 Package pdftex.def Info: figures/pooling.png used on input line 123.
 (pdftex.def)             Requested size: 284.52756pt x 139.1917pt.
- [6] [7 <./figures/convlayer_anime1big.png> <./figures/convlayer_anime2big.png>
-] <figures/relu.png, id=527, 578.16pt x 434.5836pt>
+ [11] [12 <./figures/convlayer_anime1big.png> <./figures/convlayer_anime2big.pn
+g>] <figures/relu.png, id=616, 578.16pt x 434.5836pt>
 File: figures/relu.png Graphic file (type png)
 
 <use figures/relu.png>
 Package pdftex.def Info: figures/relu.png used on input line 161.
 (pdftex.def)             Requested size: 227.62206pt x 171.09166pt.
- <figures/softmax.png, id=530, 578.16pt x 434.5836pt>
+ <figures/softmax.png, id=619, 578.16pt x 434.5836pt>
 File: figures/softmax.png Graphic file (type png)
 
 <use figures/softmax.png>
 Package pdftex.def Info: figures/softmax.png used on input line 166.
 (pdftex.def)             Requested size: 227.62206pt x 171.09166pt.
- [8 <./figures/pooling.png (PNG copy)> <./figures/relu.png> <./figures/softmax.
-png>]
-<figures/dropout.png, id=538, 1944.26375pt x 665.48625pt>
+ [13 <./figures/pooling.png (PNG copy)> <./figures/relu.png> <./figures/softmax
+.png>]
+<figures/dropout.png, id=627, 1944.26375pt x 665.48625pt>
 File: figures/dropout.png Graphic file (type png)
 
 <use figures/dropout.png>
 Package pdftex.def Info: figures/dropout.png used on input line 184.
 (pdftex.def)             Requested size: 455.24411pt x 155.82063pt.
- [9 <./figures/dropout.png>] [10]
-<figures/droidcampre.png, id=566, 1082.0425pt x 1444.39626pt>
+ [14 <./figures/dropout.png>] [15]
+<figures/droidcampre.png, id=655, 1082.0425pt x 1444.39626pt>
 File: figures/droidcampre.png Graphic file (type png)
 
 <use figures/droidcampre.png>
 Package pdftex.def Info: figures/droidcampre.png used on input line 238.
 (pdftex.def)             Requested size: 135.20732pt x 180.48297pt.
 
-<figures/droidcamlinux.png, id=567, 433.62pt x 579.16376pt>
+<figures/droidcamlinux.png, id=656, 433.62pt x 579.16376pt>
 File: figures/droidcamlinux.png Graphic file (type png)
 
 <use figures/droidcamlinux.png>
 Package pdftex.def Info: figures/droidcamlinux.png used on input line 244.
 (pdftex.def)             Requested size: 135.20732pt x 180.59055pt.
 
-<figures/droidcampost.png, id=568, 1082.0425pt x 1441.385pt>
+<figures/droidcampost.png, id=657, 1082.0425pt x 1441.385pt>
 File: figures/droidcampost.png Graphic file (type png)
 
 <use figures/droidcampost.png>
 Package pdftex.def Info: figures/droidcampost.png used on input line 250.
 (pdftex.def)             Requested size: 135.20732pt x 180.10669pt.
- [11] [12 <./figures/droidcampre.png> <./figures/droidcamlinux.png> <./figures/
+ [16] [17 <./figures/droidcampre.png> <./figures/droidcamlinux.png> <./figures/
 droidcampost.png>]
-<figures/conf_mat.png, id=600, 561.09625pt x 421.575pt>
+<figures/conf_mat.png, id=690, 561.09625pt x 421.575pt>
 File: figures/conf_mat.png Graphic file (type png)
 
 <use figures/conf_mat.png>
 Package pdftex.def Info: figures/conf_mat.png used on input line 289.
 (pdftex.def)             Requested size: 364.19667pt x 273.63454pt.
-) [13] [14 <./figures/conf_mat.png>]
+) [18] [19 <./figures/conf_mat.png>]
 \openout2 = `3-Digit_classifier.aux'.
 
 
 (./3-Digit_classifier.tex
 Chapter 3.
-[15
+[20
 
 
 
-] <figures/first_sample.png, id=635, 365.365pt x 149.55875pt>
+] <figures/first_sample.png, id=723, 365.365pt x 149.55875pt>
 File: figures/first_sample.png Graphic file (type png)
 
 <use figures/first_sample.png>
 Package pdftex.def Info: figures/first_sample.png used on input line 30.
 (pdftex.def)             Requested size: 318.66948pt x 130.45052pt.
- [16 <./figures/first_sample.png>] [17] [18]
-[19] <figures/model.png, id=735, 518.93875pt x 962.59625pt>
+ [21 <./figures/first_sample.png>] [22] [23]
+[24] <figures/model.png, id=822, 518.93875pt x 962.59625pt>
 File: figures/model.png Graphic file (type png)
 
 <use figures/model.png>
 Package pdftex.def Info: figures/model.png used on input line 174.
 (pdftex.def)             Requested size: 273.14923pt x 506.69252pt.
- [20] [21 <./figures/model.png>] [22]
-<figures/digitclass.png, id=775, 1319.93124pt x 746.79pt>
+ [25] [26 <./figures/model.png>] [27]
+<figures/digitclass.png, id=863, 1319.93124pt x 746.79pt>
 File: figures/digitclass.png Graphic file (type png)
 
 <use figures/digitclass.png>
 Package pdftex.def Info: figures/digitclass.png used on input line 231.
 (pdftex.def)             Requested size: 455.24411pt x 257.56305pt.
- [23] [24 <./figures/digitclass.png>] [25] [26]
-[27] [28]) [29]
+ [28] [29 <./figures/digitclass.png>] [30] [31]
+[32] [33]) [34]
 \openout2 = `4-Benchmark.aux'.
 
  (./4-Benchmark.tex
 Chapter 4.
-<figures/mnist.png, id=963, 578.16pt x 433.62pt>
+<figures/mnist.png, id=1051, 578.16pt x 433.62pt>
 File: figures/mnist.png Graphic file (type png)
  <use figures/mnist.png>
 Package pdftex.def Info: figures/mnist.png used on input line 13.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
-[30
+[35
 
 
 
-] [31 <./figures/mnist.png>]
-<figures/aug_keras.png, id=986, 578.16pt x 433.62pt>
+] [36 <./figures/mnist.png>]
+<figures/aug_keras.png, id=1075, 578.16pt x 433.62pt>
 File: figures/aug_keras.png Graphic file (type png)
 
 <use figures/aug_keras.png>
 Package pdftex.def Info: figures/aug_keras.png used on input line 58.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
- [32] [33 <./figures/aug_keras.png>]
-<figures/Sobel.png, id=1014, 578.16pt x 433.62pt>
+ [37] [38 <./figures/aug_keras.png>]
+<figures/Sobel.png, id=1101, 578.16pt x 433.62pt>
 File: figures/Sobel.png Graphic file (type png)
  <use figures/Sobel.png>
 Package pdftex.def Info: figures/Sobel.png used on input line 83.
 (pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
 
-<figures/0-1.png, id=1015, 578.16pt x 433.62pt>
+<figures/0-1.png, id=1102, 578.16pt x 433.62pt>
 File: figures/0-1.png Graphic file (type png)
  <use figures/0-1.png>
 Package pdftex.def Info: figures/0-1.png used on input line 88.
 (pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
 
-<figures/1-1.png, id=1016, 578.16pt x 433.62pt>
+<figures/1-1.png, id=1103, 578.16pt x 433.62pt>
 File: figures/1-1.png Graphic file (type png)
  <use figures/1-1.png>
 Package pdftex.def Info: figures/1-1.png used on input line 93.
 (pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
 
-<figures/0-6.png, id=1017, 578.16pt x 433.62pt>
+<figures/0-6.png, id=1104, 578.16pt x 433.62pt>
 File: figures/0-6.png Graphic file (type png)
  <use figures/0-6.png>
 Package pdftex.def Info: figures/0-6.png used on input line 98.
 (pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
 
-<figures/1-6.png, id=1018, 578.16pt x 433.62pt>
+<figures/1-6.png, id=1105, 578.16pt x 433.62pt>
 File: figures/1-6.png Graphic file (type png)
  <use figures/1-6.png>
 Package pdftex.def Info: figures/1-6.png used on input line 103.
 (pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
- [34]
-[35 <./figures/Sobel.png> <./figures/0-1.png> <./figures/1-1.png> <./figures/0-
-6.png> <./figures/1-6.png>] [36] [37] [38] [39]
-<figures/learning_curves.png, id=1180, 1229.59375pt x 673.51625pt>
+ [39]
+[40 <./figures/Sobel.png> <./figures/0-1.png> <./figures/1-1.png> <./figures/0-
+6.png> <./figures/1-6.png>] [41] [42] [43] [44]
+<figures/learning_curves.png, id=1267, 1229.59375pt x 673.51625pt>
 File: figures/learning_curves.png Graphic file (type png)
 
 <use figures/learning_curves.png>
 Package pdftex.def Info: figures/learning_curves.png used on input line 239.
 (pdftex.def)             Requested size: 455.24411pt x 249.36154pt.
 
-<figures/prec_rec.png, id=1181, 532.99126pt x 400.49625pt>
+<figures/prec_rec.png, id=1268, 532.99126pt x 400.49625pt>
 File: figures/prec_rec.png Graphic file (type png)
 
 <use figures/prec_rec.png>
@@ -1656,15 +1684,15 @@ File: figures/conf_mat.png Graphic file (type png)
  <use figures/conf_mat.png>
 Package pdftex.def Info: figures/conf_mat.png used on input line 249.
 (pdftex.def)             Requested size: 204.85846pt x 153.9154pt.
- [40] [41 <./figures/learning_curves.png> <./figures/prec_rec.png>]
-<figures/1stconvarch.png, id=1205, 513.92pt x 184.69pt>
+ [45] [46 <./figures/learning_curves.png> <./figures/prec_rec.png>]
+<figures/1stconvarch.png, id=1294, 513.92pt x 184.69pt>
 File: figures/1stconvarch.png Graphic file (type png)
 
 <use figures/1stconvarch.png>
 Package pdftex.def Info: figures/1stconvarch.png used on input line 291.
 (pdftex.def)             Requested size: 204.85846pt x 73.62105pt.
 
-<figures/2ndconvarch.png, id=1206, 513.92pt x 296.10625pt>
+<figures/2ndconvarch.png, id=1295, 513.92pt x 296.10625pt>
 File: figures/2ndconvarch.png Graphic file (type png)
 
 <use figures/2ndconvarch.png>
@@ -1675,152 +1703,158 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 289--299
 []$[]$ $[]$ 
  []
 
-) [42] [43 <./figures/1stconvarch.png> <./figures/2ndconvarch.png>]
+) [47] [48 <./figures/1stconvarch.png> <./figures/2ndconvarch.png>]
 \openout2 = `5-Evaluation.aux'.
 
 
 (./5-Evaluation.tex
 Chapter 5.
-[44
+<figures/0-1_sample.png, id=1322, 28.105pt x 28.105pt>
+File: figures/0-1_sample.png Graphic file (type png)
 
-
-
-] <figures/weights_conv2d_1.png, id=1239, 824.6007pt x 570.933pt>
-File: figures/weights_conv2d_1.png Graphic file (type png)
-
-<use figures/weights_conv2d_1.png>
-Package pdftex.def Info: figures/weights_conv2d_1.png used on input line 18.
-(pdftex.def)             Requested size: 455.24411pt x 315.19891pt.
-
-<figures/weights_conv2d_2.png, id=1242, 1187.3961pt x 641.0349pt>
-File: figures/weights_conv2d_2.png Graphic file (type png)
-
-<use figures/weights_conv2d_2.png>
-Package pdftex.def Info: figures/weights_conv2d_2.png used on input line 26.
-(pdftex.def)             Requested size: 455.24411pt x 245.76726pt.
-
-<figures/activation_maps_conv2d_1.png, id=1247, 825.3234pt x 615.7404pt>
-File: figures/activation_maps_conv2d_1.png Graphic file (type png)
-
-<use figures/activation_maps_conv2d_1.png>
-Package pdftex.def Info: figures/activation_maps_conv2d_1.png used on input lin
-e 35.
-(pdftex.def)             Requested size: 409.71692pt x 305.67091pt.
- [45 <./figures/weights_conv2d_1.png>] <figures/activation_maps_conv2d_2.png, i
-d=1254, 708.246pt x 466.8642pt>
-File: figures/activation_maps_conv2d_2.png Graphic file (type png)
-
-<use figures/activation_maps_conv2d_2.png>
-Package pdftex.def Info: figures/activation_maps_conv2d_2.png used on input lin
-e 43.
-(pdftex.def)             Requested size: 409.71692pt x 270.08328pt.
- [46 <./figures/weights_conv2d_2.png>] [47 <./figures/activation_maps_conv2d_1.
-png> <./figures/activation_maps_conv2d_2.png>] <figures/val_datasets.png, id=12
-71, 1217.54875pt x 644.4075pt>
-File: figures/val_datasets.png Graphic file (type png)
-
-<use figures/val_datasets.png>
-Package pdftex.def Info: figures/val_datasets.png used on input line 60.
-(pdftex.def)             Requested size: 455.24411pt x 240.94424pt.
- [48 <./figures/val_datasets.png>] [49]
-<figures/comp_dropout.png, id=1291, 1225.57875pt x 668.4975pt>
-File: figures/comp_dropout.png Graphic file (type png)
-
-<use figures/comp_dropout.png>
-Package pdftex.def Info: figures/comp_dropout.png used on input line 118.
-(pdftex.def)             Requested size: 455.24411pt x 248.30923pt.
-
-<figures/lc_nodropout.png, id=1296, 1201.48875pt x 637.38126pt>
-File: figures/lc_nodropout.png Graphic file (type png)
-
-<use figures/lc_nodropout.png>
-Package pdftex.def Info: figures/lc_nodropout.png used on input line 127.
-(pdftex.def)             Requested size: 455.24411pt x 241.50714pt.
-
-<figures/lc_dropout.png, id=1297, 1200.485pt x 638.385pt>
-File: figures/lc_dropout.png Graphic file (type png)
-
-<use figures/lc_dropout.png>
-Package pdftex.def Info: figures/lc_dropout.png used on input line 132.
-(pdftex.def)             Requested size: 455.24411pt x 242.08228pt.
- [50] [51 <./figures/comp_dropout.png>] [52 <./figures/lc_nodropout.png> <./fig
-ures/lc_dropout.png>]
-<figures/full_comparison.png, id=1315, 1208.515pt x 637.38126pt>
-File: figures/full_comparison.png Graphic file (type png)
-
-<use figures/full_comparison.png>
-Package pdftex.def Info: figures/full_comparison.png used on input line 160.
-(pdftex.def)             Requested size: 455.24411pt x 240.09692pt.
-) [53 <./figures/full_comparison.png>]
-\openout2 = `6-Conclusions.aux'.
-
-
-(./6-Conclusions.tex
-Chapter 6.
-) [54
+<use figures/0-1_sample.png>
+Package pdftex.def Info: figures/0-1_sample.png used on input line 8.
+(pdftex.def)             Requested size: 136.57462pt x 136.62851pt.
+ [49
 
 
 
 ]
+<figures/weights_conv2d_1.png, id=1328, 824.6007pt x 570.933pt>
+File: figures/weights_conv2d_1.png Graphic file (type png)
+
+<use figures/weights_conv2d_1.png>
+Package pdftex.def Info: figures/weights_conv2d_1.png used on input line 24.
+(pdftex.def)             Requested size: 455.24411pt x 315.19891pt.
+
+<figures/weights_conv2d_2.png, id=1331, 1187.3961pt x 641.0349pt>
+File: figures/weights_conv2d_2.png Graphic file (type png)
+
+<use figures/weights_conv2d_2.png>
+Package pdftex.def Info: figures/weights_conv2d_2.png used on input line 32.
+(pdftex.def)             Requested size: 455.24411pt x 245.76726pt.
+
+<figures/activation_maps_conv2d_1.png, id=1336, 825.3234pt x 615.7404pt>
+File: figures/activation_maps_conv2d_1.png Graphic file (type png)
+
+<use figures/activation_maps_conv2d_1.png>
+Package pdftex.def Info: figures/activation_maps_conv2d_1.png used on input lin
+e 41.
+(pdftex.def)             Requested size: 409.71692pt x 305.67091pt.
+
+<figures/activation_maps_conv2d_2.png, id=1338, 708.246pt x 466.8642pt>
+File: figures/activation_maps_conv2d_2.png Graphic file (type png)
+
+<use figures/activation_maps_conv2d_2.png>
+Package pdftex.def Info: figures/activation_maps_conv2d_2.png used on input lin
+e 49.
+(pdftex.def)             Requested size: 409.71692pt x 270.08328pt.
+ [50 <./figures/0-1_sample.png (PNG copy)>] [51 <./figures/weights_conv2d_1.png
+> <./figures/weights_conv2d_2.png>]
+[52 <./figures/activation_maps_conv2d_1.png> <./figures/activation_maps_conv2d_
+2.png>] <figures/val_datasets.png, id=1362, 1217.54875pt x 644.4075pt>
+File: figures/val_datasets.png Graphic file (type png)
+
+<use figures/val_datasets.png>
+Package pdftex.def Info: figures/val_datasets.png used on input line 66.
+(pdftex.def)             Requested size: 455.24411pt x 240.94424pt.
+ [53] [54 <./figures/val_datasets.png>]
+<figures/comp_dropout.png, id=1382, 1225.57875pt x 668.4975pt>
+File: figures/comp_dropout.png Graphic file (type png)
+
+<use figures/comp_dropout.png>
+Package pdftex.def Info: figures/comp_dropout.png used on input line 124.
+(pdftex.def)             Requested size: 455.24411pt x 248.30923pt.
+
+<figures/lc_nodropout.png, id=1387, 1201.48875pt x 637.38126pt>
+File: figures/lc_nodropout.png Graphic file (type png)
+
+<use figures/lc_nodropout.png>
+Package pdftex.def Info: figures/lc_nodropout.png used on input line 133.
+(pdftex.def)             Requested size: 455.24411pt x 241.50714pt.
+
+<figures/lc_dropout.png, id=1388, 1200.485pt x 638.385pt>
+File: figures/lc_dropout.png Graphic file (type png)
+
+<use figures/lc_dropout.png>
+Package pdftex.def Info: figures/lc_dropout.png used on input line 138.
+(pdftex.def)             Requested size: 455.24411pt x 242.08228pt.
+ [55] [56 <./figures/comp_dropout.png>] [57 <./figures/lc_nodropout.png> <./fig
+ures/lc_dropout.png>]
+<figures/full_comparison.png, id=1407, 1208.515pt x 637.38126pt>
+File: figures/full_comparison.png Graphic file (type png)
+
+<use figures/full_comparison.png>
+Package pdftex.def Info: figures/full_comparison.png used on input line 166.
+(pdftex.def)             Requested size: 455.24411pt x 240.09692pt.
+) [58 <./figures/full_comparison.png>]
+[59]
+\openout2 = `6-Conclusions.aux'.
+
+ (./6-Conclusions.tex
+Chapter 6.
+[60
+
+
+
+] [61]) [62] [63]
 \openout2 = `7-Bibliography.aux'.
 
- (./7-Bibliography.tex)
-Overfull \hbox (5.28804pt too wide) in paragraph at lines 126--126
+ (./7-Bibliography.tex) [64
+
+
+
+]
+Overfull \hbox (5.28804pt too wide) in paragraph at lines 129--129
 []\OT1/lmr/m/n/12 DEV47APPS. (2010-2016). Dev47apps, [On-line]. Avail-able: []$
 \OT1/lmtt/m/n/12 http : / / www . dev47apps .
  []
 
-[55
-
-
-
-] [56] [57]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+[65] [66]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
  (./Report.aux (./0-Cover.aux) (./0-Agradecimientos.aux)
 (./0-Resumen.aux) (./0-Summary.aux) (./1-Introduction.aux) (./2-Framework.aux)
 (./3-Digit_classifier.aux) (./4-Benchmark.aux) (./5-Evaluation.aux)
 (./6-Conclusions.aux) (./7-Bibliography.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 6787CFFDA8DF141614BB7EF275B96A22;3184.
+(rerunfilecheck)             Checksum: 445D5258AA8CF9E09C3A5116206E9213;3126.
 Package logreq Info: Writing requests to 'Report.run.xml'.
 \openout1 = `Report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  )
-(\end occurred when \iftrue on line 85 was incomplete) 
+(\end occurred when \iftrue on line 88 was incomplete) 
 Here is how much of TeX's memory you used:
- 22035 strings out of 494891
- 341693 string characters out of 6179039
- 768062 words of memory out of 5000000
- 24331 multiletter control sequences out of 15000+600000
- 68639 words of font info for 50 fonts, out of 8000000 for 9000
+ 22184 strings out of 494891
+ 343948 string characters out of 6179039
+ 768889 words of memory out of 5000000
+ 24448 multiletter control sequences out of 15000+600000
+ 65891 words of font info for 49 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 46i,12n,79p,1970b,2056s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,12n,79p,1963b,2056s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/e
-nc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/us
-r/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/
-lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/tex
-mf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmb
-x12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx6.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmtt12.pfb>
-Output written on Report.pdf (67 pages, 4026971 bytes).
+nc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/
+share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/
+lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}</usr/share/t
+exmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mbx6.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+r8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Report.pdf (76 pages, 4083883 bytes).
 PDF statistics:
- 1551 PDF objects out of 1728 (max. 8388607)
- 1393 compressed objects within 14 object streams
- 514 named destinations out of 1000 (max. 500000)
- 584 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1705 PDF objects out of 1728 (max. 8388607)
+ 1532 compressed objects within 16 object streams
+ 543 named destinations out of 1000 (max. 500000)
+ 596 words of extra memory for PDF output out of 10000 (max. 10000000)
 

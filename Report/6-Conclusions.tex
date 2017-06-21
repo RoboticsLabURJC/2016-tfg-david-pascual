@@ -1,1 +1,43 @@
 \chapter{Conclusions}\label{ch:conclusions}
+In this chapter, we are going to recall the main conclusions reached during the development of this project. These conclusions will be divided following the \textbf{sub-objectives} defined in Section~\ref{sec:objectives}. After summarizing the conclusions, suggestions for further works will be stated.
+
+\subsection*{Deep understanding of CNNs built with Keras}
+\begin{itemize}
+	\item The input data in Keras models is usually provided as \textbf{\gls{hdf5} files}, which can be imported as Numpy arrays that can be easily accessed and reshaped. \gls{hdf5} is also employed by Keras to save the models.
+	\item \glspl{cnn} are built in Keras as a stack of \textbf{fully configurable modules} (convolutional layers, regularization layers, activation functions...) which can be easily modified when needed, allowing fast experimentation.
+	\item The core elements of a \gls{cnn} are convolutional and pooling layers combined with non-linear activation functions (e.g. \gls{relu}), which altogether allow the learning of \textbf{complex image features} in a hierarchical way with a reasonable computational cost.
+	\item In \textbf{classification tasks}, the output layer of the model must be, at least, one fully-connected layer with as many neural units as classes have the problem. The activation function employed in this layer (e.g. Softmax) transforms the output into a probability distribution.
+	\item The cost function and optimizer of the \textbf{learning process} can be easily configured. Moreover, Keras allows the addition of callbacks which can monitor the state and the performance of the \gls{cnn} at given stages of the training process.
+	\item Keras provides tools for \textbf{image preprocessing} that can be used to generate new data in real-time. This is useful for augmenting the database without storing the new samples.
+\end{itemize}
+
+\subsection*{Tools for benchmarking}
+\begin{itemize}
+	\item The creation of a benchmark for \textbf{comparing results} has improved the speed of the experimentation and the interpretability of the results obtained.
+	\item Employing \textbf{handmade augmented datasets} instead of real-time data augmentation has allowed an easier control of what we have fed to the \glspl{cnn}.
+	\item \textbf{Scikit-learn library} provides a wide variety of functions for evaluating \glspl{cnn}. Besides that, it is independent from Keras, which allows the comparison of the results obtained with models built with different platforms. 
+	\item Building \textbf{a bridge from Python to Octave} with the SciPy library has opened the doors to the powerful visualization tools provided by Octave.
+	\item The modular logic employed by Keras allows to easily look into the inner parts of the models, which has been very useful for \textbf{visualizing the activation maps and filters} of the convolutional layers.
+\end{itemize}
+
+\subsection*{Finding the optimal CNN}
+\begin{itemize}
+	\item While training the \gls{cnn} with the \textbf{original \gls{mnist} database} leads to impressive accuracy in test time, the model generated doesn't generalize well enough when it is evaluated with real-world images.
+	\item Training with \textbf{gradient images} instead of the original ones makes the \gls{cnn} more robust with respect to the light and color conditions.
+	\item The \textbf{datasets augmented} with random transformations enable a better generalization, which means a significant improvement with real-world images.
+	\item The models trained with \textbf{dropout} learn slower and have worse results during training that the ones trained without dropout, but perform much better in validation and test time. This means that the \glspl{cnn} trained with dropout generalize better. 
+	\item Setting a good \textbf{early stopping} rule is critical to make the most of the training process. 
+	\item The analysis of the \textbf{activation maps} has proved that the \gls{cnn} is learning mostly features about the edges of the samples and. It's easier to see this trend in the activation maps of the last convolutional layer.
+	\item Some activation maps look \textit{dead}, which could mean that the learning rate is too high according to some researchers~\cite{cs231n}.
+	\item The \textbf{filters} in the first layer can be related with their activation maps. However, when we go deeper into the network, the dimensionality grows too much to interpret the filters and they look noisier. 
+\end{itemize}
+
+\subsection*{Component for digit classification}
+\begin{itemize}
+	\item The \textbf{image acquisition} from different video streams has been easily solved using the \textit{cameraserver} driver provided by JdeRobot.
+	\item On one hand, capturing images from \textbf{smartphone cameras} instead of webcams has made the application much more flexible than before. On the other hand, the frame rate is significantly higher with webcams.
+	\item The use of \textbf{threads} for the different tasks of the component is essential for enabling real-time execution.
+	\item The performance of the component has been highly improved after replacing the \gls{cnn} of the Keras example analyzed in Section~\ref{sec:understanding} with the \textbf{\textit{4Conv; Patience=2} model} evaluated in Section~\ref{subsec:arch}.
+\end{itemize}
+
+The understanding of the \glspl{cnn} acquired in this project opens the door to the application of new algorithms in \textbf{more complex real-world problems}. For instance, they can be used not only for object classification, but also for \textbf{object detection}. Algorithms based in \glspl{cnn} have shown a great performance in classical benchmarks like Pascal VOC~\footnote{\url{http://host.robots.ox.ac.uk/pascal/VOC/databases.html}} and COCO~\footnote{\url{http://mscoco.org/}}. Deep learning libraries like Keras and Caffe provide pre-trained weights for popular neural networks trained with these databases, allowing the user to fine-tune the models with new samples. The main difficulty that has to be faced in object detection is the high computational cost, but some algorithms are achieving real-time or almost \textbf{real-time predictions} (e.g. YOLO~\footnote{\url{https://pjreddie.com/darknet/yolo/}} and SSD\footnote{\url{https://github.com/weiliu89/caffe/tree/ssd}}). Possible applications of these kind of algorithms are autonomous driving and video surveillance.

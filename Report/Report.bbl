@@ -16,6 +16,214 @@
   {}
 \endgroup
 
+\entry{mccarthy2006proposal}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {McCarthy}{M.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Minsky}{M.}%
+     {Marvin~L}{M.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rochester}{R.}%
+     {Nathaniel}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shannon}{S.}%
+     {Claude~E}{C.~E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MJMMLRN+1}
+  \strng{fullhash}{MJMMLRNSCE1}
+  \field{number}{4}
+  \field{pages}{12}
+  \field{title}{A proposal for the dartmouth summer research project on
+  artificial intelligence, august 31, 1955}
+  \field{volume}{27}
+  \field{journaltitle}{AI magazine}
+  \field{year}{2006}
+\endentry
+
+\entry{sep-logic-ai}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Thomason}{T.}%
+     {Richmond}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{1}{}{%
+    {{}%
+     {Zalta}{Z.}%
+     {Edward~N.}{E.~N.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Metaphysics Research Lab, Stanford University}%
+  }
+  \strng{namehash}{TR1}
+  \strng{fullhash}{TR1}
+  \field{booktitle}{The Stanford Encyclopedia of Philosophy}
+  \field{edition}{Winter 2016}
+  \field{howpublished}{\url{https://plato.stanford.edu/archives/win2016/entries/logic-ai/}}
+  \field{title}{Logic and Artificial Intelligence}
+  \field{year}{2016}
+\endentry
+
+\entry{Russell:2003:AIM:773294}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Russell}{R.}%
+     {Stuart~J.}{S.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Norvig}{N.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Pearson Education}%
+  }
+  \strng{namehash}{RSJNP1}
+  \strng{fullhash}{RSJNP1}
+  \field{edition}{2}
+  \field{title}{Artificial Intelligence: A Modern Approach}
+  \field{year}{2003}
+\endentry
+
+\entry{Goodfellow-et-al-2016}{book}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Goodfellow}{G.}%
+     {Ian}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bengio}{B.}%
+     {Yoshua}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Courville}{C.}%
+     {Aaron}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {MIT Press}%
+  }
+  \strng{namehash}{GIBYCA1}
+  \strng{fullhash}{GIBYCA1}
+  \field{title}{Deep Learning}
+  \verb{url}
+  \verb http://www.deeplearningbook.org
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{21}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{neural-unit}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pokharna}{P.}%
+     {Harsh}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PH1}
+  \strng{fullhash}{PH1}
+  \field{title}{For Dummies — The Introduction to Neural Networks we all need
+  ! (Part 1)}
+  \verb{url}
+  \verb https://medium.com/technologymadeeasy/for-dummies-the-introduction-to-n
+  \verb eural-networks-we-all-need-c50f6012d5eb
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{20}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{deep-learning-methods-and-applications}{report}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Deng}{D.}%
+     {Li}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yu}{Y.}%
+     {Dong}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {NOW Publishers}%
+  }
+  \strng{namehash}{DLYD1}
+  \strng{fullhash}{DLYD1}
+  \field{title}{Deep Learning: Methods and Applications}
+  \verb{url}
+  \verb https://www.microsoft.com/en-us/research/publication/deep-learning-meth
+  \verb ods-and-applications/
+  \endverb
+  \field{type}{techreport}
+  \field{year}{2014}
+  \field{urlday}{20}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{huang1996computer}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Huang}{H.}%
+     {TS}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HT1}
+  \strng{fullhash}{HT1}
+  \field{pages}{21\bibrangedash 26}
+  \field{title}{Computer Vision: Evolution and Promise}
+  \field{journaltitle}{CERN European Organization for Nuclear
+  Research-Reports-CERN}
+  \field{year}{1996}
+\endentry
+
+\entry{black-box}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Knight}{K.}%
+     {Will}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KW1}
+  \strng{fullhash}{KW1}
+  \field{title}{The Dark Secret at the Heart of AI - MIT Technology Review}
+  \verb{url}
+  \verb https://www.technologyreview.com/s/604087/the-dark-secret-at-the-heart-
+  \verb of-ai/
+  \endverb
+  \field{year}{2017}
+  \field{urlday}{21}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
 \entry{chollet2015keras}{misc}{}
   \true{moreauthor}
   \name{author}{1}{}{%
@@ -79,36 +287,9 @@
   \field{volume}{abs/1212.5701}
   \field{journaltitle}{CoRR}
   \field{year}{2012}
-\endentry
-
-\entry{Goodfellow-et-al-2016}{book}{}
-  \name{author}{3}{}{%
-    {{}%
-     {Goodfellow}{G.}%
-     {Ian}{I.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Bengio}{B.}%
-     {Yoshua}{Y.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Courville}{C.}%
-     {Aaron}{A.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {MIT Press}%
-  }
-  \strng{namehash}{GIBYCA1}
-  \strng{fullhash}{GIBYCA1}
-  \field{title}{Deep Learning}
-  \verb{url}
-  \verb http://www.deeplearningbook.org
-  \endverb
-  \field{year}{2016}
+  \field{urlday}{06}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{cs231n}{online}{}
@@ -184,6 +365,9 @@
     {Berlin, Heidelberg}%
   }
   \field{year}{2010}
+  \field{urlday}{10}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{srivastava2014dropout}{article}{}
@@ -230,6 +414,9 @@
   \field{volume}{15}
   \field{journaltitle}{The Journal of Machine Learning Research}
   \field{year}{2014}
+  \field{urlday}{10}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{DBLP:journals/corr/WongGSM16}{article}{}
@@ -266,6 +453,9 @@
   \field{volume}{abs/1609.08764}
   \field{journaltitle}{CoRR}
   \field{year}{2016}
+  \field{urlday}{06}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{jderobot}{online}{}
@@ -284,6 +474,9 @@
   \verb http://jderobot.org/Main_Page
   \endverb
   \field{year}{2017}
+  \field{urlday}{19}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{droidcam}{online}{}
@@ -301,6 +494,9 @@
   \verb http://www.dev47apps.com/
   \endverb
   \field{year}{2010-2016}
+  \field{urlday}{22}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{hdf5}{online}{}
@@ -318,6 +514,9 @@
   \verb http://www.hdfgroup.org/HDF5/
   \endverb
   \field{year}{1997-2017}
+  \field{urlday}{22}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{scikit-learn}{article}{}
@@ -480,7 +679,7 @@
   \strng{namehash}{I1}
   \strng{fullhash}{I1}
   \field{edition}{2.4.9.0}
-  \field{title}{The OpenCV Reference Manual}
+  \field{title}{The {OpenCV} Reference Manual}
   \verb{url}
   \verb http://opencv.org/
   \endverb
@@ -616,7 +815,7 @@
      {}{}}%
     {{}%
      {Girshick}{G.}%
-     {Ross}{R.}%
+     {Ross~B.}{R.~B.}%
      {}{}%
      {}{}}%
     {{}%
@@ -631,10 +830,18 @@
      {}{}}%
   }
   \strng{namehash}{JYSEDJ+1}
-  \strng{fullhash}{JYSEDJKSLJGRGSDT1}
+  \strng{fullhash}{JYSEDJKSLJGRBGSDT1}
+  \field{pages}{1\bibrangedash 2}
   \field{title}{Caffe: Convolutional Architecture for Fast Feature Embedding}
-  \field{journaltitle}{arXiv preprint arXiv:1408.5093}
+  \verb{url}
+  \verb http://arxiv.org/abs/1408.5093
+  \endverb
+  \field{volume}{abs/1408.5093}
+  \field{journaltitle}{CoRR}
   \field{year}{2014}
+  \field{urlday}{10}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
 \endentry
 
 \entry{protobuf}{online}{}
@@ -675,35 +882,6 @@
   \field{urlday}{06}
   \field{urlmonth}{06}
   \field{urlyear}{2017}
-\endentry
-
-\entry{Hunter:2007}{article}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Hunter}{H.}%
-     {J.~D.}{J.~D.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {IEEE COMPUTER SOC}%
-  }
-  \strng{namehash}{HJD1}
-  \strng{fullhash}{HJD1}
-  \field{abstract}{%
-  Matplotlib is a 2D graphics package used for Python for application
-  development, interactive scripting, and publication-quality image generation
-  across user interfaces and operating systems.%
-  }
-  \verb{doi}
-  \verb 10.1109/MCSE.2007.55
-  \endverb
-  \field{number}{3}
-  \field{pages}{90\bibrangedash 95}
-  \field{title}{Matplotlib: A 2D graphics environment}
-  \field{volume}{9}
-  \field{journaltitle}{Computing In Science \& Engineering}
-  \field{year}{2007}
 \endentry
 
 \lossort

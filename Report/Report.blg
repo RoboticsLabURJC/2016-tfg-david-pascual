@@ -26,63 +26,47 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Report-blx.bib
 Database file #2: Bibliography.bib
-I was expecting a `,' or a `}'---line 44 of file Bibliography.bib
- :  
- :  urldate = {2017-05-22}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 70 of file Bibliography.bib
- :  
- :  urldate = {2017-05-19}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 155 of file Bibliography.bib
- :  
- :  urldate = {2017-05-22}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Biblatex version: 3.3
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 24 entries,
+You've used 30 entries,
             6047 wiz_defined-function locations,
-            1284 strings with 12672 characters,
-and the built_in function-call counts, 87434 in all, are:
-= -- 2876
-> -- 5408
-< -- 725
-+ -- 3452
-- -- 3517
-* -- 5574
-:= -- 7410
+            1320 strings with 13687 characters,
+and the built_in function-call counts, 123912 in all, are:
+= -- 3893
+> -- 9227
+< -- 1076
++ -- 6536
+- -- 6517
+* -- 7211
+:= -- 11720
 add.period$ -- 0
-call.type$ -- 24
-change.case$ -- 283
-chr.to.int$ -- 298
-cite$ -- 46
-duplicate$ -- 8969
-empty$ -- 8074
-format.name$ -- 1672
-if$ -- 17185
+call.type$ -- 30
+change.case$ -- 385
+chr.to.int$ -- 587
+cite$ -- 58
+duplicate$ -- 12013
+empty$ -- 10623
+format.name$ -- 2045
+if$ -- 22714
 int.to.chr$ -- 0
-int.to.str$ -- 55
+int.to.str$ -- 70
 missing$ -- 0
-newline$ -- 700
-num.names$ -- 1014
-pop$ -- 7485
+newline$ -- 877
+num.names$ -- 1308
+pop$ -- 9373
 preamble$ -- 1
-purify$ -- 385
+purify$ -- 508
 quote$ -- 0
-skip$ -- 4438
+skip$ -- 5823
 stack$ -- 0
-substring$ -- 2134
-swap$ -- 2886
-text.length$ -- 636
+substring$ -- 3570
+swap$ -- 3972
+text.length$ -- 880
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 900
+type$ -- 1127
 warning$ -- 0
-while$ -- 611
+while$ -- 921
 width$ -- 0
-write$ -- 675
-(There were 3 error messages)
+write$ -- 846

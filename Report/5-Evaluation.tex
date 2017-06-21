@@ -2,7 +2,13 @@
 The \gls{cnn} analyzed in Section~\ref{sec:understanding} is going to be taken as a starting point to build \textbf{new models}. These models will be trained with different datasets and regularization methods and, finally, new architectures will be implemented. In this chapter, the tools developed in Chapter~\ref{ch:benchmark} will be employed to evaluate the results achieved by each \gls{cnn}. Before talking about the \textbf{performance} of the new models, the visualization of the convolutional layers filters and activation maps is going to be analyzed.
 
 \section{Convolutional layers visualization}
-The filters and activation maps discussed in this section belong to the convolutional layers of the \textbf{\textit{0-1; Patience=2} model} that can be found in Section~\ref{subsec:early_stopping}. This model has been trained with the \textit{0-1} dataset (see Section~\ref{subsec:handmade}) and an early stopping rule with patience 2. Its architecture corresponds to the one defined in Section~\ref{sec:understanding}.
+The filters and activation maps discussed in this section belong to the convolutional layers of the \textbf{\textit{0-1; Patience=2} model} that can be found in Section~\ref{subsec:early_stopping}. This model has been trained with the \textit{0-1} dataset (see Section~\ref{subsec:handmade}) and an early stopping rule with patience 2. Its architecture corresponds to the one defined in Section~\ref{sec:understanding}. In order to generate the activation maps, the model will be fed with a sample extracted from the \textit{0-1} dataset. It can be seen in Figure~\ref{fig:sample}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\linewidth, keepaspectratio]{figures/0-1_sample.png}
+	\caption{Sample employed to generate the activation maps.}
+	\label{fig:sample}
+\end{figure}
 
 \subsection{Filters}
 When loading the weights of the \textbf{first convolutional layer}, a Numpy array of shape (1, 3, 3, 32) is obtained. This means that the weights are arranged in 32 filters of size 3x3. In this case, the input is a grayscale image, so the filters only have one channel (i.e. depth=1). Besides that, when examining their values, \textbf{negative and positive coefficients} are found.
