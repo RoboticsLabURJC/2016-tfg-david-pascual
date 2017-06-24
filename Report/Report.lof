@@ -4,64 +4,64 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Basic architecture of an artificial neural network.\relax }}{2}{figure.caption.10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Basic architecture of an artificial neural network.\relax }}{2}{figure.caption.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces A neural unit.}}{3}{figure.caption.11}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces A neural unit.}}{3}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Gantt chart.\relax }}{5}{figure.caption.12}
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Convolutional layer.\relax }}{12}{figure.caption.13}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Example of a max. pooling operation.\relax }}{13}{figure.caption.14}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions.}}{13}{figure.caption.15}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Subnetworks generated when using dropout.\relax }}{14}{figure.caption.16}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces DroidCam usage.}}{17}{figure.caption.18}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Example of a confusion matrix visualization using Octave.\relax }}{19}{figure.caption.19}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Gantt chart.\relax }}{5}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces First sample of the MNIST database.\relax }}{21}{figure.caption.20}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Convolutional layer.\relax }}{12}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram of a Keras sequential model.\relax }}{26}{figure.caption.21}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Example of a max. pooling operation.\relax }}{13}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of \textit {digitclassifier.py} execution.\relax }}{29}{figure.caption.22}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions.}}{13}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Subnetworks generated when using dropout.\relax }}{14}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Samples extracted from the MNIST database.\relax }}{36}{figure.caption.23}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces DroidCam usage.}}{17}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Samples generated with Keras from MNIST database.\relax }}{38}{figure.caption.25}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces First samples of handmade datasets.}}{40}{figure.caption.27}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of usage of \textit {benchmark.m}.}}{46}{figure.caption.31}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model.\relax }}{48}{figure.caption.32}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Example of a confusion matrix visualization using Octave.\relax }}{19}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Sample employed to generate the activation maps.\relax }}{50}{figure.caption.33}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces First sample of the MNIST database.\relax }}{22}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Filters of the first convolutional layer.\relax }}{51}{figure.caption.34}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram of a Keras sequential model.\relax }}{27}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Filters of the second convolutional layer.}}{51}{figure.caption.35}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of \textit {digitclassifier.py} execution.\relax }}{30}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Activation maps of the first convolutional layer.\relax }}{52}{figure.caption.36}
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Activation maps of the second convolutional layer.\relax }}{52}{figure.caption.37}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Samples extracted from the MNIST database.\relax }}{38}{figure.caption.22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Validation results when training the model with different datasets.\relax }}{54}{figure.caption.38}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Samples generated with Keras from MNIST database.\relax }}{40}{figure.caption.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Validation results with and without dropout.\relax }}{56}{figure.caption.42}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces First samples of handmade datasets.}}{42}{figure.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Learning curves with and without dropout.}}{57}{figure.caption.43}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of usage of \textit {benchmark.m}.}}{48}{figure.caption.30}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Validation results with different architectures.\relax }}{58}{figure.caption.45}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model.\relax }}{50}{figure.caption.31}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sample employed to generate the activation maps.\relax }}{52}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Filters of the first convolutional layer.\relax }}{53}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Filters of the second convolutional layer.}}{53}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Activation maps of the first convolutional layer.\relax }}{54}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Activation maps of the second convolutional layer.\relax }}{54}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Validation results when training the model with different datasets.\relax }}{56}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Validation results with and without dropout.\relax }}{58}{figure.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Learning curves with and without dropout.}}{59}{figure.caption.42}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Validation results with different architectures.\relax }}{60}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
