@@ -370,6 +370,27 @@
   \field{urlyear}{2017}
 \endentry
 
+\entry{fc}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hollemans}{H.}%
+     {Matthijs}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HM1}
+  \strng{fullhash}{HM1}
+  \field{title}{Convolutional neural networks on the iPhone with VGGNet}
+  \verb{url}
+  \verb http://machinethink.net/blog/convolutional-neural-networks-on-the-iphon
+  \verb e-with-vggnet/
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{28}
+  \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
 \entry{srivastava2014dropout}{article}{}
   \name{author}{5}{}{%
     {{}%

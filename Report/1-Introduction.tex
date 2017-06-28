@@ -1,14 +1,14 @@
 \chapter{Introduction}\label{ch:introduction}
 \section{Context and motivation}
-Since the term \textbf{\gls{ai}} was coined at the Dartmouth Conference in 1956~\cite{mccarthy2006proposal} until nowadays, this field of computer science has developed at a great pace. During this time, its contributions to robotics and computer vision have brought machines that can solve certain tasks as well as humans and, in some, cases even surpass human performance. In order to understand the context in which this project has been developed, the fields and subfields that have lead to the birth of \textbf{\glspl{cnn}} are going to be defined, trying to clarify the differences between them and how they are related to each other. 
+Since the term \emph{\gls{ai}} was coined at the Dartmouth Conference in 1956~\cite{mccarthy2006proposal} until nowadays, this field of computer science has developed at a great pace. During this time, its contributions to robotics and computer vision have brought machines that can solve certain tasks as well as humans and, in some, cases even surpass human performance. In order to understand the context in which this project has been developed, the fields and subfields that have lead to the birth of \emph{\glspl{cnn}} are going to be defined, trying to clarify the differences between them and how they are related to each other. 
 \begin{description}
-	\item[\textbf{Artificial intelligence}] "It is the subfield of computer science devoted to developing programs that enable computers to display behavior that can (broadly) be characterized as \textbf{intelligent}"~\cite{sep-logic-ai}, where \textit{intelligent} refers to the ability of perceiving the environment and acting consequently, trying to maximize the chances of achieving a certain goal~\cite{Russell:2003:AIM:773294}.
+	\item[Artificial intelligence] "It is the subfield of computer science devoted to developing programs that enable computers to display behavior that can (broadly) be characterized as \emph{intelligent}"~\cite{sep-logic-ai}, where intelligent refers to the ability of perceiving the environment and acting consequently, trying to maximize the chances of achieving a certain goal~\cite{Russell:2003:AIM:773294}.
 \end{description}
 \begin{description}
-	\item[\textbf{Machine learning}] According to a quote attributed to Arthur Samuel, it is the "field of study that gives computers the \textbf{ability to learn} without being \textbf{explicitly programmed}". Given this definition, it can be asserted that \gls{ml} is a subfield of \gls{ai}, because computers that have the ability to learn will exhibit an \textit{intelligent} behaviour, but displaying an \textit{intelligent} behaviour doesn't necessarily mean to learn. For instance, \textbf{Deep Blue} chess-playing system can be considered \textit{intelligent} as it achieves a \textbf{human comparable performance}, but instead of actually learning to play, it was hard-coded with a function that evaluated the board positions~\cite{Goodfellow-et-al-2016}.  
+	\item[Machine learning] According to a quote attributed to Arthur Samuel, it is the "field of study that gives computers the \emph{ability to learn} without being \emph{explicitly programmed}". Given this definition, it can be asserted that \gls{ml} is a subfield of \gls{ai}, because computers that have the ability to learn will exhibit an intelligent behaviour, but displaying an intelligent behaviour doesn't necessarily mean to learn. For instance, \emph{Deep Blue} chess-playing system can be considered intelligent as it achieves a \emph{human comparable performance}, but instead of actually learning to play, it was hard-coded with a function that evaluated the board positions~\cite{Goodfellow-et-al-2016}.  
 \end{description}
 \begin{description}
-	\item[Artificial neural networks] They are a computational approach that tries to model the way a \textbf{biological neural network} solves problems. As it can be seen in Figure~\ref{fig:ANN}, they're formed by layers of interconnected \textbf{neural units}.
+	\item[Artificial neural networks] They are a computational approach that tries to model the way a \emph{biological neural network} solves problems. As it can be seen in Figure~\ref{fig:ANN}, they're formed by layers of interconnected \emph{neural units}.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8\linewidth, keepaspectratio]{figures/ANN.png}
@@ -16,44 +16,44 @@ Since the term \textbf{\gls{ai}} was coined at the Dartmouth Conference in 1956~
 		\label{fig:ANN}
 	\end{figure}
 	
-	In \glspl{ann}, each neural unit sums the weighted input signals and apply an \textbf{activation function} that can be linear or non-linear (see Figure~\ref{fig:unit}). The result of this operation is transferred to the neurons of the next layer. During training, weights are updated based on a \textbf{learning rule} that will try to minimize the difference between the current output and the desired one. As \glspl{ann} are able to learn from experience, they're classified within the \gls{ml} field.
+	In \glspl{ann}, each neural unit sums the weighted input signals and apply an \emph{activation function} that can be linear or non-linear (see Figure~\ref{fig:unit}). The result of this operation is transferred to the neurons of the next layer. During training, weights are updated based on a \emph{learning rule} that will try to minimize the difference between the current output and the desired one. As \glspl{ann} are able to learn from experience, they're classified within the \gls{ml} field.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8\linewidth, keepaspectratio]{figures/unit.png}
-		\caption[A neural unit.]{A neural unit (image extracted from~\cite{neural-unit}).}
+		\caption[A neural unit.]{A neural unit (Source~\cite{neural-unit}).}
 		\label{fig:unit}
 	\end{figure}
 \end{description}
 \begin{description}
-	\item[\textbf{Deep learning}] It is a branch of \gls{ml} which is based on algorithms that share the following properties~\cite{deep-learning-methods-and-applications}:
+	\item[Deep learning] It is a branch of \gls{ml} which is based on algorithms that share the following properties~\cite{deep-learning-methods-and-applications}:
 	\begin{itemize}
-		\item \textbf{Multiple layers} of \textbf{non-linear} processing units.
-		\item The supervised or unsupervised \textbf{hierarchical learning} of feature representations in each layer.
+		\item \emph{Multiple layers} of \emph{non-linear} processing units.
+		\item The supervised or unsupervised \emph{hierarchical learning} of feature representations in each layer.
 	\end{itemize}
 	
 	Although the term \textit{deep learning} is not explicitly linked to \glspl{ann}, in practice, we could talk about deep learning as a subset of neural networks algorithms that share the properties mentioned above. 
 \end{description}
 \begin{description}
-	\item[\textbf{Convolutional neural networks}] They are "neural networks that use \textbf{convolution} in place of general matrix multiplication in at least one of their layers"~\cite{Goodfellow-et-al-2016}. \glspl{cnn} are specifically designed to process data that has a \textbf{grid-like topology}, like images and audio. In a few years, they have become one of the most promising subfields of \gls{ml}, outperforming the results achieved by the previous algorithms in the most popular benchmarks for tasks like object classification, object detection and natural language processing. The details about how \glspl{cnn} work will be the deeply discussed in the following chapters.
+	\item[Convolutional neural networks] They are "neural networks that use \emph{convolution} in place of general matrix multiplication in at least one of their layers"~\cite{Goodfellow-et-al-2016}. \glspl{cnn} are specifically designed to process data that has a \emph{grid-like topology}, like images and audio. In a few years, they have become one of the most promising subfields of \gls{ml}, outperforming the results achieved by the previous algorithms in the most popular benchmarks for tasks like object classification, object detection and natural language processing. The details about how \glspl{cnn} work will be the deeply discussed in the following chapters.
 \end{description}
 
 \begin{description}
-	\item[\textbf{Computer vision}] It is a field of computer science which "aims to build \textbf{autonomous systems} which could perform some of the tasks that the \textbf{human visual system} can perform"~\cite{huang1996computer}. In order to build autonomous systems, computer vision applications have to deal with image acquisition, processing and analysis. Computer vision has always been closely related to \gls{ai} and \gls{ml}, and in the last years, the integration of deep learning algorithms (e.g. \glspl{cnn}) in computer vision applications has lead to major advances in the field.
+	\item[Computer vision] It is a field of computer science which "aims to build \emph{autonomous systems} which could perform some of the tasks that the \emph{human visual system} can perform"~\cite{huang1996computer}. In order to build autonomous systems, computer vision applications have to deal with image acquisition, processing and analysis. Computer vision has always been closely related to \gls{ai} and \gls{ml}, and in the last years, the integration of deep learning algorithms (e.g. \glspl{cnn}) in computer vision applications has lead to major advances in the field.
 \end{description}
 
-There are multiple \textbf{motivations} behind this project. On one hand, I am very passionate about \textbf{computer vision}, because of its great implications in everyday life. For instance, it is involved in medical imaging, surveillance, augmented reality, automatic inspection in manufacturing, self-driving cars... and the list goes on and on. On the other hand, all of the applications that have just been mentioned, have benefited from the inclusion of \textbf{deep learning} in computer vision. It is really exciting to see how many researchers are currently working in the field. Of course, this is not a coincidence. The great results achieved with these new algorithms has boosted the growth of \gls{ai} in the last years and has normalized its usage in \textbf{commercial applications}. However, everything has its ups and downs. There is a lot of people worried about the so-called \textbf{\textit{black box} problem} in deep learning~\cite{black-box}, i.e., how machines are actually learning to do what they do. In this work, besides developing a real-world application to show how powerful \glspl{cnn} are, we're going to try to cast some light into the aforementioned \textit{black box}. 
+There are multiple \emph{motivations} behind this project. On one hand, I am very passionate about \emph{computer vision}, because of its great implications in everyday life. For instance, it is involved in medical imaging, surveillance, augmented reality, automatic inspection in manufacturing, self-driving cars... and the list goes on and on. On the other hand, all of the applications that have just been mentioned, have benefited from the inclusion of \emph{deep learning} in computer vision. It is really exciting to see how many researchers are currently working in the field. Of course, this is not a coincidence. The great results achieved with these new algorithms has boosted the growth of \gls{ai} in the last years and has normalized its usage in \emph{commercial applications}. However, everything has its ups and downs. There is a lot of people worried about the so-called \emph{\textit{black box} problem} in deep learning~\cite{black-box}, i.e., how machines are actually learning to do what they do. In this work, besides developing a real-world application to show how powerful \glspl{cnn} are, we're going to try to cast some light into the aforementioned \textit{black box}. 
 
 \section{Objectives}\label{sec:objectives}
-The ultimate objective of this project is to fully understand \glspl{cnn} in order to integrate them in a computer vision application that must be able to solve a real-world task, specifically a \textbf{real-time handwritten digits classifier}. This main objective has been divided in the following sub-objectives: 
+The ultimate objective of this project is to fully understand \glspl{cnn} in order to integrate them in a computer vision application that must be able to solve a real-world task, specifically a \emph{real-time handwritten digits classifier}. This main objective has been divided in the following sub-objectives: 
 \begin{itemize}
-	\item Accomplishing a \textbf{deep understanding} of how a basic \gls{cnn} work, analyzing its main layers, the learning process and the particularities of building this kind of networks with \textbf{Keras library}.
-	\item Developing a \textbf{benchmark} which allows the comparison of the performance achieved by the \glspl{cnn}. This benchmark must provide the input data and the tools required to visualize and evaluate the results.
-	\item Finding the \textbf{optimal \gls{cnn}} evaluating the results achieved employing new data, new architectures and different learning processes.
-	\item Building a \textbf{component}, aided by JdeRobot middleware, which must integrate the \gls{cnn} to classify the handwritten digits images.
+	\item Accomplishing a \emph{deep understanding} of how a basic \gls{cnn} work, analyzing its main layers, the learning process and the particularities of building this kind of networks with \emph{Keras library}.
+	\item Developing a \emph{benchmark} which allows the comparison of the performance achieved by the \glspl{cnn}. This benchmark must provide the input data and the tools required to visualize and evaluate the results.
+	\item Finding the \emph{optimal \gls{cnn}} evaluating the results achieved employing new data, new architectures and different learning processes.
+	\item Building a \emph{component}, aided by JdeRobot middleware, which must integrate the \gls{cnn} to classify the handwritten digits images.
 \end{itemize}
 
 \section{Methodology}
-The development of this project has been followed weekly by the tutors. In the \textbf{weekly meetings}, the work done in the previous week was discussed and new milestones were set for the following one. This methodology has allowed a continuous feedback, which has lead to a better understanding of the topic. Besides that, thanks to the weekly meetings the workload has been constant during these months. 
+The development of this project has been followed weekly by the tutors. In the \emph{weekly meetings}, the work done in the previous week was discussed and new milestones were set for the following one. This methodology has allowed a continuous feedback, which has lead to a better understanding of the topic. Besides that, thanks to the weekly meetings the workload has been constant during these months. 
 
 Additionally, the following tools have been employed to keep track of the project progress:
 \begin{itemize}
@@ -63,7 +63,7 @@ Additionally, the following tools have been employed to keep track of the projec
 	\url{http://jderobot.org/Dpascual-tfg}
 \end{itemize}
 
-In Figure~\ref{fig:gantt}, a \textbf{Gantt chart} with the number of weeks dedicated to every task in the project can be seen.
+In Figure~\ref{fig:gantt}, a \emph{Gantt chart} with the number of weeks dedicated to every task in the project can be seen.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth, keepaspectratio]{figures/gantt.png}

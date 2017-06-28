@@ -12,14 +12,14 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.1}{\ignorespaces Results of training with different datasets.\relax }}{55}{table.caption.38}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Results of training with different datasets.\relax }}{57}{table.caption.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.2}{\ignorespaces Results of training with and without early stopping.\relax }}{57}{table.caption.39}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Results of training with and without early stopping.\relax }}{59}{table.caption.41}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.3}{\ignorespaces Results of training with and without dropout.\relax }}{57}{table.caption.40}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Results of training with and without dropout.\relax }}{59}{table.caption.42}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.4}{\ignorespaces Results of training models with different architectures.\relax }}{60}{table.caption.43}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Results of training models with different architectures.\relax }}{62}{table.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.5}{\ignorespaces \textit {4Conv} model trained with different stopping rules.\relax }}{61}{table.caption.45}
+\contentsline {table}{\numberline {5.5}{\ignorespaces \textit {4Conv} model trained with different stopping rules.\relax }}{63}{table.caption.47}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

@@ -5,9 +5,9 @@ The model described in Section~\ref{sec:understanding} can be improved with diff
 The digit classifier component is possible thanks to the data provided by the \textbf{\gls{mnist} database} of handwritten digits. In the following sections, the pros and cons of using this database and some alternatives will be discussed.
 
 \subsection{Original dataset}\label{subsec:MNIST}
-\textbf{\gls{mnist}} is a database of \textbf{handwritten digits} formed by a training set, which contains 60000 samples, and a test set, containing 10000 samples~\cite{lecun-mnisthandwrittendigit-2010}. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. \gls{mnist} is a well-known benchmark for all kinds of machine learning algorithms.
+\textbf{\gls{mnist}} is a database of \textbf{handwritten digits} formed by a training set, which contains~60000~samples, and a test set, containing~10000~samples~\cite{lecun-mnisthandwrittendigit-2010}. It's a \textit{remixed} and reduced version of the original \textbf{NIST datasets} \footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. \gls{mnist} is a well-known benchmark for all kinds of machine learning algorithms.
 
-As may be seen in Figure~\ref{fig:mnist}, each sample of the \gls{mnist} database is a 28x28 pixels \textbf{grayscale image} that contains a size-normalized and centered digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels.
+As may be seen in Figure~\ref{fig:mnist}, each sample of the \gls{mnist} database is a~28x28~pixels \textbf{grayscale image} that contains a size-normalized and centered digit. While it may be useful for testing machine learning algorithms, it's not enough to train a model that aims to solve a \textbf{real-world task}, because the images are almost noiseless and share similar orientation, position, size and intensity levels.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, keepaspectratio]{figures/mnist.png}
@@ -63,16 +63,16 @@ generator = datagen.flow(x, y, batch\_size=batch\_size)
 Besides these transformations, it's also necessary to simulate the \textbf{noise} that may be present in real images. Keras generator doesn't support the addition of noise. For this purpose, Keras includes noise layers such as the \textbf{GaussianNoise layer}, which adds Gaussian noise with a standard deviation distribution defined by the user. It's important to note that Keras treat noise layers as regularization methods that are only active during training time to avoid overfitting. In order to add noise to the generated samples, a GaussianNoise layer was established as the \textbf{input layer} of the model.
 
 \subsubsection{Handmade augmented datasets}\label{subsec:handmade}
-The alternative to real-time data augmentation with Keras is building \textbf{our own datasets} applying the previously mentioned transformations to the images. My mate Nuria Oyaga has build 5 new databases with two sets each one: training and validation \footnote{\url{http://jderobot.org/Noyaga-tfg\#Comparing_Neural_Network}}. These are the new databases: 
+The alternative to real-time data augmentation with Keras is building \textbf{our own datasets} applying the previously mentioned transformations to the images. My mate Nuria Oyaga has build~5~new databases with two sets each one: training and validation \footnote{\url{http://jderobot.org/Noyaga-tfg\#Comparing_Neural_Network}}. These are the new databases: 
 \begin{itemize}
-	\item \textbf{Sobel}: \gls{mnist} database after applying the Sobel filter to every image. 48000 samples for traning and 12000 samples for validation. 
-	\item \textbf{0-1}: Same size than Sobel database. One transformed image per every Sobel database image. Sobel database images are replaced by the the transformed ones. 48000 samples for traning and 12000 samples for validation. 
-	\item \textbf{1-1}: Double size than Sobel database. One transformed image per every Sobel database image. Both Sobel database images and the transformed images are included in the 1-1 database. 96000 samples for training and 24000 samples for validation. 
-	\item \textbf{0-6}: Six times the size of Sobel database. Six transformed images per every Sobel database image. Sobel database images are replaced by the transformed ones. 288000 samples for training and 72000 samples for validation. 
-	\item \textbf{1-6}: Seven times the size of Sobel database. Six transformed images per every Sobel database image. Both Sobel database images and the transformed images are included in the 1-6 database. 336000 samples for training and 84000 samples for validation. 
+	\item \textbf{Sobel}: \gls{mnist} database after applying the Sobel filter to every image.~48000~samples for traning and~12000~samples for validation. 
+	\item \textbf{0-1}: Same size than Sobel database. One transformed image per every Sobel database image. Sobel database images are replaced by the the transformed ones.~48000~samples for traning and~12000~samples for validation. 
+	\item \textbf{1-1}: Double size than Sobel database. One transformed image per every Sobel database image. Both Sobel database images and the transformed images are included in the~1-1~database.~96000~samples for training and~24000~samples for validation. 
+	\item \textbf{0-6}: Six times the size of Sobel database. Six transformed images per every Sobel database image. Sobel database images are replaced by the transformed ones.~288000~samples for training and~72000~samples for validation. 
+	\item \textbf{1-6}: Seven times the size of Sobel database. Six transformed images per every Sobel database image. Both Sobel database images and the transformed images are included in the~1-6~database.~336000~samples for training and~84000~samples for validation. 
 \end{itemize}
 
-Besides that, the test dataset of the \gls{mnist} database (10000 samples) has been converted into a \textbf{1-6 test dataset} (70000 samples).
+Besides that, the test dataset of the \gls{mnist} database (10000~samples) has been converted into a~\textbf{1-6~test dataset} (70000~samples).
 
 In Figure~\ref{fig:aug_nuria}, the first samples of every handmade dataset can be seen.
 
@@ -81,29 +81,29 @@ In Figure~\ref{fig:aug_nuria}, the first samples of every handmade dataset can b
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/Sobel.png}
-		\caption{Sobel dataset.}\label{fig:sobel}
+		\caption{}\label{fig:sobel}
 	\end{subfigure}%
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/0-1.png}
-		\caption{0-1 dataset.}\label{fig:0-1}
+		\caption{}\label{fig:0-1}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/1-1.png}
-		\caption{1-1 dataset.}\label{fig:1-1}
+		\caption{}\label{fig:1-1}
 	\end{subfigure}%
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/0-6.png}
-		\caption{0-6 dataset.}\label{fig:0-6}
+		\caption{}\label{fig:0-6}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/1-6.png}
-		\caption{1-6 dataset.}\label{fig:1-6}
+		\caption{}\label{fig:1-6}
 	\end{subfigure}
-	\caption[First samples of handmade datasets.]{}
+	\caption{First samples of handmade datasets: a) Sobel, b)~0-1, c)~1-1, d)~0-6~and e)~1-6. }
 	\label{fig:aug_nuria}
 \end{figure}
 
@@ -189,9 +189,9 @@ The performance of the models will be evaluated using the \textit{CustomEvaluati
 \subsection{\textit{CustomEvaluation} class}
 \textbf{\textit{CustomEvaluation} class}~\footnote{\url{https://git.io/vQeDk}} is totally independent from Keras. It calls functions that measure the performance of the model during test and/or training time and saves them into a file which is compatible with Octave.
 \begin{itemize}
-	\item \textbf{Obtaining the measurements}. The user provides the real labels and the probability distribution of the predicted ones. Log loss, accuracy, precision, recall and a confusion matrix are computed. These functions are defined in Section~\ref{sec:sklearn} and Section~\ref{subsec:models}.
+	\item \textbf{Obtaining the measurements}. The user provides the real labels and the probability distribution of the predicted ones. Log loss, accuracy, precision, recall and a confusion matrix are computed. These functions are defined in Section~\ref{sec:skoctave} and Section~\ref{subsec:models}.
 	\item \textbf{Storing results}. \textit{CustomEvaluation} class stores the results in a \textbf{Python dictionary}. Additionally, it can store the \textbf{learning curves} if \textit{training} option is set. In the following section, the Keras callback employed to build the learning curves will be discussed.
-	\item \textbf{Python-Octave \textit{translation}}. For this task, the \textbf{SciPy library} \footnote{\url{https://docs.scipy.org/doc/scipy-0.18.1/reference/index.html}} has been used. It provides the \textit{.savemat()} method that saves Python dictionaries into Matlab \textit{.mat} files, which are also compatible with Octave (see Section~\ref{sec:octave}).
+	\item \textbf{Python-Octave \textit{translation}}. For this task, the \textbf{SciPy library} \footnote{\url{https://docs.scipy.org/doc/scipy-0.18.1/reference/index.html}} has been used. It provides the \textit{.savemat()} method that saves Python dictionaries into Matlab \textit{.mat} files, which are also compatible with Octave (see Section~\ref{sec:skoctave}).
 \end{itemize}
 
 Here's a usage example:
@@ -237,19 +237,19 @@ Now that all the data has been collected, it has to be properly displayed. The f
 	\begin{subfigure}{1\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{figures/learning_curves.png}
-		\caption{Learning curves.}
+		\caption{}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figures/prec_rec.png}
-		\caption{Precision and recall.}
+		\caption{}
 	\end{subfigure}%
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{figures/conf_mat.png}
-		\caption{Confusion matrix.}
+		\caption{}
 	\end{subfigure}
-	\caption[Example of usage of \textit{benchmark.m}.]{}
+	\caption{Parameters displayed by \textit{benchmark.m}: a) learning curves, b) precision and recall and b) confusion matrix.}
 	\label{fig:benchmark}
 \end{figure}
 
@@ -259,7 +259,7 @@ Now that all the data has been collected, it has to be properly displayed. The f
 In order to understand how the Keras model is learning to classify the digits, the \textbf{\textit{layer\_visualization.py}}~\footnote{\url{https://git.io/vH94o}} script has been written. This script allows the user to display the filters that are learned in every convolutional layer of the model and their resulting activation maps.
 
 \subsection{Filters}
-Keras provides a list containing every \textbf{layer object} in the model through the attribute \textit{model.layers}. Layer objects properties can be accessed thanks to the \textit{layer.get\_config()} method. Since convolutional layers in Keras are named with the prefix \textit{conv2d}, it is possible to iterate over the names of the layers looking for that prefix to find the convolutional ones, as it can be seen in the code below.
+Keras provides a list containing every \textbf{layer object} in the model through the attribute \textit{model.layers}. Layer objects properties can be accessed thanks to the \textit{layer.get\_config()} method. Since convolutional layers in Keras are named with the prefix \textit{conv2d}, it is possible to iterate over the names of the layers looking for that prefix to find the convolutional ones, as it is shown in the code below.
 
 \begin{lstlisting}
 for i, layer in enumerate(self.model.layers):
@@ -278,7 +278,7 @@ weights = layer.get_weights()[0].reshape(shape[2], shape[0],
 Finally, the filters are plotted thanks to the \textbf{Matplotlib library}~\footnote{\url{https://matplotlib.org/}} for Python. The shape and the maximum/minimum values of the weights are printed to the standard output. An example of how the filters are plotted can be seen in the following chapter in Figure~\ref{fig:filters}
 
 \subsection{Activation maps}
-The output of each convolutional layer is formed by as many \textbf{activation maps} as filters have the layer. In order to get the values of these activation maps, \textbf{truncated versions} of the original model are generated, as it can be seen in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the follwing frame:
+The output of each convolutional layer is formed by as many \textbf{activation maps} as filters have the layer. In order to get the values of these activation maps, \textbf{truncated versions} of the original model are generated, as it is shown in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the follwing frame:
 \begin{lstlisting}
 truncated = Model(inputs=self.model.inputs,
                     outputs=layer.output)
@@ -296,7 +296,7 @@ activations = truncated.predict(self.im)
 		\includegraphics[width=0.9\linewidth]{figures/2ndconvarch.png}
 		\caption{}
 	\end{subfigure}
-	\caption{Truncated versions of the model.}
+	\caption{Truncated versions of the model: a) one convolutional layer and b) two convolutional layers}
 	\label{fig:truncated}
 \end{figure}
 

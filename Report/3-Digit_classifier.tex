@@ -1,15 +1,15 @@
 \chapter{Digit classifier}\label{ch:digitclass}
-Taking advantage of the \glspl{cnn} impressive performance in classification tasks, we have built a \textbf{real-time digit classifier}. It's core elements are:
+Taking advantage of the \glspl{cnn} impressive performance in classification tasks, we have built a \emph{real-time digit classifier}. It's core elements are:
 \begin{itemize}
-	\item A \textbf{Keras model} (see Section~\ref{subsec:models}), which classifies the images.
-	\item A \textbf{component}, which acquires and processes the images from a video stream and integrates a Keras model to classify them. The images and the classification results are displayed within a \gls{gui}.
+	\item A \emph{Keras model} (see Section~\ref{subsec:models}), which classifies the images.
+	\item A \emph{component}, which acquires and processes the images from a video stream and integrates a Keras model to classify them. The images and the classification results are displayed within a \gls{gui}.
 \end{itemize}
 
 \section{Understanding the Keras model}\label{sec:understanding}
-Understanding how Keras models work is a key factor in the development of this project. For this purpose, an adapted version~\footnote{\url{https://git.io/vH0qK}} of an example provided by Keras \footnote{\url{https://git.io/vH0qw}} will be analyzed in the following sections. In this example, a \gls{cnn} is trained and tested with the \textbf{\gls{mnist} database} of handwritten digits (see Section~\ref{sec:datasets}).
+Understanding how Keras models work is a key factor in the development of this project. For this purpose, an adapted version~\footnote{\url{https://git.io/vH0qK}} of an example provided by Keras \footnote{\url{https://git.io/vH0qw}} will be analyzed in the following sections. In this example, a \gls{cnn} is trained and tested with the \emph{\gls{mnist} database} of handwritten digits (see Section~\ref{sec:datasets}).
 
 \subsection{Adapting data}\label{subsec:adaptdata}
-First of all, the input data has to be loaded and adapted. Keras library contains a module named \textit{datasets} from which a variety of databases can be imported, including \gls{mnist}. The \gls{mnist} database can be loaded calling the \textit{mnist.load\_data()} method. It returns, as \textbf{Numpy arrays}, the images and labels from both training and test datasets, as it can be seen in the code below, which also displays the first sample of the \gls{mnist} training dataset (see Figure~\ref{fig:firstsample}).
+First of all, the input data has to be loaded and adapted. Keras library contains a module named \textit{datasets} from which a variety of databases can be imported, including \gls{mnist}. The \gls{mnist} database can be loaded calling the \textit{mnist.load\_data()} method. It returns, as \emph{Numpy arrays}, the images and labels from both training and test datasets, as it is shown in the code below, which also displays the first sample of the \gls{mnist} training dataset (see Figure~\ref{fig:firstsample}).
 \begin{lstlisting}
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -32,7 +32,7 @@ Original input images data shape:  (60000, 28, 28)
 	\label{fig:firstsample}
 \end{figure}
 
-According to that, the training dataset includes 60000 images, each one containing 28x28 pixels. In order to feed the Keras model, the number of channels of the samples have to be explicitly declared, so the dataset must be \textbf{reshaped}. In this case, the samples are \textbf{grayscale images}, which implies that the number of channels is equal to 1. For instance, if they had been RGB images, the number of channels would have been equal to 3. As data is stored in Numpy arrays, it can be reshaped using the \textit{.reshape()} method. The order in which dimensions must be declared depends on the \textit{.image\_dim\_ordering()} parameter of the Keras \textit{backend}, as it can be seen in the following code.
+According to that, the training dataset includes~60000~images, each one containing~28x28~pixels. In order to feed the Keras model, the number of channels of the samples have to be explicitly declared, so the dataset must be \emph{reshaped}. In this case, the samples are \emph{grayscale images}, which implies that the number of channels is equal to 1. For instance, if they had been RGB images, the number of channels would have been equal to 3. As data is stored in Numpy arrays, it can be reshaped using the \textit{.reshape()} method. The order in which dimensions must be declared depends on the \textit{.image\_dim\_ordering()} parameter of the Keras \textit{backend}, as it is shown in the following code.
 \begin{lstlisting}
 img_rows, img_cols = 28, 28
 ...
@@ -59,7 +59,7 @@ In this case, the training dataset gets reshaped as follows:
 Input images data reshaped:  (60000, 28, 28, 1)
 \end{Verbatim}
 
-The last step to get the input images ready is to convert \textbf{data type} from \textit{uint8} to \textit{float32} and normalize pixel values to $[0,1]$ range:
+The last step to get the input images ready is to convert \emph{data type} from \textit{uint8} to \textit{float32} and normalize pixel values to $[0,1]$ range:
 \begin{lstlisting}
 print('Input images type: ',x_train.dtype)
 x_train = x_train.astype('float32')
@@ -70,7 +70,7 @@ x_train /= 255
 x_test /= 255
 \end{lstlisting}
 
-Regarding the \textbf{labels}, they are originally shaped as an array in which each element is an integer in the range $[0, 9]$, i.e., each element contains the digit that corresponds to a certain sample. In order to feed the Keras model, the labels have to be reshaped into an array in which each element must be a \textbf{probability distribution}. For example, if the element of the original array is 2, in the reshaped array it will be $[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]$. This conversion is achieved using the Keras built-in method \textbf{\textit{np\_utils.to\_categorical()}}:
+Regarding the \emph{labels}, they are originally shaped as an array in which each element is an integer in the range $[0, 9]$, i.e., each element contains the digit that corresponds to a certain sample. In order to feed the Keras model, the labels have to be reshaped into an array in which each element must be a \emph{probability distribution}. For example, if the element of the original array is 2, in the reshaped array it will be $[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]$. This conversion is achieved using the Keras built-in method \emph{\textit{np\_utils.to\_categorical()}}:
 \begin{lstlisting}
 nb_classes = 10
 ...
@@ -92,7 +92,7 @@ Class label data reshaped:  (60000, 10)
 \end{Verbatim}
 
 \subsection{Model architecture}
-Once the data is ready, the \gls{cnn} architecture must be defined. In this example, a \textbf{sequential model} (see Section~\ref{subsec:models}) is enough for solving the classification task and it is declared as follows:
+Once the data is ready, the \gls{cnn} architecture must be defined. In this example, a \emph{sequential model} (see Section~\ref{subsec:models}) is enough for solving the classification task and it is declared as follows:
 \begin{lstlisting}
 model = Sequential()
 \end{lstlisting}
@@ -126,44 +126,44 @@ model.add(Dense(nb_classes, activation='softmax'))
 
 As defined by the code above, the model is formed by the following layers:
 \begin{itemize}
-	\item A \textbf{2D convolutional layer} with 32 filters whose size is 3x3x1.
+	\item A \emph{2D convolutional layer} with~32~filters whose size is~3x3x1.
 	\begin{itemize}
-		\item Since this is the first layer of the model, the \textbf{\textit{input\_shape}} argument must be provided. In this case, the input shape is 28x28x1. 
-		\item As \textit{valid} mode is set, \textbf{no padding} is applied and the output dimension will be reduced. 
-		\item \textbf{\gls{relu} activation function} (see Equation~\ref{eq:relu}) introduces non-linearity into the network. If the activation functions were linear, the whole stack of layers could be reduced to a single layer, losing much of the ability to learn different levels of features.
-		\item This layer outputs 32 activation maps with size 26x26.
+		\item Since this is the first layer of the model, the \emph{\textit{input\_shape}} argument must be provided. In this case, the input shape is~28x28x1. 
+		\item As \textit{valid} mode is set, \emph{no padding} is applied and the output dimension will be reduced. 
+		\item \emph{\gls{relu} activation function} (see Equation~\ref{eq:relu}) introduces non-linearity into the network. If the activation functions were linear, the whole stack of layers could be reduced to a single layer, losing much of the ability to learn different levels of features.
+		\item This layer outputs~32~activation maps with size~26x26.
 	\end{itemize}
 	
-	\item Another \textbf{convolutional layer} with the same arguments: 32 filters, no padding and \gls{relu} as activation function.
+	\item Another \emph{convolutional layer} with the same arguments:~32~filters, no padding and \gls{relu} as activation function.
 	\begin{itemize}
-		\item Increasing the number of convolutional layers allows the \gls{cnn} to learn \textbf{more complex features}. 
-		\item As the depth of its input is 32 (one channel per activation map), the size of the filters will be 3x3x32. 
-		\item This layer outputs 32 activation maps with size 24x24.
+		\item Increasing the number of convolutional layers allows the \gls{cnn} to learn \emph{more complex features}. 
+		\item As the depth of its input is~32~(one channel per activation map), the size of the filters will be~3x3x32. 
+		\item This layer outputs~32~activation maps with size~24x24.
 	\end{itemize}
 	
-	\item A \textbf{2D MaxPooling layer} with a \textit{pool\_size} of 2x2.
+	\item A \emph{2D MaxPooling layer} with a \textit{pool\_size} of~2x2.
 	\begin{itemize}
-		\item This layer outputs the 32 activation maps generated by the previous layer, but \textbf{\textit{downsampled}} by a factor of 2, resulting in maps with size 12x12.
+		\item This layer outputs the~32~activation maps generated by the previous layer, but \emph{\textit{downsampled}} by a factor of~2, resulting in maps with size~12x12.
 	\end{itemize}
 	
-	\item A \textbf{dropout layer} to prevent overfitting. 
+	\item A \emph{dropout layer} to prevent overfitting. 
 	\begin{itemize}
-		\item The fraction of random units that are going to be \textbf{\textit{swicthed-off}} is 0.25.
+		\item The fraction of random units that are going to be \emph{\textit{swicthed-off}} is~0.25.
 		\item This layer preserves the size and the shape of its input.
 	\end{itemize} 
 	
-	\item A \textbf{flatten layer} that turns the matrices of weights that it receives at its input into a vector that can be fed to the fully-connected layer.
-	\item A fully-connected or \textbf{dense layer}.
+	\item A \emph{flatten layer} that turns the matrices of weights that it receives at its input into a vector that can be fed to the fully-connected layer.
+	\item A fully-connected or \emph{dense layer}.
 	\begin{itemize}
-		\item This layer contains 128 neurons that will output an array of 128 values.
-		\item Once more, the \textbf{\gls{relu} activation function} is applied.
+		\item This layer contains~128~neurons that will output an array of~128~values.
+		\item Once more, the \emph{\gls{relu} activation function} is applied.
 	\end{itemize} 
 	
-	\item A \textbf{dropout layer} with a 0.5 fraction.
+	\item A \emph{dropout layer} with a~0.5~fraction.
 	
-	\item Finally, the \textbf{output layer} is another \textbf{dense layer} which contains as many neurons as classes, in this example, 10. 
+	\item Finally, the \emph{output layer} is another \emph{dense layer} which contains as many neurons as classes, in this example,~10. 
 	\begin{itemize}
-		\item In order to output a \textbf{probability distribution} of the predicted classes, the activation function will be \textbf{softmax} (Equation~\ref{eq:SoftMax}).
+		\item In order to output a \emph{probability distribution} of the predicted classes, the activation function will be \emph{softmax} (Equation~\ref{eq:SoftMax}).
 	\end{itemize}
 \end{itemize}
 
@@ -177,13 +177,13 @@ The resulting architecture and the shape of the data as it goes through every la
 \end{figure}
 
 \subsection{Compiling the model}
-After declaring the model and defining its architecture, the \textbf{learning process} must be set through the  \textit{.compile()} method. The arguments required to set this process are defined in Section~\ref{subsec:models}. The code can be seen in the next frame:
+After declaring the model and defining its architecture, the \emph{learning process} must be set through the  \textit{.compile()} method. The arguments required to set this process are defined in Section~\ref{subsec:models}. The code can be seen in the next frame:
 \begin{lstlisting}
 model.compile(loss='categorical_crossentropy', optimizer='adadelta', 
                metrics=['accuracy'])
 \end{lstlisting}
 
-In this example, the loss function that is computed after every batch is the \textbf{categorical cross-entropy} (see Equation~\ref{eq:categorical_crossentropy}) and the optimizer that updates the weights of the \gls{cnn} in order to minimize that loss function is \textbf{ADADELTA} (see Algorithm~\ref{adadelta}). Additionally, the \textbf{accuracy} is also computed to monitor the \gls{cnn} performance during training.
+In this example, the loss function that is computed after every batch is the \emph{categorical cross-entropy} (see Equation~\ref{eq:categorical_crossentropy}) and the optimizer that updates the weights of the \gls{cnn} in order to minimize that loss function is \emph{ADADELTA} (see Algorithm~\ref{adadelta}). Additionally, the \emph{accuracy} is also computed to monitor the \gls{cnn} performance during training.
 
 \subsection{Training the model}
 The \gls{cnn} is trained thanks to the \textit{.fit()} method, which has been already described in Section~\ref{subsec:models}. The usage of that method can be seen in the code below.
@@ -195,7 +195,7 @@ model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch,
            verbose=1, validation_data=(x_test, y_test))
 \end{lstlisting}
 
-The model will be trained for 12 \textbf{epochs} and the \textbf{batch size}, i.e., the number of samples that pass through the \gls{cnn} before updating the weights, is 128. The test dataset is used here as \textbf{validation data}, for which the log loss and the accuracy will be computed after every epoch just for \textbf{monitoring purposes}. During training time, Keras prints the results after every batch and epoch as follows:
+The model will be trained for~12~\emph{epochs} and the \emph{batch size}, i.e., the number of samples that pass through the \gls{cnn} before updating the weights, is~128. The test dataset is used here as \emph{validation data}, for which the log loss and the accuracy will be computed after every epoch just for \emph{monitoring purposes}. During training time, Keras prints the results after every batch and epoch as follows:
 \begin{Verbatim}[frame=single]
 Train on 60000 samples, validate on 10000 samples
 Epoch 1/12
@@ -209,7 +209,7 @@ val_loss: 0.0306 - val_acc: 0.9891
 \end{Verbatim}
 
 \subsection{Testing the model}
-Once the model is trained, its weights, architecture and learning configuration can be stored in an \textbf{\gls{hdf5} file} (see Section~\ref{sec:hdf}). Besides that, in order to see the performance of the \gls{cnn}, the \textit{.evaluate()} method takes the test dataset and computes the \textbf{log loss} and the \textbf{accuracy}, as it can be seen in the following code:
+Once the model is trained, its weights, architecture and learning configuration can be stored in an \emph{\gls{hdf5} file} (see Section~\ref{sec:hdf}). Besides that, in order to see the performance of the \gls{cnn}, the \textit{.evaluate()} method takes the test dataset and computes the \emph{log loss} and the \emph{accuracy}, as it is shown in the following code:
 \begin{lstlisting}
 model.save('MNIST_net.h5')
 
@@ -224,7 +224,7 @@ Test accuracy: 0.9891
 \end{Verbatim}
 
 \section{Component}\label{sec:component}
-Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \textbf{\textit{digitclassifier.py}} \footnote{\url{https://git.io/vH0qi}} and it is based on Nuria Oyaga code \footnote{\url{https://git.io/vH0qD}}. It relies on \textit{Camera} and \textit{\gls{gui}} classes. Figure~\ref{fig:digitclass} shows the program running.
+Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \emph{\textit{digitclassifier.py}} \footnote{\url{https://git.io/vH0qi}} and it is based on Nuria Oyaga code \footnote{\url{https://git.io/vH0qD}}. It relies on \textit{Camera} and \textit{\gls{gui}} classes. Figure~\ref{fig:digitclass} shows the program running.
 
 \begin{figure}
 	\centering
@@ -234,30 +234,30 @@ Once the \gls{cnn} has been trained and the resultant model is saved, the next m
 \end{figure}
 
 \subsection{\textit{Camera} class}
-\textbf{\textit{Camera} class} \footnote{\url{https://git.io/vH0qS}} is responsible for getting the images, transforming them into a suitable input for the Keras model and returning the classification results.
+\emph{\textit{Camera} class} \footnote{\url{https://git.io/vH0qS}} is responsible for getting the images, transforming them into a suitable input for the Keras model and returning the classification results.
 
 \begin{itemize}
-	\item \textbf{Acquisition}. The images are served by the JdeRobot component \textbf{\textit{cameraserver}} (see Section~\ref{sec:jderobot}). Depending on how its configuration file (\textit{cameraserver.cfg}) has been set, the images can come from different kinds of video streams. Connection with \textbf{webcams} and \textbf{video files} is straightforward: the URI property in the configuration file must be changed to the number of device or the path of the video, as it can be seen in the code below.
+	\item \textbf{Acquisition}. The images are served by the JdeRobot component \emph{\textit{cameraserver}} (see Section~\ref{sec:jderobot}). Depending on how its configuration file (\textit{cameraserver.cfg}) has been set, the images can come from different kinds of video streams. Connection with \emph{webcams} and \emph{video files} is straightforward: the URI property in the configuration file must be changed to the number of device or the path of the video, as it is shown in the code below.
 	\begin{lstlisting}[frame=single]
 	#0 corresponds to /dev/video0, 1 to /dev/video1, and so on...
 	#CameraSrv.Camera.0.Uri=1                                # webcam
 	CameraSrv.Camera.0.Uri=/home/dpascualhe/video.mp4        # video file
 	\end{lstlisting}
 	
-	In order to establish a connection with smartphone cameras, the \textbf{DroidCam application} for Android has been used (see Section~\ref{sec:droidcam}). As this application turns the video stream provided by the smartphone into a \textbf{v4l2 \footnote{\url{https://www.linuxtv.org/wiki/index.php/Main_Page}} device driver}, the video stream will be listed as another webcam and the number of device must be set in the \textit{cameraserver} configuration file.
+	In order to establish a connection with smartphone cameras, the \emph{DroidCam application} for Android has been used (see Section~\ref{sec:droidcam}). As this application turns the video stream provided by the smartphone into a \emph{v4l2 \footnote{\url{https://www.linuxtv.org/wiki/index.php/Main_Page}} device driver}, the video stream will be listed as another webcam and the number of device must be set in the \textit{cameraserver} configuration file.
 	
-	Besides that, the \textbf{address} at which the video is being served by the \textit{cameraserver} component must be provided to the \textit{Camera} class through another configuration file: \textbf{\textit{digitclassifier.cfg}} \footnote{\url{https://git.io/vH0zi}}.
+	Besides that, the \emph{address} at which the video is being served by the \textit{cameraserver} component must be provided to the \textit{Camera} class through another configuration file: \emph{\textit{digitclassifier.cfg}} \footnote{\url{https://git.io/vH0zi}}.
 	
-	\item \textbf{Preprocessing}. As the images can be captured with different devices, the \textit{digitclassifier.py} component must apply some preprocessing that mitigates the differences between video streams and that makes the images suitable for the Keras model. The following \textbf{transformations} are applied before classification:
+	\item \textbf{Preprocessing}. As the images can be captured with different devices, the \textit{digitclassifier.py} component must apply some preprocessing that mitigates the differences between video streams and that makes the images suitable for the Keras model. The following \emph{transformations} are applied before classification:
 	\begin{enumerate}
-		\item Images are \textbf{cropped} into 80x80 pixels images. The \textbf{\gls{roi}} from which cropped images are extracted is draw over the original image, making it easier to aim at digits with the camera.
-		\item Color doesn't provide any useful information about digits and \gls{mnist} database is formed by \textbf{grayscale images}. For this reason, the images captured with the component are converted into grayscale images as well. 
-		\item A \textbf{Gaussian filtering} is applied in order to reduce image \textbf{noise}. When using this operator, the \textbf{kernel size} and the \textbf{standard deviation} $\sigma$ in $x$ and $y$ should be specified~\cite{itseez2014theopencv}. In this case, the kernel size will be 5x5 and the standard deviation is automatically calculated depending on that size. The 2D Gaussian filter, as defined in~\cite{sonka1999image}, is given by:
+		\item Images are \emph{cropped} into~80x80~pixels images. The \emph{\gls{roi}} from which cropped images are extracted is draw over the original image, making it easier to aim at digits with the camera.
+		\item Color doesn't provide any useful information about digits and \gls{mnist} database is formed by \emph{grayscale images}. For this reason, the images captured with the component are converted into grayscale images as well. 
+		\item A \emph{Gaussian filtering} is applied in order to reduce image \emph{noise}. When using this operator, the \emph{kernel size} and the \emph{standard deviation} $\sigma$ in $x$ and $y$ should be specified~\cite{itseez2014theopencv}. In this case, the kernel size will be~5x5~and the standard deviation is automatically calculated depending on that size. The 2D Gaussian filter, as defined in~\cite{sonka1999image}, is given by:
 		\begin{equation}
 		G(x,y)=\exp(-\frac{x^2+y^2}{2\sigma^2})
 		\end{equation}
-		\item After reducing noise, the image is \textbf{resized} to fit the Keras \textbf{model input}. The new size is 28x28 pixels, like \gls{mnist} samples.
-		\item Last step is obtaining the \textbf{gradient of the images}. Working with this kind of images instead of the original ones allows the application to deal with different light and color conditions. The chosen algorithm for this task is \textbf{Sobel filter} (Equation~\ref{eq:sobel}). This will be deeply discussed in Section~\ref{subsec:edge}.
+		\item After reducing noise, the image is \emph{resized} to fit the Keras \emph{model input}. The new size is~28x28~pixels, like \gls{mnist} samples.
+		\item Last step is obtaining the \emph{gradient of the images}. Working with this kind of images instead of the original ones allows the application to deal with different light and color conditions. The chosen algorithm for this task is \emph{Sobel filter} (Equation~\ref{eq:sobel}). This will be deeply discussed in Section~\ref{subsec:edge}.
 	\end{enumerate}
 	
 	The following code applies the transformations mentioned above:
@@ -282,7 +282,7 @@ applies a sobel filter (both x and y directions).
 	return im_edges
 \end{lstlisting}
 	
-	\item \textbf{Classification}. Before entering the \gls{cnn}, the images are \textbf{reshaped} as mentioned in Section~\ref{subsec:adaptdata}. \textit{Camera} class calls Keras \textbf{\textit{.predict()} method} (see Section~\ref{subsec:models}) to get the predicted digit. The prediction is only taken into account if one of the probabilities is equal to 1, avoiding wrong answers when the prediction is not clear. The function that performs the classification can be seen in the following code:
+	\item \textbf{Classification}. Before entering the \gls{cnn}, the images are \emph{reshaped} as mentioned in Section~\ref{subsec:adaptdata}. \textit{Camera} class calls Keras \emph{\textit{.predict()} method} (see Section~\ref{subsec:models}) to get the predicted digit. The prediction is only taken into account if one of the probabilities is equal to 1, avoiding wrong answers when the prediction is not clear. The function that performs the classification can be seen in the following code:
 \begin{lstlisting}
 def classification(self, im):
 ''' Adapts image shape depending on Keras backend (TensorFlow
@@ -304,10 +304,10 @@ or Theano) and returns a prediction.
 \end{itemize}
 
 \subsection{\textit{GUI} class}
-\textbf{\textit{GUI} class}~\footnote{\url{https://git.io/vH0YK}} displays the original image, the processed image and the result of the classification, as it can be seen in Figure~\ref{fig:digitclass}. It has been built employing the \textbf{pyQt package} \footnote{\url{https://pypi.python.org/pypi/PyQt4}} \footnote{\url{https://pypi.python.org/pypi/PyQt5}}. It is based in Nuria Oyaga code \footnote{\url{https://git.io/vH0mx}}, but it has been updated from Qt4  to Qt5  thanks to the information provided by PyQT documentation~\cite{pyqt5}.
+\emph{\textit{GUI} class}~\footnote{\url{https://git.io/vH0YK}} displays the original image, the processed image and the result of the classification, as it is shown in Figure~\ref{fig:digitclass}. It has been built employing the \emph{pyQt package} \footnote{\url{https://pypi.python.org/pypi/PyQt4}} \footnote{\url{https://pypi.python.org/pypi/PyQt5}}. It is based in Nuria Oyaga code \footnote{\url{https://git.io/vH0mx}}, but it has been updated from Qt4  to Qt5  thanks to the information provided by PyQT documentation~\cite{pyqt5}.
 
 \subsection{Threads} 
-In order to capture images and update the \gls{gui} concurrently, the \textbf{\textit{threading} module}~\cite{threading}, provided by Python, has been employed. From this module, a subclass of the \textbf{\textit{Thread} object} is created. In this new subclass, \textit{\_\_init\_\_()} and \textit{.run()} methods are overriden. The \textit{.run()} method will be responsible for calling a process that updates the thread. For example, the \textit{.update()} method of the \textit{Camera} class, which reads a new image from the video stream each time it is invoked, is called within the \textit{.run()} method of the \textbf{\textit{ThreadCamera} class}. Besides that, in the \textit{.run()} method, the \textbf{cycle time} is adjusted. The next frame shows how the \textit{ThreadCamera} class is coded:
+In order to capture images and update the \gls{gui} concurrently, the \emph{\textit{threading} module}~\cite{threading}, provided by Python, has been employed. From this module, a subclass of the \emph{\textit{Thread} object} is created. In this new subclass, \textit{\_\_init\_\_()} and \textit{.run()} methods are overriden. The \textit{.run()} method will be responsible for calling a process that updates the thread. For example, the \textit{.update()} method of the \textit{Camera} class, which reads a new image from the video stream each time it is invoked, is called within the \textit{.run()} method of the \emph{\textit{ThreadCamera} class}. Besides that, in the \textit{.run()} method, the \emph{cycle time} is adjusted. The next frame shows how the \textit{ThreadCamera} class is coded:
 \begin{lstlisting}
 import time
 import threading
@@ -336,10 +336,10 @@ def run(self):
 		if(dtms < t_cycle):
 			time.sleep((t_cycle - dtms) / 1000.0);
 \end{lstlisting}
-This code, as well as the one corresponding to the \textbf{\textit{ThreadGUI} class}, can be accessed in GitHub \footnote{\url{https://git.io/vH0lY}} \footnote{\url{https://git.io/vH0lW}}.
+This code, as well as the one corresponding to the \emph{\textit{ThreadGUI} class}, can be accessed in GitHub \footnote{\url{https://git.io/vH0lY}} \footnote{\url{https://git.io/vH0lW}}.
 
 \subsection{Main program}
-All of these elements are joined together in \textbf{\textit{digitclassifier.py}}. \textit{Camera}, \textit{GUI} and their threads are initialized and the \textit{.start()} methods of the \textit{Thread} objects are invoked, as it can be seen in the code below:
+All of these elements are joined together in \emph{\textit{digitclassifier.py}}. \textit{Camera}, \textit{GUI} and their threads are initialized and the \textit{.start()} methods of the \textit{Thread} objects are invoked, as it is shown in the code below:
 \begin{lstlisting}
 if __name__ == '__main__':
 

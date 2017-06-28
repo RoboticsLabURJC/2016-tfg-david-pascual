@@ -2,6 +2,12 @@
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Figures}{IX}{chapter*.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Tables}{XI}{chapter*.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Acronyms}{XIII}{chapter*.8}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Context and motivation}{1}{section.1.1}
@@ -12,102 +18,102 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.4}Project structure}{5}{section.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Framework}{7}{chapter.2}
+\contentsline {chapter}{\numberline {2}Infrastructure}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Keras}{7}{section.2.1}
+\contentsline {section}{\numberline {2.1}Keras framework}{7}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}Models}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}Models}{8}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.2}Layers}{10}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.3}Callbacks}{14}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.3}Callbacks}{16}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}Image Preprocessing}{15}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.4}Image Preprocessing}{17}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.5}Utils}{15}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.5}Utils}{17}{subsection.2.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}JdeRobot}{16}{section.2.2}
+\contentsline {section}{\numberline {2.2}HDF5}{17}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}DroidCam}{16}{section.2.3}
+\contentsline {section}{\numberline {2.3}Scikit-learn and Octave}{18}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}HDF5}{17}{section.2.4}
+\contentsline {section}{\numberline {2.4}JdeRobot}{19}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Scikit-learn}{17}{section.2.5}
+\contentsline {section}{\numberline {2.5}DroidCam}{20}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Octave}{18}{section.2.6}
+\contentsline {chapter}{\numberline {3}Digit classifier}{23}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Digit classifier}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Understanding the Keras model}{23}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Understanding the Keras model}{21}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Adapting data}{23}{subsection.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Adapting data}{21}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Model architecture}{26}{subsection.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Model architecture}{24}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Compiling the model}{28}{subsection.3.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.3}Compiling the model}{26}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Training the model}{30}{subsection.3.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.4}Training the model}{28}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Testing the model}{31}{subsection.3.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.5}Testing the model}{29}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Component}{31}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Component}{29}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\textit {Camera} class}{31}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}\textit {Camera} class}{29}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}\textit {GUI} class}{35}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}\textit {GUI} class}{33}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Threads}{35}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Threads}{33}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Main program}{36}{subsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}Main program}{34}{subsection.3.2.4}
+\contentsline {chapter}{\numberline {4}Benchmark}{39}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Benchmark}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Datasets}{39}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Datasets}{37}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Original dataset}{39}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Original dataset}{37}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Gradient images}{40}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Gradient images}{38}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Data augmentation}{41}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Data augmentation}{39}{subsection.4.1.3}
+\contentsline {subsubsection}{Real-time data augmentation with Keras}{41}{section*.25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Real-time data augmentation with Keras}{39}{section*.23}
+\contentsline {subsubsection}{Handmade augmented datasets}{42}{section*.27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Handmade augmented datasets}{40}{section*.25}
+\contentsline {subsubsection}{From LMDB to HDF5}{43}{section*.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{From LMDB to HDF5}{41}{section*.27}
+\contentsline {subsubsection}{Conclusions}{47}{section*.30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Conclusions}{45}{section*.28}
+\contentsline {section}{\numberline {4.2}Measuring performance}{47}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Measuring performance}{45}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\textit {CustomEvaluation} class}{47}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}\textit {CustomEvaluation} class}{45}{subsection.4.2.1}
+\contentsline {subsubsection}{\textit {LearningCurves} callback}{48}{section*.31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\textit {LearningCurves} callback}{46}{section*.29}
+\contentsline {subsection}{\numberline {4.2.2}Octave function}{49}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Octave function}{47}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Convolutional layers visualization}{49}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Convolutional layers visualization}{47}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Filters}{49}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Filters}{47}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Activation maps}{51}{subsection.4.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Activation maps}{49}{subsection.4.3.2}
+\contentsline {chapter}{\numberline {5}Evaluation}{53}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Evaluation}{51}{chapter.5}
+\contentsline {section}{\numberline {5.1}Convolutional layers visualization}{53}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Convolutional layers visualization}{51}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Filters}{53}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Filters}{51}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Activation maps}{54}{subsection.5.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}Activation maps}{52}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}New datasets}{57}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}New datasets}{55}{section.5.2}
+\contentsline {section}{\numberline {5.3}Regularization methods}{58}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Regularization methods}{56}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Early stopping}{58}{subsection.5.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.1}Early stopping}{56}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Dropout}{59}{subsection.5.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.2}Dropout}{57}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}New architectures}{60}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}New architectures}{58}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusions}{65}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusions}{63}{chapter.6}
+\contentsline {chapter}{Bibliography}{69}{section*.51}
