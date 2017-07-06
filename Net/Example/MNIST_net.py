@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # number of complete presentations of the training set to the network
     # during training
     nb_epoch = 12
-    # number of samples that is going to be propagated through the network
+    # number of samples that are going to be propagated through the network
     batch_size = 128
     
     # image dimensions
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     # number of convolutional filters and their kernel size
     nb_filters = 32
     kernel_size = (3, 3)
-    # pooling area's size
+    # size of the pooling area
     pool_size = (2, 2)
         
     '''
@@ -113,8 +113,7 @@ if __name__ == '__main__':
     # pooling layer
     model.add(MaxPooling2D(pool_size=pool_size))
     # dropout layer
-    model.add(Dropout(0.25))
-        
+    model.add(Dropout(0.25))        
     # flattening the weights (making them 1D) to enter fully connected layer
     model.add(Flatten())
     # fully connected layer

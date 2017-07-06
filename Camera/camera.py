@@ -32,7 +32,9 @@ class Camera:
         in order to predict the digit in the image.
         '''
 	print "\nLoading Keras model..."
-        self.model = load_model("/home/dpascualhe/workspace/2016-tfg-david-pascual/Net/Nets/0-1_tuned/net_4conv_patience5.h5")
+        self.model = load_model("/home/dpascualhe/workspace/" + 
+                                "2016-tfg-david-pascual/Net/Nets/0-1_tuned/" +
+                                "net_4conv_patience5.h5")
         print "loaded\n"
         status = 0
         ic = None
@@ -41,7 +43,6 @@ class Camera:
         ic = EasyIce.initialize(sys.argv)
 
         properties = ic.getProperties()
-        print properties
         self.lock = threading.Lock()
     
         try:
@@ -121,10 +122,10 @@ class Camera:
         else:      
             im = im.reshape(1, im.shape[0], im.shape[1], 1)            
         
-        dgt = np.where(self.model.predict(im) == 1)
+        prev_digito = np.where(self.model.predict(im) == 1)
         print("--------------------------------------------------------------")
-        if dgt[1].size == 1:
-            self.digito = dgt
+        if prev_digito[1].size == 1:
+            self.digito = prev_digito
         else:
             self.digito = (([0]), (["none"]))
         return self.digito[1][0]

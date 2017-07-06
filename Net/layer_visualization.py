@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from docutils.nodes import subtitle
     
-def plot_data(self, data_name, layer, nb_data, data, id, min, max, title,
+def plot_data(data_name, layer, nb_data, data, id, min, max, title,
              interp="none", color="jet"):
     side = math.sqrt(nb_data)
         
@@ -60,20 +60,22 @@ if __name__ == "__main__":
     
     # We adapt the image shape.
     im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    self.im = im.reshape(1, im.shape[0], im.shape[1], 1)
+    im = im.reshape(1, im.shape[0], im.shape[1], 1)
     
     interp="none"
     color="jet"
     
-    pred = np.argmax(self.model.predict(self.im))
+    pred = np.argmax(model.predict(im))
     print "\nDigit prediction: ", pred, "\n"
         
-    for i, layer in enumerate(self.model.layers):
+    for i, layer in enumerate(model.layers):
         if layer.get_config()["name"][:6] == "conv2d":
             # Getting weights
             shape = layer.get_weights()[0].shape
             weights = layer.get_weights()[0].reshape(shape[2], shape[0],
                                                      shape[1], shape[3])
+            biases = layer.get_weights()[1]
+            
             min_weights = np.amin(weights)
             max_weights = np.amax(weights)
             print "-------------", layer.get_config()["name"], \
@@ -83,13 +85,16 @@ if __name__ == "__main__":
             print "    Height: ", weights.shape[2]
             print "    Depth: ", weights.shape[0]
             print "    Number of filters: ", weights.shape[3]
-            print "    Min-max value: ", min_weights, "/", max_weights, \
-                  "\n"
+            print "    Min-max value: ", min_weights, "/", max_weights
+            print "    Biases:"
+            for i in range(np.size(biases)):
+                print "        Filter ", i, ": ", biases[i]
+            print "\n"
         
             # Getting activations
-            truncated = Model(inputs=self.model.inputs,
+            truncated = Model(inputs=model.inputs,
                               outputs=layer.output)
-            activations = truncated.predict(self.im)
+            activations = truncated.predict(im)
             min_activations = np.amin(activations)
             max_activations = np.amax(activations)
             print "Activations:"
@@ -108,11 +113,10 @@ if __name__ == "__main__":
                     id = depth_id + 1 + (filter_id*filter_depth)
                     # Weights
                     filter = weights[depth_id][:, :, filter_id]
-                    self.plot_data("Weights", layer, nb_channels, filter, 
-                                   id, min_weights, max_weights, 
-                                   str(filter_id + 1) +
-                                   "; " + str(depth_id + 1),
-                                   interp, color)
+                    plot_data("Weights", layer, nb_channels, filter, id,
+                              min_weights, max_weights, "Filter" +
+                              str(filter_id + 1) + "; Channel" +
+                              str(depth_id + 1), interp, color)
             
                     #=======================================================
                     # # Weights gradient
@@ -130,9 +134,15 @@ if __name__ == "__main__":
                         
                 # Activation maps
                 activation_map = activations[0][:, :, filter_id]
-                self.plot_data("Activation maps", layer, nb_filters,
-                               activation_map, filter_id + 1,
-                               min_activations, max_activations,
-                               "Activation map " + str(filter_id + 1),
-                               interp, color)
+                activation_relu = activation_map
+                activation_relu[activation_map<0] = 0
+                plot_data("Activation maps", layer, nb_filters, activation_map,
+                          filter_id + 1, min_activations, max_activations,
+                          "Activation map " + str(filter_id + 1),
+                          interp, color)
+                plot_data("Activation maps+ReLU", layer, nb_filters,
+                          activation_relu, filter_id + 1, min_activations,
+                          max_activations, "Activation map " +
+                          str(filter_id + 1), interp, color)
+
             plt.show()

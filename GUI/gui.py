@@ -25,7 +25,7 @@ class GUI(QtWidgets.QWidget):
         '''
         QtWidgets.QWidget.__init__(self, parent)
         self.setWindowTitle("Digit Classification (Keras CNN trained with an "
-                            + "enlarged MNIST database)")
+                            + "augmented MNIST database)")
         self.resize(1000, 600)
         self.move(150, 50)
         self.updGUI.connect(self.update)
@@ -171,5 +171,5 @@ class GUI(QtWidgets.QWidget):
                               + "font-size: 20px; border: 1px solid black;")
             if out != "none":
                 self.dgts[out].setStyleSheet("background-color: #FFFF00; "
-                                             + "color: #000; font-size: 20px; " 
+                                             + "color: #000; font-size: 20px; "
                                              + "border: 1px solid black;")

@@ -48,7 +48,7 @@ class CustomEvaluation():
             measures_dict["validation loss"] = self.val_loss
             measures_dict["validation accuracy"] = self.val_acc
 
-        return metrics_dict
+        return measures_dict
 
     def log(self, measures_dict):
         """ Logs the results into a .mat file for Octave. """

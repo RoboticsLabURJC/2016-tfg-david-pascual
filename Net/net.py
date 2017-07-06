@@ -72,11 +72,8 @@ if __name__ == "__main__":
         
         # We add layers to our model.
         model = Sequential()
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu",
+        model.add(Conv2D(16, kernel_size, activation="relu",
                          input_shape=input_shape))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
-        model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
         model.add(Conv2D(nb_filters, kernel_size, activation="relu"))
         model.add(MaxPooling2D(pool_size=pool_size))
         if dropout == "y":
