@@ -44,7 +44,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.3}{\ignorespaces First samples of handmade datasets: a) Sobel, b)~0-1, c)~1-1, d)~0-6~and e)~1-6. \relax }}{44}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Parameters displayed by \textit {benchmark.m}: a) learning curves, b) precision and recall and b) confusion matrix.\relax }}{50}{figure.caption.32}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Parameters displayed by \textit {visualization.m}: a) learning curves, b) precision and recall and b) confusion matrix.\relax }}{50}{figure.caption.32}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model: a) one convolutional layer and b) two convolutional layers\relax }}{52}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
@@ -67,5 +67,7 @@
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Learning curves with and without dropout.}}{61}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Validation results with different architectures.\relax }}{62}{figure.caption.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of \textit {4Conv; Patience=5} model: a) learning curves, b) precision and recall and b) confusion matrix.\relax }}{64}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
