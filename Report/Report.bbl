@@ -967,6 +967,116 @@
   \field{urlyear}{2017}
 \endentry
 
+\entry{DBLP:journals/corr/WeiRKS16}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Wei}{W.}%
+     {Shih{-}En}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ramakrishna}{R.}%
+     {Varun}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kanade}{K.}%
+     {Takeo}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sheikh}{S.}%
+     {Yaser}{Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WSRVKT+1}
+  \strng{fullhash}{WSRVKTSY1}
+  \field{pages}{1\bibrangedash 2}
+  \field{title}{Convolutional Pose Machines}
+  \verb{url}
+  \verb http://arxiv.org/abs/1602.00134
+  \endverb
+  \field{volume}{abs/1602.00134}
+  \field{journaltitle}{CoRR}
+  \field{year}{2016}
+  \field{urlday}{06}
+  \field{urlmonth}{07}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{conf/icassp/Abdel-HamidMJP12}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Abdel-Hamid}{A.-H.}%
+     {Ossama}{O.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mohamed}{M.}%
+     {Abdel}{A.}%
+     {rahman}{r.}%
+     {}{}}%
+    {{}%
+     {Jiang}{J.}%
+     {Hui}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Penn}{P.}%
+     {Gerald}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE}%
+  }
+  \keyw{dblp}
+  \strng{namehash}{AHOMArJH+1}
+  \strng{fullhash}{AHOMArJHPG1}
+  \field{booktitle}{ICASSP}
+  \field{isbn}{978-1-4673-0046-9}
+  \field{pages}{4277\bibrangedash 4280}
+  \field{title}{Applying Convolutional Neural Networks concepts to hybrid
+  NN-HMM model for speech recognition.}
+  \verb{url}
+  \verb http://dblp.uni-trier.de/db/conf/icassp/icassp2012.html#Abdel-HamidMJP1
+  \verb 2
+  \endverb
+  \field{year}{2012}
+  \field{urlday}{06}
+  \field{urlmonth}{07}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{DBLP:journals/corr/LopezK17}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lopez}{L.}%
+     {Marc~Moreno}{M.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kalita}{K.}%
+     {Jugal}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LMMKJ1}
+  \strng{fullhash}{LMMKJ1}
+  \field{pages}{1}
+  \field{title}{Deep Learning applied to {NLP}}
+  \verb{url}
+  \verb http://arxiv.org/abs/1703.03091
+  \endverb
+  \field{volume}{abs/1703.03091}
+  \field{journaltitle}{CoRR}
+  \field{year}{2017}
+  \field{urlday}{06}
+  \field{urlmonth}{07}
+  \field{urlyear}{2017}
+\endentry
+
 \lossort
 \endlossort
 

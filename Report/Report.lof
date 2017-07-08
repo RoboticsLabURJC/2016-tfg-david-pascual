@@ -20,13 +20,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Example of a max. pooling operation.\relax }}{16}{figure.caption.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagram of a dense or fully-connected layer (Source~\cite {fc}).\relax }}{16}{figure.caption.16}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagram of a dense or fully-connected layer (source~\cite {fc}).\relax }}{16}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Activation functions: (a) \gls {relu}; b) softmax.\relax }}{17}{figure.caption.17}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Activation functions: (a) \gls {relu}; (b) softmax.\relax }}{17}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Subnetworks generated when using dropout.\relax }}{18}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Example of a confusion matrix visualization using Octave.\relax }}{21}{figure.caption.19}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Example of a confusion matrix.\relax }}{21}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Droidcam usage: (a) Android server; (b) Linux client; (c) connection established.\relax }}{23}{figure.caption.21}
 \defcounter {refsection}{0}\relax 

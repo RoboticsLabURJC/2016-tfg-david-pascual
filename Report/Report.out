@@ -13,9 +13,9 @@
 \BOOKMARK [2][-]{subsection.2.1.3}{Callbacks}{section.2.1}% 13
 \BOOKMARK [2][-]{subsection.2.1.4}{Image Preprocessing}{section.2.1}% 14
 \BOOKMARK [2][-]{subsection.2.1.5}{Utils}{section.2.1}% 15
-\BOOKMARK [1][-]{section.2.2}{HDF5}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.2}{HDF5 file format}{chapter.2}% 16
 \BOOKMARK [1][-]{section.2.3}{Scikit-learn and Octave}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.4}{JdeRobot}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.4}{JdeRobot framework}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.5}{DroidCam}{chapter.2}% 19
 \BOOKMARK [0][-]{chapter.3}{Digit classifier}{}% 20
 \BOOKMARK [1][-]{section.3.1}{Understanding the Keras model}{chapter.3}% 21
@@ -49,7 +49,7 @@
 \BOOKMARK [2][-]{subsection.5.3.1}{Early stopping}{section.5.3}% 49
 \BOOKMARK [2][-]{subsection.5.3.2}{Dropout}{section.5.3}% 50
 \BOOKMARK [1][-]{section.5.4}{New architectures}{chapter.5}% 51
-\BOOKMARK [0][-]{chapter.6}{Conclusions and future work}{}% 52
+\BOOKMARK [0][-]{chapter.6}{Conclusions}{}% 52
 \BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 53
 \BOOKMARK [1][-]{section.6.2}{Future work}{chapter.6}% 54
 \BOOKMARK [0][-]{figure.caption.54}{Bibliography}{}% 55

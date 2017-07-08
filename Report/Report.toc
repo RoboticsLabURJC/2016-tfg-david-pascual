@@ -32,11 +32,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.5}Utils}{19}{subsection.2.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}HDF5}{19}{section.2.2}
+\contentsline {section}{\numberline {2.2}HDF5 file format}{19}{section.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Scikit-learn and Octave}{20}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}JdeRobot}{21}{section.2.4}
+\contentsline {section}{\numberline {2.4}JdeRobot framework}{21}{section.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.5}DroidCam}{22}{section.2.5}
 \defcounter {refsection}{0}\relax 
@@ -114,7 +114,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.4}New architectures}{62}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Conclusions and future work}{67}{chapter.6}
+\contentsline {chapter}{\numberline {6}Conclusions}{67}{chapter.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}Conclusions}{67}{section.6.1}
 \defcounter {refsection}{0}\relax 

@@ -24,49 +24,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 10143 items from 5000.
 Database file #1: Report-blx.bib
 Database file #2: Bibliography.bib
+A bad cross reference---entry "conf/icassp/Abdel-HamidMJP12"
+refers to entry "conf/icassp/2012", which doesn't exist
+Warning--I didn't find a database entry for "conf/icassp/2012"
 Biblatex version: 3.3
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 34 entries,
+You've used 37 entries,
             6047 wiz_defined-function locations,
-            1338 strings with 14281 characters,
-and the built_in function-call counts, 139366 in all, are:
-= -- 4301
-> -- 10577
-< -- 1200
-+ -- 7550
-- -- 7539
-* -- 7867
-:= -- 13340
+            1362 strings with 15004 characters,
+and the built_in function-call counts, 153645 in all, are:
+= -- 4676
+> -- 11749
+< -- 1317
++ -- 8388
+- -- 8398
+* -- 8868
+:= -- 14765
 add.period$ -- 0
-call.type$ -- 34
-change.case$ -- 413
-chr.to.int$ -- 683
-cite$ -- 66
-duplicate$ -- 13467
-empty$ -- 11959
-format.name$ -- 2225
-if$ -- 25330
+call.type$ -- 37
+change.case$ -- 439
+chr.to.int$ -- 755
+cite$ -- 72
+duplicate$ -- 14799
+empty$ -- 13115
+format.name$ -- 2485
+if$ -- 27828
 int.to.chr$ -- 0
-int.to.str$ -- 78
+int.to.str$ -- 85
 missing$ -- 0
-newline$ -- 959
-num.names$ -- 1460
-pop$ -- 10635
+newline$ -- 1068
+num.names$ -- 1581
+pop$ -- 11594
 preamble$ -- 1
-purify$ -- 544
+purify$ -- 588
 quote$ -- 0
-skip$ -- 6495
+skip$ -- 7097
 stack$ -- 0
-substring$ -- 3974
-swap$ -- 4424
-text.length$ -- 988
+substring$ -- 4347
+swap$ -- 4915
+text.length$ -- 1096
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1279
+type$ -- 1393
 warning$ -- 0
-while$ -- 1053
+while$ -- 1158
 width$ -- 0
-write$ -- 924
+write$ -- 1030
+(There was 1 error message)
