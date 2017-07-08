@@ -57,20 +57,20 @@ There are multiple \emph{motivations} behind this project. On the one hand, I am
 \section{Objectives}\label{sec:objectives}
 The ultimate objective of this project is to fully understand \glspl{cnn} in order to integrate them in a computer vision application that must be able to solve a real-world task, specifically a \emph{real-time handwritten digits classifier}. This main objective has been divided in the following sub-objectives: 
 \begin{itemize}
-	\item Accomplishing a \emph{deep understanding} of how a basic \gls{cnn} work, analyzing its main layers, the learning process and the particularities of building this kind of networks with \emph{Keras}, a neural networks library for Python.
-	\item Building a \emph{component} which must integrate a \gls{cnn} to classify images of handwritten digits.
+	\item Accomplishing a \emph{deep understanding} of how a basic \gls{cnn} works, analyzing its main layers, the learning process and the particularities of building this kind of networks with \emph{Keras}, a neural network library for Python.
+	\item Building a \emph{component} which integrates a \gls{cnn} to classify images of handwritten digits in real time.
 	\item Developing a \emph{test bench} which allows the comparison of the performance achieved by the \glspl{cnn}. This test bench must provide the input data and the tools required to visualize and evaluate the results.
-	\item Studying the \emph{effects of the learning process} in the performance of \gls{cnn} trained with different datasets, architectures and regularization methods.
+	\item Studying the \emph{effects of the learning process} in the performance of \glspl{cnn} trained with different datasets, architectures and regularization methods.
 \end{itemize}
 
 \section{Methodology}
-The development of this project has been followed weekly by the tutors. In the \emph{weekly meetings}, the work done in the previous week was discussed and new milestones were set for the following one. This methodology has allowed a continuous feedback, which has led to a better understanding of the topic. Besides that, thanks to the weekly meetings the workload has been constant during these months. 
+The development of this project has been weekly followed by the tutors. In the \emph{weekly meetings} the work done in the previous week was discussed and new milestones were set for the following one. This methodology has allowed a continuous feedback, which has led to a better understanding of the topic. Besides that, thanks to the weekly meetings the workload has been constant during these months. 
 
 Additionally, the following tools have been employed to keep track of the project progress:
 \begin{itemize}
 	\item \textbf{GitHub}. All the code written in this project is available in GitHub and has been  frequently updated. In the following link, the main repository can be accessed:
 	\url{https://github.com/RoboticsURJC-students/2016-tfg-david-pascual}
-	\item \textbf{JdeRobot MediaWiki}. It has been used as a logbook of the progress of this project. It can be accessed in the following link:
+	\item \textbf{MediaWiki}. It has been used as a logbook of the progress of this project. It can be accessed in the following link:
 	\url{http://jderobot.org/Dpascual-tfg}
 \end{itemize}
 
@@ -83,13 +83,13 @@ In Figure~\ref{fig:gantt}, a \emph{Gantt chart} with the number of weeks dedicat
 \end{figure}
 
 \section{Project structure}
-For ease of reading, the structure followed in the writing of this project and how the chapters are related to each other are explained in this section.
+For ease of reading, the structure followed in the writing of this document and how the chapters are related to each other are explained in this section.
 
 \begin{description}
 	\item[Chapter 1. Introduction.] This chapter starts with a brief introduction to the main fields in which \glspl{cnn} are based and the motivations behind the project. Then, the objectives, the methodology followed to meet these objectives and the structure of the project are presented.
-	\item[Chapter 2. Framework.] The software that was already there before the project is described here. It's specially significant the section about Keras library, its main functionalities and the theory behind its core layers and learning process.
-	\item[Chapter 3. Digit classifier.] In this chapter, an example of a \gls{cnn} built with Keras for handwritten digits classification is analyzed. Then, the working of the component, in which the \gls{cnn} is integrated, is explained.
+	\item[Chapter 2. Framework.] The third-party software that has supported the development of this project is described here. It's specially significant the section about Keras library, its main functionalities and the theory behind its core layers and learning process.
+	\item[Chapter 3. Digit classifier.] In this chapter, an example of a \gls{cnn} built with Keras for handwritten digits classification is analyzed. Then, the internals of the developed component, in which the \gls{cnn} is integrated, are explained.
 	\item[Chapter 4. Test bench.] The datasets that will be used for training new models and the tools that will be employed to evaluate and visualize the results are described in this chapter.
-	\item[Chapter 5. Evaluation.] Taking as a starting point the \gls{cnn} that was analyzed in the \textit{Digit classifier} chapter, new models will be created. The performance of these new models will be evaluated with the tools developed in the \textit{Benchmark} chapter.
-	\item[Chapter 6. Conclusions and future work.] Finally, the conclusions reached during the development of the project will be summarized and possible further works will be proposed.
+	\item[Chapter 5. Evaluation.] Taking as a starting point the \gls{cnn} that was analyzed in the \textit{Digit classifier} chapter, new models will be created. The performance of these new models will be evaluated with the tools developed in the \textit{Test bench} chapter.
+	\item[Chapter 6. Conclusions.] Finally, the conclusions reached during the development of this project will be summarized and possible further works will be proposed.
 \end{description}

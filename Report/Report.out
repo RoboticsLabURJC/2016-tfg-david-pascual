@@ -44,7 +44,7 @@
 \BOOKMARK [1][-]{section.5.1}{Convolutional layers visualization}{chapter.5}% 44
 \BOOKMARK [2][-]{subsection.5.1.1}{Filters}{section.5.1}% 45
 \BOOKMARK [2][-]{subsection.5.1.2}{Activation maps}{section.5.1}% 46
-\BOOKMARK [1][-]{section.5.2}{New datasets}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.2}{Augmented datasets}{chapter.5}% 47
 \BOOKMARK [1][-]{section.5.3}{Regularization methods}{chapter.5}% 48
 \BOOKMARK [2][-]{subsection.5.3.1}{Early stopping}{section.5.3}% 49
 \BOOKMARK [2][-]{subsection.5.3.2}{Dropout}{section.5.3}% 50
@@ -52,4 +52,4 @@
 \BOOKMARK [0][-]{chapter.6}{Conclusions and future work}{}% 52
 \BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 53
 \BOOKMARK [1][-]{section.6.2}{Future work}{chapter.6}% 54
-\BOOKMARK [0][-]{section.6.2}{Bibliography}{}% 55
+\BOOKMARK [0][-]{figure.caption.54}{Bibliography}{}% 55

@@ -46,9 +46,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.3}{\ignorespaces First samples of handmade datasets: (a) Sobel; (b)~0-1; (c)~1-1; (d)~0-6~; (e)~1-6.\relax }}{46}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Parameters displayed by \textit {visualization.m}: (a) learning curves; (b) precision and recall; (c) confusion matrix.\relax }}{52}{figure.caption.33}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Parameters displayed by \textit {visualization.m}: (a) learning curves; (b) precision and recall; (c) confusion matrix.\relax }}{51}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers\relax }}{54}{figure.caption.34}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers\relax }}{53}{figure.caption.34}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -73,3 +73,5 @@
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of \textit {4Conv; Patience=5} model: (a) learning curves; (b) precision and recall; (c) confusion matrix.\relax }}{66}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Vehicle detection with YOLO applied to Udacity's self-driving car dataset (source\cite {udacity}).\relax }}{70}{figure.caption.54}

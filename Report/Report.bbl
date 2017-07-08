@@ -946,6 +946,27 @@
   \field{urlyear}{2017}
 \endentry
 
+\entry{udacity}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Udacity}{U.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{U1}
+  \strng{fullhash}{U1}
+  \field{title}{udacity/self-driving-car: The Udacity open source self-driving
+  car project}
+  \verb{url}
+  \verb https://github.com/udacity/self-driving-car
+  \endverb
+  \field{year}{2017}
+  \field{urlday}{07}
+  \field{urlmonth}{07}
+  \field{urlyear}{2017}
+\endentry
+
 \lossort
 \endlossort
 
