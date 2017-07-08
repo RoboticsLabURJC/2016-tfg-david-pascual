@@ -126,8 +126,8 @@ function benchmark(results_path)
   endfor
   title(strcat("Confusion matrix -> Samples = ", num2str(real_samples)),...
         "fontweight", "bold", "fontsize", 15);
-  xlabel("Real", "fontsize", 15);
-  ylabel("Predicted", "fontsize", 15);
+  xlabel("Predicted", "fontsize", 15);
+  ylabel("Real", "fontsize", 15);
   set(gca,"XTick", 1:1:(length(conf_mat)+1), "XTickLabel",{"0","1","2","3",...
                                                            "4","5","6","7",...
                                                            "8", "9", "TOTAL"});

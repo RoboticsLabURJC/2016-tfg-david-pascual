@@ -49,5 +49,7 @@
 \BOOKMARK [2][-]{subsection.5.3.1}{Early stopping}{section.5.3}% 49
 \BOOKMARK [2][-]{subsection.5.3.2}{Dropout}{section.5.3}% 50
 \BOOKMARK [1][-]{section.5.4}{New architectures}{chapter.5}% 51
-\BOOKMARK [0][-]{chapter.6}{Conclusions}{}% 52
-\BOOKMARK [0][-]{section*.52}{Bibliography}{}% 53
+\BOOKMARK [0][-]{chapter.6}{Conclusions and future work}{}% 52
+\BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.2}{Future work}{chapter.6}% 54
+\BOOKMARK [0][-]{section.6.2}{Bibliography}{}% 55

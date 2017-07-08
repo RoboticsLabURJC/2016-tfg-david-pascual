@@ -100,6 +100,26 @@
   \field{year}{2003}
 \endentry
 
+\entry{ml-def}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Kinsey}{K.}%
+     {Libby}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KL1}
+  \strng{fullhash}{KL1}
+  \field{title}{A machine learning primer}
+  \verb{url}
+  \verb https://medium.com/@libbykinsey/a-machine-learning-primer-6d7b5a96a3b0
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{07}
+  \field{urlmonth}{07}
+  \field{urlyear}{2017}
+\endentry
+
 \entry{Goodfellow-et-al-2016}{book}{}
   \name{author}{3}{}{%
     {{}%
@@ -130,6 +150,27 @@
   \field{year}{2016}
   \field{urlday}{21}
   \field{urlmonth}{06}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{unsup}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Brownlee}{B.}%
+     {Jason}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BJ1}
+  \strng{fullhash}{BJ1}
+  \field{title}{Supervised and Unsupervised Machine Learning Algorithms}
+  \verb{url}
+  \verb http://machinelearningmastery.com/supervised-and-unsupervised-machine-l
+  \verb earning-algorithms/
+  \endverb
+  \field{year}{2016}
+  \field{urlday}{07}
+  \field{urlmonth}{07}
   \field{urlyear}{2017}
 \endentry
 
@@ -479,47 +520,6 @@
   \field{urlyear}{2017}
 \endentry
 
-\entry{jderobot}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {{JdeRobot developers}}{J.}%
-     {}{}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{J1}
-  \strng{fullhash}{J1}
-  \field{title}{JdeRobot - Robotics and Computer Vision Technology that rocks
-  and matters!}
-  \verb{url}
-  \verb http://jderobot.org/Main_Page
-  \endverb
-  \field{year}{2017}
-  \field{urlday}{19}
-  \field{urlmonth}{05}
-  \field{urlyear}{2017}
-\endentry
-
-\entry{droidcam}{online}{}
-  \name{author}{1}{}{%
-    {{}%
-     {DEV47APPS}{D.}%
-     {}{}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{D1}
-  \strng{fullhash}{D1}
-  \field{title}{{Dev47Apps}}
-  \verb{url}
-  \verb http://www.dev47apps.com/
-  \endverb
-  \field{year}{2010-2016}
-  \field{urlday}{22}
-  \field{urlmonth}{05}
-  \field{urlyear}{2017}
-\endentry
-
 \entry{hdf5}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -685,6 +685,47 @@
   \endverb
   \field{year}{2015}
   \field{urlday}{15}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{jderobot}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{JdeRobot developers}}{J.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{J1}
+  \strng{fullhash}{J1}
+  \field{title}{JdeRobot - Robotics and Computer Vision Technology that rocks
+  and matters!}
+  \verb{url}
+  \verb http://jderobot.org/Main_Page
+  \endverb
+  \field{year}{2017}
+  \field{urlday}{19}
+  \field{urlmonth}{05}
+  \field{urlyear}{2017}
+\endentry
+
+\entry{droidcam}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {DEV47APPS}{D.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{D1}
+  \strng{fullhash}{D1}
+  \field{title}{{Dev47Apps}}
+  \verb{url}
+  \verb http://www.dev47apps.com/
+  \endverb
+  \field{year}{2010-2016}
+  \field{urlday}{22}
   \field{urlmonth}{05}
   \field{urlyear}{2017}
 \endentry
