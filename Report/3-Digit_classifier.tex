@@ -233,19 +233,26 @@ Once the \gls{cnn} has been trained and the resultant model is saved, the next m
 	\label{fig:digitclass}
 \end{figure}
 
-\subsection{Component design}
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth, keepaspectratio]{}
-%	\caption{}
-%	\label{fig:}
-%\end{figure}
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth, keepaspectratio]{}
-%	\caption{}
-%	\label{fig:}
-%\end{figure}
+\subsection{Design}
+Before analyzing in detail the internals of the digit classifier component, its design will be described. For this purpose, the \emph{block diagrams} shown in Figure~\ref{fig:dia} have been built.
+
+Figure~\ref{fig:dia}(a) shows a \emph{high-level diagram} of the process followed from the video source to the predicted digit. The images captured with the camera are received by the \emph{cameraserver} driver. Then, the digit classifier component communicates with this driver and get the images. Finally, a prediction is made. Optionally, if the images are captured with a smartphone camera, DroidCam can receive those images and create a camera device that can communicate with the \emph{cameraserver} driver.
+
+In Figure~\ref{fig:dia}(b), the  \emph{internals of the digit classifier component} are shown. The main program (\emph{digitclassifier.py}) starts two threads, \textit{ThreadCamera} and \textit{ThreadGUI}. These threads update \textit{GUI} and \textit{Camera} classes concurrently. \textit{Camera} class communicates with \textit{cameraserver} to get the images, which are then preprocessed. The preprocessed image is fed to the Keras model and a prediction is made. Original and preprocessed images, as well as the predicted digits are passed to the \textit{GUI} class, which displays all of them in the screen.
+\begin{figure}
+	\begin{subfigure}{1\textwidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{figures/diagram_black.png}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1\textwidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{figures/diagram_transparent.png}
+		\caption{}
+	\end{subfigure}
+	\caption{Digit classifier design: (a) high-level; (b) lower-level.}
+	\label{fig:dia}
+\end{figure}
 
 \subsection{\textit{Camera} class}
 \emph{\textit{Camera} class} is responsible for getting the images, transforming them into a suitable input for the Keras model and returning the classification results.

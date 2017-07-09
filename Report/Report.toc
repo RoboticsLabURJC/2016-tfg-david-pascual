@@ -2,11 +2,11 @@
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Figures}{XI}{chapter*.6}
+\contentsline {chapter}{List of Figures}{IX}{chapter*.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Tables}{XIII}{chapter*.7}
+\contentsline {chapter}{List of Tables}{XI}{chapter*.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acronyms}{XV}{chapter*.9}
+\contentsline {chapter}{Acronyms}{XIII}{chapter*.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -58,13 +58,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.1}Design}{33}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}\textit {Camera} class}{33}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}\textit {Camera} class}{34}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}\textit {GUI} class}{36}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}\textit {GUI} class}{38}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}Threads}{37}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Threads}{38}{subsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.5}Main program}{38}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.5}Main program}{39}{subsection.3.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Test bench}{41}{chapter.4}
 \defcounter {refsection}{0}\relax 
