@@ -2,11 +2,11 @@
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Figures}{IX}{chapter*.5}
+\contentsline {chapter}{List of Figures}{XI}{chapter*.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of Tables}{XI}{chapter*.6}
+\contentsline {chapter}{List of Tables}{XIII}{chapter*.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acronyms}{XIII}{chapter*.8}
+\contentsline {chapter}{Acronyms}{XV}{chapter*.9}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -36,7 +36,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Scikit-learn and Octave}{20}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}JdeRobot framework}{21}{section.2.4}
+\contentsline {section}{\numberline {2.4}JdeRobot framework}{22}{section.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.5}DroidCam}{22}{section.2.5}
 \defcounter {refsection}{0}\relax 
@@ -52,17 +52,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1.4}Training the model}{32}{subsection.3.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.5}Testing the model}{33}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.5}Testing the model}{32}{subsection.3.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Component}{33}{section.3.2}
+\contentsline {section}{\numberline {3.2}JdeRobot component}{33}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}\textit {Camera} class}{33}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.1}Design}{33}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}\textit {GUI} class}{37}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}\textit {Camera} class}{33}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Threads}{37}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}\textit {GUI} class}{36}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}Main program}{38}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Threads}{37}{subsection.3.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.5}Main program}{38}{subsection.3.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Test bench}{41}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -74,19 +76,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.3}Data augmentation}{43}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Real-time data augmentation with Keras}{43}{section*.26}
+\contentsline {subsubsection}{Real-time data augmentation with Keras}{43}{section*.27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Handmade augmented datasets}{44}{section*.28}
+\contentsline {subsubsection}{Handmade augmented datasets}{44}{section*.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{From LMDB to HDF5}{45}{section*.30}
+\contentsline {subsubsection}{From LMDB to HDF5}{45}{section*.31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Conclusions}{48}{section*.31}
+\contentsline {subsubsection}{Conclusions}{48}{section*.32}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Measuring performance}{49}{section.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.1}\textit {CustomEvaluation} class}{49}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\textit {LearningCurves} callback}{50}{section*.32}
+\contentsline {subsubsection}{\textit {LearningCurves} callback}{50}{section*.33}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.2}Octave function}{50}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
@@ -118,6 +120,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}Conclusions}{67}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Future work}{69}{section.6.2}
+\contentsline {section}{\numberline {6.2}Future works}{69}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{71}{figure.caption.54}
+\contentsline {chapter}{Bibliography}{71}{figure.caption.55}

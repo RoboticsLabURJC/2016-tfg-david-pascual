@@ -1,4 +1,4 @@
-\glossaryentry{ReLU?\glossentry{relu}|setentrycounter[]{page}\glsnumberformat}{IX}
+\glossaryentry{ReLU?\glossentry{relu}|setentrycounter[]{page}\glsnumberformat}{XI}
 \glossaryentry{AI?\glossentry{ai}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{1}
 \glossaryentry{ML?\glossentry{ml}|setentrycounter[]{page}\glsnumberformat}{1}
@@ -61,7 +61,7 @@
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{32}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{32}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{32}
-\glossaryentry{HDF5?\glossentry{hdf5}|setentrycounter[]{page}\glsnumberformat}{33}
+\glossaryentry{HDF5?\glossentry{hdf5}|setentrycounter[]{page}\glsnumberformat}{32}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{33}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{33}
 \glossaryentry{GUI?\glossentry{gui}|setentrycounter[]{page}\glsnumberformat}{33}
@@ -109,6 +109,7 @@
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{67}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{67}
 \glossaryentry{ReLU?\glossentry{relu}|setentrycounter[]{page}\glsnumberformat}{67}
+\glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{68}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{68}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{68}
 \glossaryentry{CNN?\glossentry{cnn}|setentrycounter[]{page}\glsnumberformat}{68}

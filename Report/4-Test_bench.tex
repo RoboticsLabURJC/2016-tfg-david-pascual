@@ -1,5 +1,5 @@
 \chapter{Test bench}\label{ch:benchmark}
-The model described in Section~\ref{sec:understanding} can be improved with different architectures and regularization methods. Besides that, training the model with new datasets can also lead to better results. In order to \emph{compare the performance} of these new models, a \emph{test bench} has been established. In this chapter, the datasets employed to train the models, as well as the tools developed to measure and visualize their performance will be described.
+The model described in Section~\ref{sec:understanding} can be improved with different architectures and regularization methods. Besides that, training the model with new datasets can also lead to better results. In order to \emph{compare the performance} of these new models, a \emph{test bench} has been developed. In this chapter, the datasets employed to train the models, as well as the tools created to measure and visualize their performance, will be described.
 
 \section{Datasets}\label{sec:datasets}
 The digit classifier component is possible thanks to the data provided by the \emph{\gls{mnist} database} of handwritten digits. In the following sections, the pros and cons of using this database and some alternatives will be discussed.
@@ -60,13 +60,13 @@ generator = datagen.flow(x, y, batch\_size=batch\_size)
 	\label{fig:aug_keras}
 \end{figure}
 
-Besides these transformations, it's also necessary to simulate the \emph{noise} that may be present in real images. Keras generator doesn't support the addition of noise. For this purpose, Keras includes noise layers such as the \emph{GaussianNoise layer}, which adds Gaussian noise with a standard deviation distribution defined by the user. It's important to note that Keras treat noise layers as regularization methods that are only active during training time to avoid overfitting. In order to add noise to the generated samples, a GaussianNoise layer was established as the \emph{input layer} of the model.
+Besides these transformations, it's also necessary to simulate the \emph{noise} that may be present in real images. Keras generator doesn't support the addition of noise. For this purpose, Keras includes noise layers such as the \emph{GaussianNoise layer}, which adds Gaussian noise with a standard deviation distribution defined by the user. It's important to note that Keras treats noise layers as regularization methods that are only active during training time to avoid overfitting. In order to add noise to the generated samples, a GaussianNoise layer was established as the \emph{input layer} of the model.
 
 \subsubsection{Handmade augmented datasets}\label{subsec:handmade}
 The alternative to real-time data augmentation with Keras is building \emph{our own datasets} applying the previously mentioned transformations to the images. My mate Nuria Oyaga has build~5~new databases with two sets each one: training and validation\footnote{\url{http://jderobot.org/Noyaga-tfg\#Comparing_Neural_Network}}. These are the new databases: 
 \begin{itemize}
-	\item \textbf{Sobel}: \gls{mnist} database after applying the Sobel filter to every image.~48000~samples for traning and~12000~samples for validation. 
-	\item \textbf{0-1}: Same size than Sobel database. One transformed image per every Sobel database image. Sobel database images are replaced by the the transformed ones.~48000~samples for traning and~12000~samples for validation. 
+	\item \textbf{Sobel}: \gls{mnist} database after applying the Sobel filter to every image.~48000~samples for training and~12000~samples for validation. 
+	\item \textbf{0-1}: Same size than Sobel database. One transformed image per every Sobel database image. Sobel database images are replaced by the transformed ones.~48000~samples for training and~12000~samples for validation. 
 	\item \textbf{1-1}: Double size than Sobel database. One transformed image per every Sobel database image. Both Sobel database images and the transformed images are included in the~1-1~database.~96000~samples for training and~24000~samples for validation. 
 	\item \textbf{0-6}: Six times the size of Sobel database. Six transformed images per every Sobel database image. Sobel database images are replaced by the transformed ones.~288000~samples for training and~72000~samples for validation. 
 	\item \textbf{1-6}: Seven times the size of Sobel database. Six transformed images per every Sobel database image. Both Sobel database images and the transformed images are included in the~1-6~database.~336000~samples for training and~84000~samples for validation. 
@@ -111,7 +111,7 @@ In Figure~\ref{fig:aug_nuria}, the first samples of every handmade dataset can b
 These databases were initially built to feed a \emph{Caffe}~\cite{jia2014caffe} neural network. That's why they were saved as \emph{\gls{lmdb} files}\footnote{\url{http://www.lmdb.tech/doc/}}. In order to make it easier to feed the Keras model, the \gls{lmdb} databases have been converted into \emph{\gls{hdf5} files} (see Section~\ref{sec:hdf}). For this conversion, the script \emph{\textit{datasetconversion.py}} has been written.
 
 \begin{itemize}
-	\item \textbf{Reading the \gls{lmdb} database}. On one hand, the \gls{lmdb} library for Python\footnote{\url{https://lmdb.readthedocs.io/en/release/\#}} has been employed to open the database, initialize a cursor and iterate over each key-value pair in the database. On the other hand, \emph{Google's Protocol Buffers}\footnote{\url{https://developers.google.com/protocol-buffers/}} have been used to parse the data that was extracted from the database. ``With protocol buffers, you write a \textit{.proto} description of the data structure you wish to store. From that, the protocol buffer compiler creates a class that implements automatic encoding and parsing of the protocol buffer data with an efficient binary format"~\cite{protobuf}. Here can be seen the \textit{.proto} file that defines the data structure used by Caffe to store the \gls{mnist} database, as obtained from~\cite{lmdb_tutorial}: 
+	\item \textbf{Reading the \gls{lmdb} database}. On one hand, the \gls{lmdb} library for Python\footnote{\url{https://lmdb.readthedocs.io/en/release/\#}} has been employed to open the database, initialize a cursor and iterate over each key-value pair in the database. On the other hand, \emph{Google's Protocol Buffers}\footnote{\url{https://developers.google.com/protocol-buffers/}} have been used to parse the data that were extracted from the database. ``With protocol buffers, you write a \textit{.proto} description of the data structure you wish to store. From that, the protocol buffer compiler creates a class that implements automatic encoding and parsing of the protocol buffer data with an efficient binary format"~\cite{protobuf}. Here can be seen the \textit{.proto} file that defines the data structure used by Caffe to store the \gls{mnist} database, as obtained from~\cite{lmdb_tutorial}: 
 	
 \begin{lstlisting}
 package datum;
@@ -181,7 +181,7 @@ if __name__ == '__main__':
 \end{itemize} 
 
 \subsubsection{Conclusions}
-After coding and testing both implementations for augmenting the database, it has been decided to go for the \emph{handmade datasets}. While real-time data augmentation is really useful to avoid storing all the data that is needed for training, it makes it harder to take a look into what is being fed to the network and reproduce results. Also, in this particular case, we are interested in \emph{compare the performance} of neural networks built with different libraries, so they must be trained with the same datasets.
+After coding and testing both implementations for augmenting the database, it has been decided to use the \emph{handmade datasets}. While real-time data augmentation is really useful to avoid storing all the data that are needed for training, it makes harder to take a look into what is being fed to the network and reproduce results. Also, in this particular case, we are interested in \emph{comparing the performance} of neural networks built with different libraries, so they must be trained with the same datasets.
 
 \section{Measuring performance}\label{sec:measuring}
 The performance of the models will be evaluated using the \textit{CustomEvaluation} class and the measurements calculated with this class will be visualized using an Octave function. In this section, both of them will be described.
@@ -230,7 +230,7 @@ def on_batch_end(self, batch, logs={}):
 \end{lstlisting}
 
 \subsection{Octave function}\label{subsec:octave-func}
-Now that all the data has been collected, it has to be properly displayed. The function \emph{\textit{visualization.m}} has been written to address this issue. It takes as its only argument the path to the \textit{.mat} file that has been generated with the \textit{CustomEvaluation} class and plots the results as they can be seen in Figure~\ref{fig:benchmark}. Additionally, it prints them to the standard output.
+Now that all the data have been collected, they have to be properly displayed. The function \emph{\textit{visualization.m}} has been written to address this issue. It takes as its only argument the path to the \textit{.mat} file that has been generated with the \textit{CustomEvaluation} class and plots the results as shown in Figure~\ref{fig:benchmark}. Additionally, it prints them to the standard output.
 
 \begin{figure}
 	\centering
@@ -241,12 +241,12 @@ Now that all the data has been collected, it has to be properly displayed. The f
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[width=0.9\linewidth]{figures/prec_rec.png}
+		\includegraphics[width=1\linewidth]{figures/prec_rec.png}
 		\caption{}
 	\end{subfigure}%
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[width=0.9\linewidth]{figures/conf_mat.png}
+		\includegraphics[width=1\linewidth]{figures/conf_mat.png}
 		\caption{}
 	\end{subfigure}
 	\caption{Parameters displayed by \textit{visualization.m}: (a) learning curves; (b) precision and recall; (c) confusion matrix.}
@@ -267,7 +267,7 @@ for i, layer in enumerate(self.model.layers):
 ...
 \end{lstlisting}
 
-Once the convolutional layers have been found, their \emph{filters} are accessed through the \textit{layer.get\_weigths()} method. The matrices of weights returned by this method are reshaped to improve readability. The code that performs this operations can be seen in the following frame:
+Once the convolutional layers have been found, their \emph{filters} are accessed through the \textit{layer.get\_weigths()} method. The matrices of weights returned by this method are reshaped to improve readability. The code that performs these operations can be seen in the following frame:
 
 \begin{lstlisting}
 shape = layer.get_weights()[0].shape
@@ -278,7 +278,7 @@ weights = layer.get_weights()[0].reshape(shape[2], shape[0],
 Finally, the filters are plotted thanks to the \emph{Matplotlib library}\footnote{\url{https://matplotlib.org/}} for Python. The shape and the maximum/minimum values of the weights are printed to the standard output. An example of how the filters are plotted can be seen in the following chapter in Figure~\ref{fig:filters}
 
 \subsection{Activation maps}
-The output of each convolutional layer is formed by as many \emph{activation maps} as filters have the layer. In order to get the values of these activation maps, \emph{truncated versions} of the original model are generated, as it is shown in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the follwing frame:
+The output of each convolutional layer is formed by as many \emph{activation maps} as filters the layer has. In order to get the values of these activation maps, \emph{truncated versions} of the original model are generated, as it is shown in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the follwing frame:
 \begin{lstlisting}
 truncated = Model(inputs=self.model.inputs,
                     outputs=layer.output)

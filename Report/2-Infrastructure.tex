@@ -40,7 +40,7 @@ Sequential models have several methods, and the following ones are essential for
 		
 		\item \textbf{\textit{validation\_split} or \textit{validation\_data}}: in Keras, there are two alternatives to provide a validation dataset. On one hand, it is possible to pass the validation data as a Numpy array to the \textit{validation\_data} argument. On the other hand, a fraction of the training samples can be set as validation data through the \textit{validation\_split} argument. \textit{validation\_data} and  \textit{validation\_split} arguments are mutually exclusive, so just one of them can be used.
 		
-		\item \textbf{\textit{shuffle}}: a boolean that determines whether to shuffle training data or not. If data is not shuffled during training, samples belonging to the same class can be presented consecutively. In that case, the model will be forced to learn the features of a certain class. When the model starts to see samples of the next class, it fits to the new data and forgets the previously learned feature. If data is sorted by classes, this process goes on and on leading to a worse performance.
+		\item \textbf{\textit{shuffle}}: a boolean that determines whether to shuffle training data or not. If data are not shuffled during training, samples belonging to the same class can be presented consecutively. In that case, the model will be forced to learn the features of a certain class. When the model starts to see samples of the next class, it fits to the new data and forgets the previously learned feature. If data are sorted by classes, this process goes on and on leading to a worse performance.
 	\end{itemize}
 \end{description}
 
