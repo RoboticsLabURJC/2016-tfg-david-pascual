@@ -7,7 +7,7 @@ The digit classifier component is possible thanks to the data provided by the \e
 \subsection{Original dataset}\label{subsec:MNIST}
 \emph{\gls{mnist}} is a database of \emph{handwritten digits} formed by a training set, which contains~60000~samples, and a test set, containing~10000~samples~\cite{lecun-mnisthandwrittendigit-2010}. It's a \textit{remixed} and reduced version of the original \emph{NIST datasets}\footnote{\url{https://www.nist.gov/srd/nist-special-database-19}}. \gls{mnist} is a well-known benchmark for all kinds of \gls{ml} algorithms.
 
-As may be seen in Figure~\ref{fig:mnist}, each sample of the \gls{mnist} database is a~28x28~pixels \emph{grayscale image} that contains a size-normalized and centered digit. While it may be useful for testing \gls{ml} algorithms, it's not enough to train a model that aims to solve a \emph{real-world task}, because the images are almost noiseless and the digits within them share similar orientation, position and size.
+As may be seen in Figure~\ref{fig:mnist}, each sample of the \gls{mnist} database is a~28x28~pixels \emph{grayscale image} that contains a size-normalized and centered digit. While it may be useful for testing \gls{ml} algorithms, it is not enough to train a model that aims to solve a \emph{real-world task}, because the images are almost noiseless and the digits within them share similar orientation, position and size.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, keepaspectratio]{figures/mnist.png}
@@ -16,9 +16,9 @@ As may be seen in Figure~\ref{fig:mnist}, each sample of the \gls{mnist} databas
 \end{figure}
 
 \subsection{Gradient images}\label{subsec:edge}
-The first issue with \gls{mnist} database that must be addressed is that all the digits are white over a black background. In real world, the digits can be found written in several colors over different backgrounds and the datasets must resemble every possible combination. In order to achieve that generalization, the \emph{gradient of the images} has been calculated. The resultant samples are less dependent from the light and color conditions than the original ones, forcing the neural network to focus in the shape of the digits to classify them.
+The first issue with \gls{mnist} database that must be addressed is that all the digits are white over a black background. In real world, digits can be found written in several colors over different backgrounds and datasets must resemble every possible combination. In order to achieve that generalization, the \emph{gradient of the images} has been calculated. The resultant samples are less dependent from the light and color conditions than the original ones, forcing the neural network to focus in the shape of the digits to classify them.
 
-According to the study carried out by Nuria Oyaga\footnote{\url{http://jderobot.org/Noyaga-tfg\#Testing\_Neural\_Network}}, the operator that leads to better results is the \emph{Sobel filter}. This operator approximates the gradient of an image function~\cite{sonka1999image}, convolving the image with the following kernels to highlight horizontal and vertical edges, respectively:  
+According to the study carried out by Nuria Oyaga\footnote{\url{http://jderobot.org/Noyaga-tfg\#Testing\_Neural\_Network}}, the operator that leads to better results when applied to MNIST database is the \emph{Sobel filter}. This operator approximates the gradient of an image function~\cite{sonka1999image}, convolving the image with the following kernels to highlight horizontal and vertical edges, respectively:  
 \begin{equation}\label{eq:sobel}
 h_x = 
 \begin{bmatrix}
@@ -34,10 +34,10 @@ h_y =
 -1 & 0 & 1
 \end{bmatrix}
 \end{equation}
-The absolute values of the resultant images, $x$ and $y$, are then added, obtaining the gradient image.
+The absolute values of the resultant images, $x$ and $y$, are then added, obtaining the module of the gradient image (hereinafter \emph{gradient image}).
 
 \subsection{Data augmentation}
-The second problem that has been detected with \gls{mnist} is that the images are \emph{noiseless} and the digits are always centered with a scale and a rotation angle that are almost \emph{invariant}. However, the digit classifier has to deal with noisy images that can be randomly scaled, translated and/or rotated. In order to get a database with images that look like the ones that our application is going to work with, the \gls{mnist} database must be \emph{augmented}.
+It has also been noticed that \gls{mnist} samples are \emph{noiseless} and digits are always centered with a scale and a rotation angle that are almost equal in most cases. However, the digit classifier has to deal with noisy images that can be randomly scaled, translated and/or rotated. In order to get a database with images that look like the ones that our application is going to work with, the \gls{mnist} database must be \emph{augmented}.
 
 Two alternatives have been considered to solve this problem: real-time data augmentation provided by Keras and generating our own database.
 
@@ -63,7 +63,7 @@ generator = datagen.flow(x, y, batch\_size=batch\_size)
 Besides these transformations, it's also necessary to simulate the \emph{noise} that may be present in real images. Keras generator doesn't support the addition of noise. For this purpose, Keras includes noise layers such as the \emph{GaussianNoise layer}, which adds Gaussian noise with a standard deviation distribution defined by the user. It's important to note that Keras treats noise layers as regularization methods that are only active during training time to avoid overfitting. In order to add noise to the generated samples, a GaussianNoise layer was established as the \emph{input layer} of the model.
 
 \subsubsection{Handmade augmented datasets}\label{subsec:handmade}
-The alternative to real-time data augmentation with Keras is building \emph{our own datasets} applying the previously mentioned transformations to the images. My mate Nuria Oyaga has build~5~new databases with two sets each one: training and validation\footnote{\url{http://jderobot.org/Noyaga-tfg\#Comparing_Neural_Network}}. These are the new databases: 
+The alternative to real-time data augmentation with Keras is building \emph{our own datasets} applying the previously mentioned transformations to the images. My mate Nuria Oyaga has built~5~new databases with two sets each one: training and validation\footnote{\url{http://jderobot.org/Noyaga-tfg\#Comparing_Neural_Network}}. These are the new databases: 
 \begin{itemize}
 	\item \textbf{Sobel}: \gls{mnist} database after applying the Sobel filter to every image.~48000~samples for training and~12000~samples for validation. 
 	\item \textbf{0-1}: Same size than Sobel database. One transformed image per every Sobel database image. Sobel database images are replaced by the transformed ones.~48000~samples for training and~12000~samples for validation. 
@@ -74,7 +74,7 @@ The alternative to real-time data augmentation with Keras is building \emph{our 
 
 Besides that, the test dataset of the \gls{mnist} database (10000~samples) has been converted into a~\emph{1-6~test dataset} (70000~samples).
 
-In Figure~\ref{fig:aug_nuria}, the first samples of every handmade dataset can be seen.
+In Figure~\ref{fig:aug_nuria}, the first samples of these datasets can be seen.
 
 \begin{figure}
 	\centering
@@ -108,10 +108,10 @@ In Figure~\ref{fig:aug_nuria}, the first samples of every handmade dataset can b
 \end{figure}
 
 \subsubsection{From LMDB to HDF5} \label{subsubsec:lmdb2hdf5}
-These databases were initially built to feed a \emph{Caffe}~\cite{jia2014caffe} neural network. That's why they were saved as \emph{\gls{lmdb} files}\footnote{\url{http://www.lmdb.tech/doc/}}. In order to make it easier to feed the Keras model, the \gls{lmdb} databases have been converted into \emph{\gls{hdf5} files} (see Section~\ref{sec:hdf}). For this conversion, the script \emph{\textit{datasetconversion.py}} has been written.
+These databases were initially built to feed a \emph{Caffe}~\cite{jia2014caffe} neural network. Because of that, they were saved as \emph{\gls{lmdb} files}\footnote{\url{http://www.lmdb.tech/doc/}}. In order to make it easier to feed the Keras model, the \gls{lmdb} databases have been converted into \emph{\gls{hdf5} files} (see Section~\ref{sec:hdf}). For this conversion, the script \emph{\textit{datasetconversion.py}} has been written.
 
 \begin{itemize}
-	\item \textbf{Reading the \gls{lmdb} database}. On one hand, the \gls{lmdb} library for Python\footnote{\url{https://lmdb.readthedocs.io/en/release/\#}} has been employed to open the database, initialize a cursor and iterate over each key-value pair in the database. On the other hand, \emph{Google's Protocol Buffers}\footnote{\url{https://developers.google.com/protocol-buffers/}} have been used to parse the data that were extracted from the database. ``With protocol buffers, you write a \textit{.proto} description of the data structure you wish to store. From that, the protocol buffer compiler creates a class that implements automatic encoding and parsing of the protocol buffer data with an efficient binary format"~\cite{protobuf}. Here can be seen the \textit{.proto} file that defines the data structure used by Caffe to store the \gls{mnist} database, as obtained from~\cite{lmdb_tutorial}: 
+	\item \textbf{Reading the \gls{lmdb} database}. On the one hand, the \gls{lmdb} library for Python\footnote{\url{https://lmdb.readthedocs.io/en/release/\#}} has been employed to open the database, initialize a cursor and iterate over each key-value pair in the database. On the other hand, \emph{Google's Protocol Buffers}\footnote{\url{https://developers.google.com/protocol-buffers/}} have been used to parse the data that were extracted from the database. ``With protocol buffers, you write a \textit{.proto} description of the data structure you wish to store. From that, the protocol buffer compiler creates a class that implements automatic encoding and parsing of the protocol buffer data with an efficient binary format"~\cite{protobuf}. Here it is shown the \textit{.proto} file, that defines the data structure used by Caffe to store the \gls{mnist} database, as obtained from~\cite{lmdb_tutorial}: 
 	
 \begin{lstlisting}
 package datum;
@@ -129,7 +129,7 @@ message Datum {
 }
 \end{lstlisting}
 	
-	Thanks to the \textit{.proto} file, the compiler generates a Python module that contains the \emph{Datum class}. Datum class provides the \emph{\textit{.ParseFromString()} method}, which is employed to parse the image data. Here is the resulting code:
+	Thanks to the \textit{.proto} file, the compiler generates a Python module that contains the \emph{Datum class}. Datum class provides the \emph{\textit{.ParseFromString()} method}, which is employed to parse the image data. Here it is the resulting code:
 
 \begin{lstlisting}
 # We initialize the cursor that we're going to use to access every
@@ -164,7 +164,7 @@ if __name__ == '__main__':
 	y = np.asarray(y)
 \end{lstlisting}
 	
-	\item \textbf{Writing the \gls{hdf5} files}. Thanks to the \emph{h5py library\footnote{\url{http://www.h5py.org/}}} for Python, the data extracted from the \gls{lmdb} database has been stored into a \gls{hdf5} file with two datasets: label and data. The code can be seen in the following frame:	 
+	\item \textbf{Writing the \gls{hdf5} files}. Thanks to the \emph{h5py library\footnote{\url{http://www.h5py.org/}}} for Python, the data extracted from the \gls{lmdb} database has been stored into a \gls{hdf5} file with two datasets: \textit{labels} and \textit{data}. The code can be seen in the following frame:	 
 	\begin{lstlisting}
 	f = h5py.File("../../Datasets/" + sys.argv[2] + ".h5", "w")
 	
@@ -184,17 +184,17 @@ if __name__ == '__main__':
 After coding and testing both implementations for augmenting the database, it has been decided to use the \emph{handmade datasets}. While real-time data augmentation is really useful to avoid storing all the data that are needed for training, it makes harder to take a look into what is being fed to the network and reproduce results. Also, in this particular case, we are interested in \emph{comparing the performance} of neural networks built with different libraries, so they must be trained with the same datasets.
 
 \section{Measuring performance}\label{sec:measuring}
-The performance of the models will be evaluated using the \textit{CustomEvaluation} class and the measurements calculated with this class will be visualized using an Octave function. In this section, both of them will be described.
+The performance of the models will be evaluated using the \textit{CustomEvaluation} class and the evaluation parameters calculated with this class will be visualized using an Octave function. In this section, both of them will be described.
 
 \subsection{\textit{CustomEvaluation} class}
-\emph{\textit{CustomEvaluation} class} is totally independent from Keras. It calls functions that measure the performance of the model during test and/or training time and saves them into a file which is compatible with Octave.
+\emph{\textit{CustomEvaluation}} class is independent from Keras. It calls functions that measure the performance of the model during test and/or training time and saves them into a file which is compatible with Octave.
 \begin{itemize}
 	\item \textbf{Obtaining the measurements}. The user provides the real labels and the probability distribution of the predicted ones. Log loss, accuracy, precision, recall and a confusion matrix are computed. These functions are defined in Section~\ref{sec:skoctave} and Section~\ref{subsec:models}.
 	\item \textbf{Storing results}. \textit{CustomEvaluation} class stores the results in a \emph{Python dictionary}. Additionally, it can store the \emph{learning curves} if \textit{training} option is set. In the following section, the Keras callback employed to build the learning curves will be discussed.
 	\item \textbf{Python-Octave \textit{translation}}. For this task, the \emph{SciPy library}\footnote{\url{https://docs.scipy.org/doc/scipy-0.18.1/reference/index.html}} has been used. It provides the \textit{.savemat()} method that saves Python dictionaries into Matlab \textit{.mat} files, which are also compatible with Octave (see Section~\ref{sec:skoctave}).
 \end{itemize}
 
-Here's a usage example:
+Here it is a usage example:
 \begin{lstlisting}
 if training == "n":
 	measures = CustomEvaluation(y_test, y_proba, training)
@@ -275,10 +275,10 @@ weights = layer.get_weights()[0].reshape(shape[2], shape[0],
                                               shape[1], shape[3])
 \end{lstlisting}
 
-Finally, the filters are plotted thanks to the \emph{Matplotlib library}\footnote{\url{https://matplotlib.org/}} for Python. The shape and the maximum/minimum values of the weights are printed to the standard output. An example of how the filters are plotted can be seen in the following chapter in Figure~\ref{fig:filters}
+Finally, the filters are plotted thanks to the \emph{Matplotlib library}\footnote{\url{https://matplotlib.org/}} for Python. The shape and the maximum/minimum values of the weights are printed to the standard output. An example of how the filters are plotted can be seen in the following chapter in Figure~\ref{fig:filters}.
 
 \subsection{Activation maps}
-The output of each convolutional layer is formed by as many \emph{activation maps} as filters the layer has. In order to get the values of these activation maps, \emph{truncated versions} of the original model are generated, as it is shown in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the follwing frame:
+The output of each convolutional layer is formed by as many \emph{activation maps} as filters there are in the layer. In order to get the values of these activation maps, \emph{truncated versions} of the original model are generated, as it is shown in Figure~\ref{fig:truncated}. When a prediction is made with these truncated models, they output the activation maps that correspond to their last layer. The code which obtains the activation maps can be seen in the following frame:
 \begin{lstlisting}
 truncated = Model(inputs=self.model.inputs,
                     outputs=layer.output)
@@ -296,7 +296,7 @@ activations = truncated.predict(self.im)
 		\includegraphics[width=0.9\linewidth]{figures/2ndconvarch.png}
 		\caption{}
 	\end{subfigure}
-	\caption{Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers}
+	\caption{Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers.}
 	\label{fig:truncated}
 \end{figure}
 

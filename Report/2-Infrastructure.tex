@@ -17,10 +17,10 @@ Sequential models have several methods, and the following ones are essential for
 		\begin{equation}\label{eq:categorical_crossentropy}
 		H(p,q)=-\Sigma_{x}p(x)\log(q(x))
 		\end{equation}		
-		Other loss functions such as mean squared error (MSE) and mean absolute error are also provided by Keras.
+		Other loss functions, such as mean squared error (MSE) and mean absolute error, are also provided by Keras.
 		
-		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the loss function. The chosen algorithm for this task is \emph{ADADELTA}. This optimizer is an extension of the \emph{gradient descent} optimization method that has the particularity of adapting automatically the learning rate during training~\cite{DBLP:journals/corr/abs-1212-5701}.				
-		Other optimization methods such as Adagrad, Adamax and Adam are also available.
+		\item \textbf{\textit{optimizer}}: name of the optimizer that will update the weights values during training in order to minimize the loss function. The chosen algorithm for this task is \emph{ADADELTA}. This optimizer is an extension of the \emph{gradient descent} optimization method, and has the particularity of adapting automatically the learning rate during training~\cite{DBLP:journals/corr/abs-1212-5701}.				
+		Other optimization methods, such as Adagrad, Adamax and Adam, are also available.
 		
 		\item \textbf{\textit{metrics}}: name of the functions that must be computed during training and testing for performance evaluation. \emph{Accuracy} is the only function which will be evaluated with Keras through this project, besides the loss function, which is automatically computed. It is defined as the proportion of examples for which the model produces the correct output~\cite{Goodfellow-et-al-2016}.			
 		Other measurements about the performance of the model are obtained with the \emph{Scikit-learn} library (see Section~\ref{sec:skoctave}).
@@ -38,7 +38,7 @@ Sequential models have several methods, and the following ones are essential for
 		
 		\item \textbf{\textit{callbacks}}: list of callbacks (see Section~\ref{subsec:callbacks}) that are going to be applied during training. It defaults to \textit{None}.
 		
-		\item \textbf{\textit{validation\_split} or \textit{validation\_data}}: in Keras, there are two alternatives to provide a validation dataset. On one hand, it is possible to pass the validation data as a Numpy array to the \textit{validation\_data} argument. On the other hand, a fraction of the training samples can be set as validation data through the \textit{validation\_split} argument. \textit{validation\_data} and  \textit{validation\_split} arguments are mutually exclusive, so just one of them can be used.
+		\item \textbf{\textit{validation\_split} or \textit{validation\_data}}: in Keras, there are two alternatives to provide a validation dataset. On the one hand, it is possible to pass the validation data as a Numpy array to the \textit{validation\_data} argument. On the other hand, a fraction of the training samples can be set as validation data through the \textit{validation\_split} argument. \textit{validation\_data} and  \textit{validation\_split} arguments are mutually exclusive, so just one of them can be used.
 		
 		\item \textbf{\textit{shuffle}}: a boolean that determines whether to shuffle training data or not. If data are not shuffled during training, samples belonging to the same class can be presented consecutively. In that case, the model will be forced to learn the features of a certain class. When the model starts to see samples of the next class, it fits to the new data and forgets the previously learned feature. If data are sorted by classes, this process goes on and on leading to a worse performance.
 	\end{itemize}
@@ -76,7 +76,7 @@ As it has been said before, the models are usually built as a \emph{stack of lay
 		\item \textbf{\textit{padding}}: it can be \textit{valid} or \textit{same}. If \textit{valid} mode is set, no padding is applied, resulting in an output that will be smaller than the input. However, if \textit{same} mode is set, the input will be padded with zeros in order to produce an output that preserves the input size. It defaults to \textit{valid}.
 	\end{itemize}
 
-	Figure~\ref{fig:convlayer} shows a detailed representation of the operation performed by convolutional layers. In Figure~\ref{fig:convlayer}(a), the filter $w_0$ (3x3x3) is convolved with the input volume (5x5x3). In this example, padding is set to~1~and stride is equal~2, so the operation will return a~3x3~activation map. The same procedure is followed in Figure~\ref{fig:convlayer}(b) with the filter $w_1$. It generates another~3x3~activation map, ending up with a~3x3x2~output. To clarify this process, let's see how to obtain the first element in the second row of the activation map returned by the filter $w_0$, i.e. the element within the green square in Figure~\ref{fig:convlayer}(a).
+	Figure~\ref{fig:convlayer} shows a detailed representation of the operation performed by convolutional layers. In Figure~\ref{fig:convlayer}(a), the filter $w_0$ (3x3x3) is convolved with the input volume (5x5x3). In this example, as padding is set to~1~and stride is equal~2, the operation will return a~3x3~activation map. The same procedure is followed in Figure~\ref{fig:convlayer}(b) with the filter $w_1$. It generates another~3x3~activation map, ending up with a~3x3x2~output. To clarify this process, let's see how to obtain the first element in the second row of the activation map returned by the filter $w_0$, i.e. the element within the green square in Figure~\ref{fig:convlayer}(a).
 	\begin{enumerate}
 		\item An element-wise or \emph{Hadamard product} is performed between the filter $w_0$ and the corresponding region (\emph{receptive field}) of the input volume $x$.
 		\begin{equation}
@@ -192,29 +192,20 @@ As it has been said before, the models are usually built as a \emph{stack of lay
 		\begin{equation}\label{eq:relu}
 		g(z)=\max(0,z)
 		\end{equation}
+		Figure~\ref{fig:activations} shows \gls{relu} function plotted in the interval~$[-1,1]$.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\linewidth]{figures/relu.png}
+			\caption{\gls{relu} activation function.}
+			\label{fig:activations}
+		\end{figure}
 		
 		\item \textbf{Softmax}: this activation function is very useful when is placed after the \emph{output layer} of classification tasks. It takes a vector of real values $z$ and returns a new vector of real values in the range [0,1]. The $N$ elements of the output vector can be considered \emph{probabilities} because the softmax function ensures that they sum up to 1. It is defined as follows:
 		\begin{equation}\label{eq:SoftMax}
 		\mathrm{softmax}(z)_i=\frac{\exp(z_i)}{\Sigma_{j}{\exp(z_j)}} \quad \mathrm{for} \ j=1, ...,N
 		\end{equation}
 	\end{itemize}
-	These equations and definitions have been extracted from~\cite{Goodfellow-et-al-2016}. Figure~\ref{fig:activations} shows both activation functions plotted in the interval $[-1,1]$.
-
-	\begin{figure}
-		\centering
-		\begin{subfigure}{0.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{figures/relu.png}
-			\caption{}
-		\end{subfigure}%
-		\begin{subfigure}{0.5\textwidth}
-			\centering
-			\includegraphics[width=1\linewidth]{figures/softmax.png}
-			\caption{}
-		\end{subfigure}
-		\caption{Activation functions: (a) \gls{relu}; (b) softmax.}
-		\label{fig:activations}
-	\end{figure}
+	These equations and definitions have been extracted from~\cite{Goodfellow-et-al-2016}. 
 	
 \end{description}
 
@@ -251,7 +242,7 @@ As defined by Keras documentation~\cite{chollet2015keras}, \emph{callbacks} are 
 
 Additionally, Keras provides the \textit{Callback} base class that can be used to build \emph{user-defined callbacks}.
 
-\subsection{Image Preprocessing}\label{subsec:utils}
+\subsection{Image preprocessing}\label{subsec:utils}
 \emph{Image preprocessing} is a key factor in every computer vision application. Specifically, in \gls{ml}, besides adapting images and emphasizing certain particularities before training that can improve the model performance (i.e. edge detection), it can be used to avoid \emph{overfitting} through data augmentation. \emph{Data augmentation}~\cite{DBLP:journals/corr/WongGSM16} consists in taking the original images of the dataset and applying transformations to them. This operation adds more variability to samples, leading to a better generalization.
 
 This functionality is included in Keras thanks to the \emph{\textit{.ImageDataGenerator()} method}. It returns a batch generator which randomly applies the desired transformations to random samples of the dataset provided by the user. Built-in transformations like rotation, shifting and zooming, are passed as arguments to the aforementioned method. Additionally, it's possible to build a user-defined function and pass it as an argument as well. The dataset and the batch size are defined through the \emph{\textit{.flow()} method}. During training, the generator will loop until the number of samples per epoch and the number of epochs set by the user are satisfied.
@@ -260,7 +251,7 @@ This functionality is included in Keras thanks to the \emph{\textit{.ImageDataGe
 Keras includes a module for multiple supplementary tasks called \emph{\textit{Utils}}. The most important functionality for the project provided by this module is the \emph{\textit{.HDF5Matrix()} method}. It reads the \emph{\gls{hdf5} datasets} (see Section~\ref{sec:hdf}), which are going to be used as inputs to the neural networks.
 
 \section{HDF5 file format}\label{sec:hdf}
-During the development of this project, large amounts of data have been processed. That's why an efficient way of reading and saving these data has been an important point. Keras employs the \emph{\gls{hdf5} file format} to save models and read datasets.
+During the development of this project, large amounts of data have been processed. Because of that, an efficient way of reading and saving these data have been an important point. Keras employs the \emph{\gls{hdf5} file format} to save models and read datasets.
 
 According to \gls{hdf5} documentation~\cite{hdf5}, it is a \emph{hierarchical data format} designed for high volumes of data with complex relationships. While relational databases employ tables to store data (e.g. SQL), \gls{hdf5} supports \emph{n-dimensional datasets} and each element in the dataset may be as complex as needed.
 
@@ -296,7 +287,7 @@ Besides the functions that have just been mentioned, \emph{accuracy} and \emph{l
 \end{figure}
 
 \section{JdeRobot framework}\label{sec:jderobot}
-\emph{JdeRobot} is an open source middleware for robotics and computer vision~\cite{jderobot}. It has been designed to simplify the software development within these fields. It's mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and it's structured like a collection of components (tools and drivers) that communicate to each other through \emph{ICE interfaces}\footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with the robotics middleware \emph{ROS}\footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application. The version employed in this work is JdeRobot 5.5. This middleware and, more specifically, its \emph{\textit{cameraserver} driver}, is going to be employed to capture images from different video sources that will feed the digit classifier component.
+\emph{JdeRobot} is an open source middleware for robotics and computer vision~\cite{jderobot}. It has been designed to simplify the software development within these fields. It is mostly written in C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++} language and is structured like a collection of components (tools and drivers) that communicate to each other through \emph{ICE interfaces}\footnote{\url{https://zeroc.com/products/ice}}. It is also compatible with the robotics middleware \emph{ROS}\footnote{\url{http://www.ros.org/}}, which allows the interoperation of ROS nodes and JdeRobot components. This flexibility makes it very useful for our application. The version employed in this work is JdeRobot 5.5. This middleware and, more specifically, its \emph{\textit{cameraserver} driver}, is going to be employed to capture images from different video sources that will feed the digit classifier component.
 
 \subsection* {\textit{cameraserver}}
 According to JdeRobot documentation~\cite{jderobot}, this driver can serve images both from real cameras and from video files. It communicates with other components thanks to the \emph{ICE \textit{Camera} interface}.
@@ -333,4 +324,4 @@ An example of usage can be seen in Figure~\ref{fig:droidcam}. First, the Android
 	\label{fig:droidcam}
 \end{figure}
 
-JdeRobot \textit{camerserver} driver cleanly connects to the camera device that the DroidCam Linux client provides in the host computer when attached to the DroidCam Android app.
+JdeRobot \textit{cameraserver} driver cleanly connects to the camera device that the DroidCam Linux client provides in the host computer when attached to the DroidCam Android app.

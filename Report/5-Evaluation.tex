@@ -1,8 +1,8 @@
 \chapter{Evaluation}\label{sec:new_models}
-The \gls{cnn} analyzed in Section~\ref{sec:understanding} is going to be taken as a starting point to build \emph{new models}. These models will be trained with different datasets and regularization methods and, finally, new architectures will be implemented. In this chapter, the tools developed in Chapter~\ref{ch:benchmark} will be employed to evaluate the results achieved by each of these \glspl{cnn}. These tests will serve as a way to study the effects of the learning process in these algorithms. Before talking about the \emph{performance} of the new models, the visualization of the convolutional layers filters and activation maps is going to be analyzed.
+The \gls{cnn} analyzed in Section~\ref{sec:understanding} is going to be taken as a starting point to build \emph{new models}. These models will be trained with different datasets and regularization methods and, finally, new architectures will be implemented. In this chapter, the tools developed in Chapter~\ref{ch:benchmark} will be employed to evaluate the results achieved by each of these \glspl{cnn}. These tests will serve as a way to study the effects of the learning process in the performance of these algorithms. Before talking about the \emph{performance} of the new models, the visualization of the convolutional layers filters and activation maps is going to be analyzed.
 
 \section{Convolutional layers visualization}
-The filters and activation maps discussed in this section belong to the convolutional layers of the \emph{\textit{0-1; Patience=2} model} that can be found in Section~\ref{subsec:early_stopping}. This model has been trained with the \textit{0-1} dataset (see Section~\ref{subsec:handmade}) and an early stopping rule with patience~2. Its architecture corresponds to the one defined in Section~\ref{sec:understanding}. In order to generate the activation maps, the model will be fed with a sample extracted from the \textit{0-1} dataset. It can be seen in Figure~\ref{fig:sample}.
+The filters and activation maps discussed in this section belong to the convolutional layers of the \emph{\textit{0-1; Patience=2} model} that can be found in Section~\ref{subsec:early_stopping}. This model has been trained with the \textit{0-1} dataset (see Section~\ref{subsec:handmade}) and an early stopping rule with patience~2. Its architecture corresponds to the one defined in Section~\ref{sec:understanding}. In order to generate the activation maps, the model will be fed with a sample extracted from the \textit{0-1} dataset. This sample is shown in Figure~\ref{fig:sample}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.3\linewidth, keepaspectratio]{figures/0-1_sample.png}
@@ -51,14 +51,14 @@ The activation maps of the \emph{second layer} are shown in Figure~\ref{fig:acti
 	\label{fig:activation_maps2}
 \end{figure}
 
-It's important to note that the values of the activation maps are \emph{always positive}, even if the filters have negative coefficients. This is because the \gls{relu} activation function (see Equation~\ref{eq:relu}) turn all the negative values to zero.
+It's important to note that values of the activation maps are \emph{always positive}, even when filters have negative coefficients. This is because the \gls{relu} activation function (see Equation~\ref{eq:relu}) turn all the negative values to zero.
 
 \section{Augmented datasets}\label{sec:new_datasets}
-The original model has been trained with each of the \emph{handmade datasets} described in Section~\ref{sec:datasets}. The number of epochs has been set to~12~and the evaluation has been carried out with the~\emph{1-6~test dataset}. The results that can be seen in Table~\ref{tbl:datasets} lead to the following conclusions:
+The original model has been trained with each of the \emph{handmade datasets} described in Section~\ref{sec:datasets}. The number of epochs has been set to~12~and the evaluation has been carried out with the~\emph{1-6~test dataset}. The results that are shown in Table~\ref{tbl:datasets} lead to the following conclusions:
 \begin{itemize}
-	\item As it might be expected, the results when training with the \emph{Sobel dataset} are much worse than the ones obtained with the other datasets, because we're testing with noisy images a \gls{cnn} trained with noiseless samples.
+	\item As it might be expected, results when training with the \emph{Sobel dataset} are much worse than the ones obtained with the other datasets, because we're testing with noisy images a \gls{cnn} trained with noiseless samples.
 	\item The \emph{\textit{0-6} and \textit{1-6} models} are the ones that achieve better results, as they have been trained with much more samples than \textit{0-1} and \textit{1-1}.
-	\item When \emph{comparing \textit{0-1} with \textit{1-1} and \textit{0-6} with \textit{1-6}}, it can be seen that the performance is almost the same, which means that the gradient image without noise and transformations is not adding much information to the model.
+	\item When \emph{comparing \textit{0-1} with \textit{1-1}, and \textit{0-6} with \textit{1-6}}, it can be seen that performance is almost the same. This means that the gradient image without noise and transformations is not adding much information to the model.
 \end{itemize}
 In Figure~\ref{fig:val_datasets}, the validation results obtained after every epoch when training the model with each dataset can be seen.
 \begin{figure}
@@ -68,7 +68,7 @@ In Figure~\ref{fig:val_datasets}, the validation results obtained after every ep
 	\label{fig:val_datasets}
 \end{figure}
 
-Taking all of this into account, it has been decided to keep working with the \emph{\textit{0-1} model}, which achieves a performance that is comparable with the other models with the advantage of a much lower computational cost.
+Taking all this into account, it has been decided to keep working with the \emph{\textit{0-1} model}, which achieves a performance that is comparable with the other models with the advantage of a much lower computational cost.
 
 \begin{table}
 	\centering
@@ -86,10 +86,10 @@ Taking all of this into account, it has been decided to keep working with the \e
 \end{table}
 
 \section{Regularization methods}
-``\emph{Regularization} is any modification we make to a learning algorithm that is intended to reduce its \emph{generalization error} but not it's training error"~\cite{Goodfellow-et-al-2016}. Reducing the generalization error is important because, even if a model achieves a great accuracy or loss with the training dataset, if it doesn't generalize well enough, the results during validation and test time won't be optimal. This is specially significant in our case, since the predictions of the digit classifier will be based on images that differ a lot from the training dataset. In this section, the effects of applying to the \emph{\textit{0-1} model} two regularization techniques (early stopping and dropout) are going to be evaluated. 
+``\emph{Regularization} is any modification we make to a learning algorithm that is intended to reduce its \emph{generalization error} but not it's training error"~\cite{Goodfellow-et-al-2016}. Reducing the generalization error is important because, even if a model achieves a great accuracy or loss with the training dataset, if it doesn't generalize well enough, results during validation and test time won't be optimal. This is specially significant in our case, since the predictions of the digit classifier will be based on images that differ a lot from the training dataset. In this section, the effects of applying to the \emph{\textit{0-1} model} two regularization techniques (early stopping and dropout) are going to be evaluated. 
 
 \subsection{Early stopping}\label{subsec:early_stopping}
-The models in the previous section have been trained for~12~epochs. However, if we look at the \emph{validation results} in Figure~\ref{fig:val_datasets}, it can be assumed that the models were \emph{not overfitting} yet, because the results didn't stop improving. This means that they were not being trained as much as possible. Setting an \emph{early stopping} rule (see Section~\ref{subsec:callbacks}) allows training the \gls{cnn} right until it starts to overfit, making the most of it. The criteria that has been used depends on the loss during validation. The model is trained until the \emph{log loss} (see Section~\ref{eq:categorical_crossentropy}) has not improved after two validations in a row, which means a \textit{patience} of 2. Besides that, in order to keep the best \textit{version} of the model, the log loss is checked after each epoch and, if the value is lower than the previous best log loss achieved, the weights of the model are saved, overwritting the weights of the previous best \textit{version}. The difference between training the model with and without early stopping can be seen in Table~\ref{tbl:earlystopping}.
+The models in the previous section have been trained for~12~epochs. However, if we look at the \emph{validation results} in Figure~\ref{fig:val_datasets}, it can be assumed that the models were \emph{not overfitting} yet, because results didn't stop improving. This means that they were not being trained as much as possible. Setting an \emph{early stopping} rule (see Section~\ref{subsec:callbacks}) allows training the \gls{cnn} right until it starts to overfit, making the most of it. The criteria that has been used depends on the loss during validation. The model is trained until the \emph{log loss} (see Section~\ref{eq:categorical_crossentropy}) has not improved after two validations in a row, which means a \textit{patience} of 2. Besides that, in order to keep the best \textit{version} of the model, the log loss is checked after each epoch and, if the value is lower than the previous best log loss achieved, the weights of the model are saved, overwritting the weights of the previous best \textit{version}. The difference between training the model with and without early stopping can be seen in Table~\ref{tbl:earlystopping}.
 \begin{table}
 	\centering
 	\begin{tabular}{l*{4}{c}r}

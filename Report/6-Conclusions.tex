@@ -7,7 +7,7 @@ In this chapter, we are going to recall the main conclusions reached during the 
 	\item The input data in Keras models are usually provided as \emph{\gls{hdf5} files}, which can be imported as Numpy arrays that can be easily accessed and reshaped. \gls{hdf5} is also employed by Keras to save the models.
 	\item \glspl{cnn} are built in Keras as a stack of \emph{fully configurable modules} (convolutional layers, regularization layers, activation functions...) which can be easily modified when needed, allowing fast experimentation.
 	\item The core elements of a \gls{cnn} are convolutional and pooling layers combined with non-linear activation functions (e.g. \gls{relu}), which altogether allow the learning of \emph{complex image features} in a hierarchical way with a reasonable computational cost.
-	\item In \emph{classification tasks}, the output layer of the model must be, at least, one fully-connected layer with as many neural units as classes the problem has. The activation function employed in this layer (e.g. Softmax) transforms the output into a probability distribution.
+	\item In \emph{classification tasks}, the output layer of the model must be, at least, one fully-connected layer with as many neural units as classes the problem has. The activation function employed in this layer (e.g. Softmax) transforms the outputs into a probability distribution.
 	\item The cost function and optimizer of the \emph{learning process} can be easily configured. Moreover, Keras allows the addition of callbacks which can monitor the state and the performance of the \gls{cnn} at given stages of the training process.
 	\item Keras provides tools for \emph{image preprocessing} that can be used to generate new data in real-time. This is useful for augmenting the database without storing the new samples.
 \end{itemize}
@@ -46,7 +46,7 @@ The understanding of the \glspl{cnn} acquired in this project opens the door to 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth, keepaspectratio]{figures/cars.jpg}
-	\caption{Vehicle detection with YOLO applied to Udacity's self-driving car dataset (source\cite{udacity}).}
+	\caption{Vehicle detection with YOLO applied to Udacity's self-driving car dataset (source~\cite{udacity}).}
 	\label{fig:vehicle}
 \end{figure}
 

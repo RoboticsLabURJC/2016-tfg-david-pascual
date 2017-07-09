@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Diagram of a dense or fully-connected layer (source~\cite {fc}).\relax }}{16}{figure.caption.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Activation functions: (a) \gls {relu}; (b) softmax.\relax }}{17}{figure.caption.17}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \gls {relu} activation function.\relax }}{17}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Subnetworks generated when using dropout.\relax }}{18}{figure.caption.18}
 \defcounter {refsection}{0}\relax 
@@ -50,7 +50,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Parameters displayed by \textit {visualization.m}: (a) learning curves; (b) precision and recall; (c) confusion matrix.\relax }}{51}{figure.caption.34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers\relax }}{53}{figure.caption.35}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Truncated versions of the model: (a) one convolutional layer; (b) two convolutional layers.\relax }}{53}{figure.caption.35}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -62,18 +62,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Activation maps of the first convolutional layer.\relax }}{58}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Activation maps of the second convolutional layer.\relax }}{58}{figure.caption.40}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Activation maps of the second convolutional layer.\relax }}{59}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.6}{\ignorespaces Validation results when training the model with different datasets.\relax }}{60}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Validation results with and without dropout.\relax }}{62}{figure.caption.45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Learning curves: (a) without dropout; (b) with dropout.\relax }}{63}{figure.caption.46}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Learning curves: (a) without dropout; (b) with dropout.\relax }}{64}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Validation results with different architectures.\relax }}{64}{figure.caption.48}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Validation results with different architectures.\relax }}{65}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of \textit {4Conv; Patience=5} model: (a) learning curves; (b) precision and recall; (c) confusion matrix.\relax }}{66}{figure.caption.50}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Vehicle detection with YOLO applied to Udacity's self-driving car dataset (source\cite {udacity}).\relax }}{70}{figure.caption.55}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Vehicle detection with YOLO applied to Udacity's self-driving car dataset (source~\cite {udacity}).\relax }}{70}{figure.caption.55}

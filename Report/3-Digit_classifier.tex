@@ -70,7 +70,7 @@ x_train /= 255
 x_test /= 255
 \end{lstlisting}
 
-Regarding the \emph{labels}, they are originally shaped as an array in which each element is an integer in the range $[0, 9]$, i.e. each element contains the digit that corresponds to a certain sample. In order to feed the Keras model, the labels have to be reshaped into an array in which each element must be a \emph{probability distribution}. For example, if the element of the original array is 2, in the reshaped array it will be $[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]$. This conversion is achieved using the Keras built-in method \emph{\textit{np\_utils.to\_categorical()}}:
+Regarding the \emph{labels}, they are originally shaped as an array in which each element is an integer in the range $[0, 9]$. In other words, each element contains the digit that corresponds to a certain sample. In order to feed the Keras model, labels have to be reshaped into \emph{probability distributions}, that is, an array in which each element represents the probability of occurrence of each digit. For example, if the element of the original array is 2, in the reshaped array it will be $[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]$. This conversion is achieved using the Keras built-in method \emph{\textit{np\_utils.to\_categorical()}}:
 \begin{lstlisting}
 nb_classes = 10
 ...
@@ -92,7 +92,7 @@ Class label data reshaped:  (60000, 10)
 \end{Verbatim}
 
 \subsection{Model architecture}
-Once the data are ready, the \gls{cnn} architecture must be defined. In this example, a \emph{sequential model} (see Section~\ref{subsec:models}) is enough for solving the classification task and it is declared as follows:
+Once data are ready, the \gls{cnn} architecture must be defined. In this example, a \emph{sequential model} (see Section~\ref{subsec:models}) is enough for solving the classification task and it is declared as follows:
 \begin{lstlisting}
 model = Sequential()
 \end{lstlisting}
@@ -126,7 +126,7 @@ model.add(Dense(nb_classes, activation='softmax'))
 
 As defined by the code above, the model is formed by the following layers:
 \begin{itemize}
-	\item A \emph{2D convolutional layer} with~32~filters whose size is~3x3x1.
+	\item A \emph{2D convolutional layer} with~32~filters of size~3x3x1.
 	\begin{itemize}
 		\item Since this is the first layer of the model, the \emph{\textit{input\_shape}} argument must be provided. In this case, the input shape is~28x28x1. 
 		\item As \textit{valid} mode is set, \emph{no padding} is applied and the output dimension will be reduced. 
@@ -152,7 +152,7 @@ As defined by the code above, the model is formed by the following layers:
 		\item This layer preserves the size and the shape of its input.
 	\end{itemize} 
 	
-	\item A \emph{flatten layer} that turns the matrices of weights that it receives at its input into a vector that can be fed to the fully-connected layer.
+	\item A \emph{flatten layer} that turns the matrices of weights that it receives into a vector that can be fed to the fully-connected layer.
 	\item A fully-connected or \emph{dense layer}.
 	\begin{itemize}
 		\item This layer contains~128~neurons that will output an array of~128~values.
@@ -224,7 +224,7 @@ Test accuracy: 0.9891
 \end{Verbatim}
 
 \section{JdeRobot component}\label{sec:component}
-Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a JdeRobot component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \emph{\textit{digitclassifier.py}} and it is based on Nuria Oyaga's code\footnote{\url{https://git.io/vH0qD}}. It relies on \textit{Camera} and \textit{\gls{gui}} classes. Figure~\ref{fig:digitclass} shows the program running.
+Once the \gls{cnn} has been trained and the resultant model is saved, the next milestone is to integrate it into a JdeRobot component that must be able to acquire images from a video stream, apply the necessary preprocessing and display the predictions obtained from them. That component is \emph{\textit{digitclassifier.py}} and it is based on Nuria Oyaga's code\footnote{\url{https://github.com/RoboticsURJC-students/2016-tfg-nuria-oyaga}}. Figure~\ref{fig:digitclass} shows the program running.
 
 \begin{figure}
 	\centering
@@ -236,9 +236,9 @@ Once the \gls{cnn} has been trained and the resultant model is saved, the next m
 \subsection{Design}
 Before analyzing in detail the internals of the digit classifier component, its design will be described. For this purpose, the \emph{block diagrams} shown in Figure~\ref{fig:dia} have been built.
 
-Figure~\ref{fig:dia}(a) shows a \emph{high-level diagram} of the process followed from the video source to the predicted digit. The images captured with the camera are received by the \emph{cameraserver} driver. Then, the digit classifier component communicates with this driver and get the images. Finally, a prediction is made. Optionally, if the images are captured with a smartphone camera, DroidCam can receive those images and create a camera device that can communicate with the \emph{cameraserver} driver.
+Figure~\ref{fig:dia}(a) shows a \emph{high-level diagram} of the process followed from the video source to the predicted digit. First, images captured with the camera are received by the \emph{cameraserver} driver. Then, the digit classifier component communicates with this driver and gets the images. Finally, a prediction is made. Optionally, if images are captured with a smartphone camera, DroidCam can receive those images and create a camera device that can communicate with the \emph{cameraserver} driver.
 
-In Figure~\ref{fig:dia}(b), the  \emph{internals of the digit classifier component} are shown. The main program (\emph{digitclassifier.py}) starts two threads, \textit{ThreadCamera} and \textit{ThreadGUI}. These threads update \textit{GUI} and \textit{Camera} classes concurrently. \textit{Camera} class communicates with \textit{cameraserver} to get the images, which are then preprocessed. The preprocessed image is fed to the Keras model and a prediction is made. Original and preprocessed images, as well as the predicted digits are passed to the \textit{GUI} class, which displays all of them in the screen.
+In Figure~\ref{fig:dia}(b), the  \emph{internals of the digit classifier component} are shown. The main program (\emph{digitclassifier.py}) starts two threads, \textit{ThreadCamera} and \textit{ThreadGUI}. These threads update \textit{GUI} and \textit{Camera} classes concurrently. \textit{Camera} class communicates with \textit{cameraserver} to get the images, which are then preprocessed. The preprocessed image is fed to the Keras model and a prediction is made. Original and preprocessed images, as well as the predicted digits, are passed to the \textit{GUI} class, which displays all of them in the screen.
 \begin{figure}
 	\begin{subfigure}{1\textwidth}
 		\centering
@@ -269,7 +269,7 @@ In Figure~\ref{fig:dia}(b), the  \emph{internals of the digit classifier compone
 	
 	Besides that, the \emph{address} at which the video is being served by the \textit{cameraserver} component must be provided to the \textit{Camera} class through another configuration file: \emph{\textit{digitclassifier.cfg}}.
 	
-	\item \textbf{Preprocessing}. As the images can be captured with different devices, the \textit{digitclassifier.py} component must apply some preprocessing that mitigates the differences between video streams and that makes the images suitable for the Keras model. The following \emph{transformations} are applied before classification:
+	\item \textbf{Preprocessing}. As images can be captured with different devices, the \textit{digitclassifier.py} component must apply some preprocessing that mitigates the differences between video streams and that makes the images suitable for the Keras model. The following \emph{transformations} are applied before classification:
 	\begin{enumerate}
 		\item Images are \emph{cropped} into~80x80~pixels images. The \emph{\gls{roi}} from which cropped images are extracted is draw over the original image, making it easier to aim at digits with the camera.
 		\item Color doesn't provide any useful information about digits and \gls{mnist} database is formed by \emph{grayscale images}. For this reason, the images captured with the component are converted into grayscale images as well. 
@@ -303,7 +303,7 @@ applies a sobel filter (both x and y directions).
 	return im_edges
 \end{lstlisting}
 	
-	\item \textbf{Classification}. Before entering the \gls{cnn}, the images are \emph{reshaped} as mentioned in Section~\ref{subsec:adaptdata}. \textit{Camera} class calls Keras \emph{\textit{.predict()} method} (see Section~\ref{subsec:models}) to get the predicted digit. The prediction is only taken into account if one of the probabilities is equal to 1, avoiding wrong answers when the prediction is not clear. The function that performs the classification can be seen in the following code:
+	\item \textbf{Classification}. Before entering the \gls{cnn}, the images are \emph{reshaped} as mentioned in Section~\ref{subsec:adaptdata}. \textit{Camera} class calls Keras \emph{\textit{.predict()} method} (see Section~\ref{subsec:models}) to get the predicted digit. The prediction is only taken into account if one of the probabilities is equal to 1, avoiding wrong answers when the prediction is not clear. The function that performs the classification can be seen in the following frame:
 \begin{lstlisting}
 def classification(self, im):
 ''' Adapts image shape depending on Keras backend (TensorFlow
@@ -325,7 +325,7 @@ or Theano) and returns a prediction.
 \end{itemize}
 
 \subsection{\textit{GUI} class}
-\emph{\textit{GUI} class} displays the original image, the preprocessed image and the result of the classification, as it is shown in Figure~\ref{fig:digitclass}. It has been built employing the \emph{pyQt package}\footnote{\url{https://pypi.python.org/pypi/PyQt4}}\footnote{\url{https://pypi.python.org/pypi/PyQt5}}. It is based in Nuria Oyaga's code\footnote{\url{https://git.io/vH0mx}}, but it has been updated from Qt4 to Qt5 thanks to the information provided by PyQT documentation~\cite{pyqt5}.
+\emph{\textit{GUI} class} displays the original image, the preprocessed image and the result of the classification, as it is shown in Figure~\ref{fig:digitclass}. It has been built employing the \emph{pyQt package}\footnote{\url{https://pypi.python.org/pypi/PyQt4}}\footnote{\url{https://pypi.python.org/pypi/PyQt5}}. It is based in Nuria Oyaga's code, but it has been updated from Qt4 to Qt5 thanks to the information provided by PyQT documentation~\cite{pyqt5}.
 
 \subsection{Threads} 
 In order to capture images and update the \gls{gui} concurrently, the \emph{\textit{threading} module}~\cite{threading}, provided by Python, has been employed. From this module, a subclass of the \emph{\textit{Thread} object} is created. In this new subclass, \textit{\_\_init\_\_()} and \textit{.run()} methods are overriden. The \textit{.run()} method will be responsible for calling a process that updates the thread. For example, the \textit{.update()} method of the \textit{Camera} class, which reads a new image from the video stream each time it is invoked, is called within the \textit{.run()} method of the \emph{\textit{ThreadCamera} class}. Besides that, in the \textit{.run()} method, the \emph{cycle time} is adjusted. The next frame shows how the \textit{ThreadCamera} class is coded:
