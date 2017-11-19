@@ -39,6 +39,7 @@ if __name__ == '__main__':
                           datum.channels).astype("uint8")
                             
         x.append(im)
+        y.append(label)
         
         nb_samples += 1
         print("Extracted samples: " + str(nb_samples) + "\n")
