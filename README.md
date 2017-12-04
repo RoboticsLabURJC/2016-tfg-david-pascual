@@ -20,6 +20,11 @@
 * OpenCV 3 (it will be automatically installed with JdeRobot)
 * Keras ([installation guide](https://keras.io/#installation))
 
+Links for downloading augmented MNIST datasets (_hdf5_ and _lmdb_) and Keras model:
+* [HDF5 datasets](https://mega.nz/#!hV12GapC!3eGRv0Ty8VRoJxhnbrG_4e21QUnPNjraTnqUJog7PxU)
+* [LMDB datasets](https://mega.nz/#!NBkBTSRI!TPfLk4nHY5WjconmhbI9jV_yZLvnImDzextQSBcA6Wk)
+* [Keras model](https://mega.nz/#!VcNlmALZ!-ruRslG-mQYXOjoHtsuvtvoWa6Hw-lZHvawjMmz0lkY)(4 conv. layers, early stopping w/ patience=5)
+
 If you want to launch <code>digitclassifier</code>, open a terminal and run:
 <pre>
 cameraserver cameraserver.cfg
